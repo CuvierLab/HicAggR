@@ -160,25 +160,25 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Index Beaf32</span></span></span>
 <span class="r-in"><span><span class="va">Beaf32_Index.gnr</span> <span class="op">&lt;-</span> <span class="fu"><a href="IndexFeatures.html">IndexFeatures</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    gRange.gnr_lst <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Beaf <span class="op">=</span> <span class="va">Beaf32_Peaks.gnr</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>    chromSize.dtf <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>seqnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2L"</span>, <span class="st">"2R"</span><span class="op">)</span>, seqlengths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">23513712</span>, <span class="fl">25286936</span><span class="op">)</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>    binSize.num <span class="op">=</span> <span class="fl">100000</span></span></span>
+<span class="r-in"><span>    gRangeList <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Beaf <span class="op">=</span> <span class="va">Beaf32_Peaks.gnr</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    chromSizes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>seqnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2L"</span>, <span class="st">"2R"</span><span class="op">)</span>, seqlengths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">23513712</span>, <span class="fl">25286936</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    binSize <span class="op">=</span> <span class="fl">100000</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Beaf32 &lt;-&gt; Beaf32 Pairing</span></span></span>
-<span class="r-in"><span><span class="va">Beaf_Beaf.gni</span> <span class="op">&lt;-</span> <span class="fu"><a href="SearchPairs.html">SearchPairs</a></span><span class="op">(</span>indexAnchor.gnr <span class="op">=</span> <span class="va">Beaf32_Index.gnr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">Beaf_Beaf.gni</span> <span class="op">&lt;-</span> <span class="fu"><a href="SearchPairs.html">SearchPairs</a></span><span class="op">(</span>indexAnchor <span class="op">=</span> <span class="va">Beaf32_Index.gnr</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">Beaf_Beaf.gni</span> <span class="op">&lt;-</span> <span class="va">Beaf_Beaf.gni</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fl">2000</span><span class="op">)</span><span class="op">]</span> <span class="co"># subset 2000 first for exemple</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Matrices extractions center on Beaf32 &lt;-&gt; Beaf32 point interaction</span></span></span>
 <span class="r-in"><span><span class="va">interactions_Ctrl.mtx_lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    feature.gn <span class="op">=</span> <span class="va">Beaf_Beaf.gni</span>,</span></span>
+<span class="r-in"><span>    genomicFeature <span class="op">=</span> <span class="va">Beaf_Beaf.gni</span>,</span></span>
 <span class="r-in"><span>    hicLst <span class="op">=</span> <span class="va">HiC_Ctrl.cmx_lst</span>,</span></span>
-<span class="r-in"><span>    referencePoint.chr <span class="op">=</span> <span class="st">"pf"</span></span></span>
+<span class="r-in"><span>    referencePoint <span class="op">=</span> <span class="st">"pf"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">interactions_HS.mtx_lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    feature.gn <span class="op">=</span> <span class="va">Beaf_Beaf.gni</span>,</span></span>
+<span class="r-in"><span>    genomicFeature <span class="op">=</span> <span class="va">Beaf_Beaf.gni</span>,</span></span>
 <span class="r-in"><span>    hicLst <span class="op">=</span> <span class="va">HiC_HS.cmx_lst</span>,</span></span>
-<span class="r-in"><span>    referencePoint.chr <span class="op">=</span> <span class="st">"pf"</span></span></span>
+<span class="r-in"><span>    referencePoint <span class="op">=</span> <span class="st">"pf"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Aggregate matrices in one matrix</span></span></span>

@@ -61,18 +61,18 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">BreakVector</span><span class="op">(</span></span>
-<span>  x.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  x_min <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  center.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  center <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  x_max <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  n.num <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>  n <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  method <span class="op">=</span> <span class="st">"linear"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>x.num</dt>
+    <dl><dt>x</dt>
 <dd><p>&lt;numeric&gt;: Numerical vector.</p></dd>
 
 
@@ -80,7 +80,7 @@
 <dd><p>&lt;numeric&gt;: Minimal fixed value.</p></dd>
 
 
-<dt>center.num</dt>
+<dt>center</dt>
 <dd><p>&lt;numeric&gt;: Center fixed value.</p></dd>
 
 
@@ -88,8 +88,8 @@
 <dd><p>&lt;numeric&gt;: Maximal fixed value.</p></dd>
 
 
-<dt>n.num</dt>
-<dd><p>&lt;numeric&gt;: Number of tile (return n.num+1 breaks).</p></dd>
+<dt>n</dt>
+<dd><p>&lt;numeric&gt;: Number of tile (return n+1 breaks).</p></dd>
 
 
 <dt>method</dt>
@@ -110,7 +110,7 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">31415</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">BreakVector</span><span class="op">(</span>x.num <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">50</span>, <span class="fl">200</span><span class="op">)</span>, n.num <span class="op">=</span> <span class="fl">9</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">BreakVector</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">50</span>, <span class="fl">200</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">9</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] -388.951506 -289.464576 -189.977646  -90.490716    8.996213  108.483143</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [7]  207.970073  307.457002  406.943932  506.430862</span>
 <span class="r-in"><span></span></span>

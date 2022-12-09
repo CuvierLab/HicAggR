@@ -60,7 +60,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">MergeGRanges</span><span class="op">(</span><span class="va">...</span>, sort.bln <span class="op">=</span> <span class="cn">FALSE</span>, reduce.bln <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">MergeGRanges</span><span class="op">(</span><span class="va">...</span>, sortRanges <span class="op">=</span> <span class="cn">FALSE</span>, reduceRanges <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -69,11 +69,11 @@
 <dd><p>&lt;GRanges or GRangesList or list[GRanges]&gt;: Some GRanges or a list of GRanges or a GRangesList.</p></dd>
 
 
-<dt>sort.bln</dt>
+<dt>sortRanges</dt>
 <dd><p>&lt;logical&gt;: Whether the result should be sorted. (Default FALSE)</p></dd>
 
 
-<dt>reduce.bln</dt>
+<dt>reduceRanges</dt>
 <dd><p>&lt;logical&gt;: Whether the result should be reduce. See GenomicRanges::reduce for more details. (Default FALSE)</p></dd>
 
 </dl></div>
@@ -157,7 +157,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>   j     chr3   110-120      - |        10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   -------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   seqinfo: 3 sequences from an unspecified genome; no seqlengths</span>
-<span class="r-in"><span><span class="fu">MergeGRanges</span><span class="op">(</span><span class="va">GRange.lst</span>, reduce.bln <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">MergeGRanges</span><span class="op">(</span><span class="va">GRange.lst</span>, reduceRanges <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> GRanges object with 8 ranges and 0 metadata columns:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       seqnames    ranges strand</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt;</span>

@@ -61,11 +61,11 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ImportHiC</span><span class="op">(</span></span>
-<span>  file.pth <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  res.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  chromSize.dtf <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  chrom_1.chr <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  chrom_2.chr <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  file <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  hicResolution <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  chromSizes <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  chrom_1 <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  chrom_2 <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  cores <span class="op">=</span> <span class="fl">1</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -73,24 +73,24 @@
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>file.pth</dt>
+    <dl><dt>file</dt>
 <dd><p>&lt;GRanges or Pairs[GRanges] or GInteractions&gt;: The genomic feature on which compute the extraction of HiC submatrix. Extension should be .hic, .cool, .mcool, .h5, .hdf5, .HDF5 or .bedpe" assuming .h5 et .hdf5 are only for cool (not mcool).</p></dd>
 
 
-<dt>res.num</dt>
+<dt>hicResolution</dt>
 <dd><p>&lt;numeric&gt;: The HiC resolution.</p></dd>
 
 
-<dt>chromSize.dtf</dt>
+<dt>chromSizes</dt>
 <dd><p>&lt;data.frame&gt;: A data.frame where first colum correspond to the chromosomes names, and the second column correspond to the chromosomes lengths in base pairs.</p></dd>
 
 
-<dt>chrom_1.chr</dt>
+<dt>chrom_1</dt>
 <dd><p>&lt;numeric&gt;: The seqnames of firsts chromosmes (rows in matrix).</p></dd>
 
 
-<dt>chrom_2.chr</dt>
-<dd><p>&lt;numeric&gt;: The seqnames of second chromosmes (col in matrix). If is NULL is equal to chrom_1.chr (Defalt NULL)</p></dd>
+<dt>chrom_2</dt>
+<dd><p>&lt;numeric&gt;: The seqnames of second chromosmes (col in matrix). If is NULL is equal to chrom_1 (Defalt NULL)</p></dd>
 
 
 <dt>verbose</dt>
@@ -132,10 +132,10 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Import .hic file</span></span></span>
 <span class="r-in"><span><span class="va">HiC_Ctrl.cmx_lst</span> <span class="op">&lt;-</span> <span class="fu">ImportHiC</span><span class="op">(</span></span></span>
-<span class="r-in"><span>    file.pth <span class="op">=</span> <span class="va">HicOutput.pth</span>,</span></span>
-<span class="r-in"><span>    res.num <span class="op">=</span> <span class="fl">100000</span>,</span></span>
-<span class="r-in"><span>    chrom_1.chr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2L"</span>, <span class="st">"2L"</span>, <span class="st">"2R"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>    chrom_2.chr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2L"</span>, <span class="st">"2R"</span>, <span class="st">"2R"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    file <span class="op">=</span> <span class="va">HicOutput.pth</span>,</span></span>
+<span class="r-in"><span>    hicResolution <span class="op">=</span> <span class="fl">100000</span>,</span></span>
+<span class="r-in"><span>    chrom_1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2L"</span>, <span class="st">"2L"</span>, <span class="st">"2R"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    chrom_2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2L"</span>, <span class="st">"2R"</span>, <span class="st">"2R"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Download .mcool file</span></span></span>
@@ -149,10 +149,10 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Import .mcool file</span></span></span>
 <span class="r-in"><span><span class="va">HiC_HS.cmx_lst</span> <span class="op">&lt;-</span> <span class="fu">ImportHiC</span><span class="op">(</span></span></span>
-<span class="r-in"><span>    file.pth <span class="op">=</span> <span class="va">McoolOutput.pth</span>,</span></span>
-<span class="r-in"><span>    res.num <span class="op">=</span> <span class="fl">100000</span>,</span></span>
-<span class="r-in"><span>    chrom_1.chr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2L"</span>, <span class="st">"2L"</span>, <span class="st">"2R"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>    chrom_2.chr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2L"</span>, <span class="st">"2R"</span>, <span class="st">"2R"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    file <span class="op">=</span> <span class="va">McoolOutput.pth</span>,</span></span>
+<span class="r-in"><span>    hicResolution <span class="op">=</span> <span class="fl">100000</span>,</span></span>
+<span class="r-in"><span>    chrom_1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2L"</span>, <span class="st">"2L"</span>, <span class="st">"2R"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    chrom_2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2L"</span>, <span class="st">"2R"</span>, <span class="st">"2R"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>

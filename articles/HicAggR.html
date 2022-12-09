@@ -217,11 +217,11 @@ pipeline are a data.frame containing chromosomes names and sized and the
 binSize, corresponding to the HiC matrices at the same resolution.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">seqlengths.num</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'2L'</span><span class="op">=</span><span class="fl">23513712</span>, <span class="st">'2R'</span><span class="op">=</span><span class="fl">25286936</span><span class="op">)</span></span>
-<span><span class="va">chromSize.dtf</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
+<span><span class="va">chromSizes</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>    seqnames   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">seqlengths.num</span> <span class="op">)</span>, </span>
 <span>    seqlengths <span class="op">=</span> <span class="va">seqlengths.num</span></span>
 <span>    <span class="op">)</span></span>
-<span><span class="va">binSize.num</span> <span class="op">&lt;-</span> <span class="fl">1000</span></span></code></pre></div>
+<span><span class="va">binSize</span> <span class="op">&lt;-</span> <span class="fl">1000</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -237,9 +237,9 @@ Therefore it is necessary to perform the balancing and observed/expected
 correction steps.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">hicLst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ImportHiC.html">ImportHiC</a></span><span class="op">(</span></span>
-<span>    file.pth      <span class="op">=</span> <span class="va">HicOutput.pth</span>,</span>
-<span>    res.num       <span class="op">=</span> <span class="va">binSize.num</span>,</span>
-<span>    chrom_1.chr   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2L"</span>, <span class="st">"2R"</span><span class="op">)</span></span>
+<span>    file      <span class="op">=</span> <span class="va">HicOutput.pth</span>,</span>
+<span>    hicResolution       <span class="op">=</span> <span class="va">binSize</span>,</span>
+<span>    chrom_1   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2L"</span>, <span class="st">"2R"</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -267,9 +267,9 @@ genomic coordinates are paired in GInteraction objects.</p>
 </h3>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Beaf_Index.gnr</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/IndexFeatures.html">IndexFeatures</a></span><span class="op">(</span></span>
-<span>    gRange.gnr_lst        <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Beaf <span class="op">=</span> <span class="va">Beaf32_Peaks.gnr</span><span class="op">)</span>,</span>
-<span>    chromSize.dtf         <span class="op">=</span> <span class="va">chromSize.dtf</span>,</span>
-<span>    binSize.num           <span class="op">=</span> <span class="va">binSize.num</span></span>
+<span>    gRangeList        <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Beaf <span class="op">=</span> <span class="va">Beaf32_Peaks.gnr</span><span class="op">)</span>,</span>
+<span>    chromSizes         <span class="op">=</span> <span class="va">chromSizes</span>,</span>
+<span>    binSize           <span class="op">=</span> <span class="va">binSize</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -279,7 +279,7 @@ genomic coordinates are paired in GInteraction objects.</p>
 here in order to limit the number of pairs.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Beaf_Pairs.gni</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/SearchPairs.html">SearchPairs</a></span><span class="op">(</span></span>
-<span>    indexAnchor.gnr <span class="op">=</span> <span class="va">Beaf_Index.gnr</span>,</span>
+<span>    indexAnchor <span class="op">=</span> <span class="va">Beaf_Index.gnr</span>,</span>
 <span>    minDist     <span class="op">=</span> <span class="st">"25KB"</span>,</span>
 <span>    maxDist     <span class="op">=</span> <span class="st">"100KB"</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
@@ -296,7 +296,7 @@ pairs of genomic coordinates.</p>
 </h3>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Beaf.mtx_lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span>
-<span>    feature.gn  <span class="op">=</span> <span class="va">Beaf_Pairs.gni</span>,</span>
+<span>    genomicFeature  <span class="op">=</span> <span class="va">Beaf_Pairs.gni</span>,</span>
 <span>    hicLst <span class="op">=</span> <span class="va">hicLst</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
 </div>
@@ -318,8 +318,8 @@ example, contacts surounding Beaf-32 sites).</p>
 </h3>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
-<span>    apa.mtx <span class="op">=</span> <span class="va">aggreg.mtx</span>,</span>
-<span>    title.chr <span class="op">=</span> <span class="st">"APA Beaf &lt;-&gt; Beaf"</span></span>
+<span>    aggregatedMtx <span class="op">=</span> <span class="va">aggreg.mtx</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"APA Beaf &lt;-&gt; Beaf"</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
 <p><img src="HicAggR_files/figure-html/unnamed-chunk-17-1.png" width="672"></p>
 </div>

@@ -61,12 +61,12 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">IndexFeatures</span><span class="op">(</span></span>
-<span>  gRange.gnr_lst <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  constraint.gnr <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  chromSize.dtf <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  binSize.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  gRangeList <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  genomicConstraint <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  chromSizes <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  binSize <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  method <span class="op">=</span> <span class="st">"mean"</span>,</span>
-<span>  variablesName.chr_vec <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  metadataColName <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  cores <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -74,27 +74,27 @@
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>gRange.gnr_lst</dt>
+    <dl><dt>gRangeList</dt>
 <dd><p>&lt;GRanges or GRangesList or list[GRanges]&gt;: GRanges object, list of GRanges or GRangesList containing coordinates to index.</p></dd>
 
 
-<dt>constraint.gnr</dt>
-<dd><p>&lt;GRanges&gt;: GRanges object of constraint regions. Note that bins in the same constraint region only will be paired in HicAggR::SearchPairs(). If NULL chromosomes in chromSize.dtf are used as constraints (Default NULL)</p></dd>
+<dt>genomicConstraint</dt>
+<dd><p>&lt;GRanges&gt;: GRanges object of constraint regions. Note that bins in the same constraint region only will be paired in HicAggR::SearchPairs(). If NULL chromosomes in chromSizes are used as constraints (Default NULL)</p></dd>
 
 
-<dt>chromSize.dtf</dt>
+<dt>chromSizes</dt>
 <dd><p>&lt;data.frame&gt;: A data.frame containing chromosomes names and lengths in base pairs (see example).</p></dd>
 
 
-<dt>binSize.num</dt>
+<dt>binSize</dt>
 <dd><p>&lt;integer&gt;: Bin size in bp - corresponds to HiC matrix resolution.</p></dd>
 
 
 <dt>method</dt>
-<dd><p>&lt;character&gt;: A string defining which summary method is used on metadata columns defined in variablesName.chr_vec if multiple ranges are indexed in the same bin. Use 'mean', 'median', 'sum', 'max' or 'min'. (Default 'mean'')</p></dd>
+<dd><p>&lt;character&gt;: A string defining which summary method is used on metadata columns defined in metadataColName if multiple ranges are indexed in the same bin. Use 'mean', 'median', 'sum', 'max' or 'min'. (Default 'mean'')</p></dd>
 
 
-<dt>variablesName.chr_vec</dt>
+<dt>metadataColName</dt>
 <dd><p>&lt;character&gt; : A character vector that specify the metadata columns of GRanges on which apply the summary method if multiple ranges are indexed in the same bin.</p></dd>
 
 
@@ -121,12 +121,12 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">Beaf32_Peaks.gnr</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">Beaf32_Index.gnr</span> <span class="op">&lt;-</span> <span class="fu">IndexFeatures</span><span class="op">(</span></span></span>
-<span class="r-in"><span>    gRange.gnr_lst <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Beaf <span class="op">=</span> <span class="va">Beaf32_Peaks.gnr</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>    chromSize.dtf <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    gRangeList <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Beaf <span class="op">=</span> <span class="va">Beaf32_Peaks.gnr</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    chromSizes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>        seqnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2L"</span>, <span class="st">"2R"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>        seqlengths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">23513712</span>, <span class="fl">25286936</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    <span class="op">)</span>,</span></span>
-<span class="r-in"><span>    binSize.num <span class="op">=</span> <span class="fl">100000</span></span></span>
+<span class="r-in"><span>    binSize <span class="op">=</span> <span class="fl">100000</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

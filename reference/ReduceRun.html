@@ -60,20 +60,20 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ReduceRun</span><span class="op">(</span><span class="va">first.rle</span>, <span class="va">second.rle</span>, reduceFun.chr <span class="op">=</span> <span class="st">"paste"</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ReduceRun</span><span class="op">(</span><span class="va">firstRle</span>, <span class="va">secondRle</span>, reduceMethod <span class="op">=</span> <span class="st">"paste"</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>first.rle</dt>
+    <dl><dt>firstRle</dt>
 <dd><p>&lt;rle or Rle&gt;: First rle.</p></dd>
 
 
-<dt>second.rle</dt>
+<dt>secondRle</dt>
 <dd><p>&lt;rle or Rle&gt;&gt;: Second rle.</p></dd>
 
 
-<dt>reduceFun.chr</dt>
+<dt>reduceMethod</dt>
 <dd><p>&lt;character&gt;: Name of a function to apply e.g paste, sum, mean.</p></dd>
 
 
@@ -94,15 +94,15 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">first.rle</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rle.html" class="external-link">rle</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">second.rle</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rle.html" class="external-link">rle</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"B"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">ReduceRun</span><span class="op">(</span>first.rle <span class="op">=</span> <span class="va">first.rle</span>, second.rle <span class="op">=</span> <span class="va">second.rle</span>, reduceFun.chr <span class="op">=</span> <span class="st">"paste"</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">firstRle</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rle.html" class="external-link">rle</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">secondRle</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rle.html" class="external-link">rle</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"B"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">ReduceRun</span><span class="op">(</span>firstRle <span class="op">=</span> <span class="va">firstRle</span>, secondRle <span class="op">=</span> <span class="va">secondRle</span>, reduceMethod <span class="op">=</span> <span class="st">"paste"</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> character-Rle of length 3 with 3 runs</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Lengths:     1     1     1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Values : "A_A" "A_B" "B_B"</span>
-<span class="r-in"><span><span class="va">first.rle</span> <span class="op">&lt;-</span> <span class="fu">S4Vectors</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Rle-class.html" class="external-link">Rle</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">second.rle</span> <span class="op">&lt;-</span> <span class="fu">S4Vectors</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Rle-class.html" class="external-link">Rle</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">ReduceRun</span><span class="op">(</span>first.rle <span class="op">=</span> <span class="va">first.rle</span>, second.rle <span class="op">=</span> <span class="va">second.rle</span>, reduceFun.chr <span class="op">=</span> <span class="st">"sum"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">firstRle</span> <span class="op">&lt;-</span> <span class="fu">S4Vectors</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Rle-class.html" class="external-link">Rle</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">secondRle</span> <span class="op">&lt;-</span> <span class="fu">S4Vectors</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Rle-class.html" class="external-link">Rle</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">ReduceRun</span><span class="op">(</span>firstRle <span class="op">=</span> <span class="va">firstRle</span>, secondRle <span class="op">=</span> <span class="va">secondRle</span>, reduceMethod <span class="op">=</span> <span class="st">"sum"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> numeric-Rle of length 3 with 3 runs</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Lengths: 1 1 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Values : 6 7 8</span>
