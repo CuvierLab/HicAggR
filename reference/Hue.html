@@ -62,9 +62,9 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">Hue</span><span class="op">(</span></span>
 <span>  paletteLength.num <span class="op">=</span> <span class="fl">9</span>,</span>
-<span>  rotation.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  rotation <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  hueRange.num <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">360</span><span class="op">)</span>,</span>
-<span>  saturation.num <span class="op">=</span> <span class="fl">0.65</span>,</span>
+<span>  saturation <span class="op">=</span> <span class="fl">0.65</span>,</span>
 <span>  lightness.num <span class="op">=</span> <span class="fl">0.65</span>,</span>
 <span>  alpha.num <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  alpha.bln <span class="op">=</span> <span class="cn">FALSE</span></span>
@@ -77,7 +77,7 @@
 <dd><p>&lt;numeric&gt;: Color number.</p></dd>
 
 
-<dt>rotation.num</dt>
+<dt>rotation</dt>
 <dd><p>&lt;numeric&gt;: If positive, rotates clockwise in the color space, reversing if the number is negative. If is NULL compute rotation according to hueRange.num parameter. (Default NULL)</p></dd>
 
 
@@ -85,7 +85,7 @@
 <dd><p>&lt;numeric&gt;: Degree range in color space between 0 and 360. (Default c(0,360))</p></dd>
 
 
-<dt>saturation.num</dt>
+<dt>saturation</dt>
 <dd><p>&lt;numeric&gt;: Saturation value between 0 and 1. (Default 0.65)</p></dd>
 
 

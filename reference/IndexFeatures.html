@@ -65,10 +65,10 @@
 <span>  constraint.gnr <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  chromSize.dtf <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  binSize.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  method.chr <span class="op">=</span> <span class="st">"mean"</span>,</span>
+<span>  method <span class="op">=</span> <span class="st">"mean"</span>,</span>
 <span>  variablesName.chr_vec <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  cores.num <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  verbose.bln <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  cores <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -90,7 +90,7 @@
 <dd><p>&lt;integer&gt;: Bin size in bp - corresponds to HiC matrix resolution.</p></dd>
 
 
-<dt>method.chr</dt>
+<dt>method</dt>
 <dd><p>&lt;character&gt;: A string defining which summary method is used on metadata columns defined in variablesName.chr_vec if multiple ranges are indexed in the same bin. Use 'mean', 'median', 'sum', 'max' or 'min'. (Default 'mean'')</p></dd>
 
 
@@ -98,11 +98,11 @@
 <dd><p>&lt;character&gt; : A character vector that specify the metadata columns of GRanges on which apply the summary method if multiple ranges are indexed in the same bin.</p></dd>
 
 
-<dt>cores.num</dt>
+<dt>cores</dt>
 <dd><p>&lt;integer&gt; : Number of cores used. (Default 1)</p></dd>
 
 
-<dt>verbose.bln</dt>
+<dt>verbose</dt>
 <dd><p>&lt;logical&gt;: If TRUE show the progression in console. (Default FALSE)</p></dd>
 
 </dl></div>

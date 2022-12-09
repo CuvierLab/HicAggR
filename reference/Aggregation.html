@@ -61,40 +61,40 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">Aggregation</span><span class="op">(</span></span>
-<span>  ctrlMatrices.lst <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  matrices.lst <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  minDist.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  maxDist.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  trans.fun <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  agg.fun <span class="op">=</span> <span class="st">"mean"</span>,</span>
-<span>  rm0.bln <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  diff.fun <span class="op">=</span> <span class="st">"substraction"</span>,</span>
-<span>  scaleCorrection.bln <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  correctionArea.lst <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  statCompare.bln <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  ctrlMatrices <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  matrices <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  minDist <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  maxDist <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  transFun <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  aggFun <span class="op">=</span> <span class="st">"mean"</span>,</span>
+<span>  rm0 <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  diffFun <span class="op">=</span> <span class="st">"substraction"</span>,</span>
+<span>  scaleCorrection <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  correctionArea <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  statCompare <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  orientate <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>ctrlMatrices.lst</dt>
+    <dl><dt>ctrlMatrices</dt>
 <dd><p>&lt;list[matrix]&gt;: The matrices list to aggregate as control.</p></dd>
 
 
-<dt>matrices.lst</dt>
+<dt>matrices</dt>
 <dd><p>&lt;list[matrix]&gt;: The matrices list to aggregate.</p></dd>
 
 
-<dt>minDist.num</dt>
+<dt>minDist</dt>
 <dd><p>&lt;numeric&gt;: The minimal distance between anchor and bait.</p></dd>
 
 
-<dt>maxDist.num</dt>
+<dt>maxDist</dt>
 <dd><p>&lt;numeric&gt;: The maximal distance between anchor and bait.</p></dd>
 
 
-<dt>trans.fun</dt>
+<dt>transFun</dt>
 <dd><p>&lt;function or chracter&gt;: The function use to transforme or scale values in each submatrix before aggregation. If the parameter is character so:</p><ul><li><p>"quantile" or "qtl" apply function dplyr::ntile(x,500)</p></li>
 <li><p>"percentile" or "prct" apply percentile.</p></li>
 <li><p>"rank" apply a ranking.</p></li>
@@ -105,18 +105,18 @@
 </ul></dd>
 
 
-<dt>agg.fun</dt>
+<dt>aggFun</dt>
 <dd><p>&lt;function or chracter&gt;: The function use to aggregate each pixel in matrix. If the parameter is a character so:</p><ul><li><p>"50<!-- %" or "median" apply the median --></p></li>
 <li><p>"+" or "sum" apply the sum</p></li>
 <li><p>other (Default) apply the mean</p></li>
 </ul></dd>
 
 
-<dt>rm0.bln</dt>
+<dt>rm0</dt>
 <dd><p>&lt;logical&gt;: Whether 0 are replace with NA. (Default FALSE)</p></dd>
 
 
-<dt>diff.fun</dt>
+<dt>diffFun</dt>
 <dd><p>&lt;function or chracter&gt;: The function use to compute differential. If the parameter is character so:</p><ul><li><p>"-", "substract" or "substraction" apply a substraction</p></li>
 <li><p>"/" or "ratio" apply a ratio</p></li>
 <li><p>"log2","log2-","log2/" or "log2ratio" apply a log2 on ratio</p></li>
@@ -124,15 +124,15 @@
 </ul></dd>
 
 
-<dt>scaleCorrection.bln</dt>
+<dt>scaleCorrection</dt>
 <dd><p>&lt;logical&gt;: Whether a correction should be done on the median value take in ane noising area. (Default TRUE)</p></dd>
 
 
-<dt>correctionArea.lst</dt>
+<dt>correctionArea</dt>
 <dd><p>&lt;list&gt;: Nested list of indice that define a noising area fore correction. List muste contain in first an element "i" (row indices) then an element called "j" (columns indices). If NULL automatically take in upper left part of aggregated matrices. (Default NULL)</p></dd>
 
 
-<dt>statCompare.bln</dt>
+<dt>statCompare</dt>
 <dd><p>&lt;logical&gt;: Whether a t.test must be apply to each pxl of the differential aggregated matrix.</p></dd>
 
 
@@ -172,12 +172,12 @@
 <span class="r-in"><span><span class="co"># Matrices extractions center on Beaf32 &lt;-&gt; Beaf32 point interaction</span></span></span>
 <span class="r-in"><span><span class="va">interactions_Ctrl.mtx_lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    feature.gn <span class="op">=</span> <span class="va">Beaf_Beaf.gni</span>,</span></span>
-<span class="r-in"><span>    hic.cmx_lst <span class="op">=</span> <span class="va">HiC_Ctrl.cmx_lst</span>,</span></span>
+<span class="r-in"><span>    hicLst <span class="op">=</span> <span class="va">HiC_Ctrl.cmx_lst</span>,</span></span>
 <span class="r-in"><span>    referencePoint.chr <span class="op">=</span> <span class="st">"pf"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">interactions_HS.mtx_lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    feature.gn <span class="op">=</span> <span class="va">Beaf_Beaf.gni</span>,</span></span>
-<span class="r-in"><span>    hic.cmx_lst <span class="op">=</span> <span class="va">HiC_HS.cmx_lst</span>,</span></span>
+<span class="r-in"><span>    hicLst <span class="op">=</span> <span class="va">HiC_HS.cmx_lst</span>,</span></span>
 <span class="r-in"><span>    referencePoint.chr <span class="op">=</span> <span class="st">"pf"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -186,8 +186,8 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Differential Aggregation</span></span></span>
 <span class="r-in"><span><span class="va">aggregDiff.mtx</span> <span class="op">&lt;-</span> <span class="fu">Aggregation</span><span class="op">(</span></span></span>
-<span class="r-in"><span>    ctrlMatrices.lst <span class="op">=</span> <span class="va">interactions_Ctrl.mtx_lst</span>,</span></span>
-<span class="r-in"><span>    matrices.lst <span class="op">=</span> <span class="va">interactions_HS.mtx_lst</span></span></span>
+<span class="r-in"><span>    ctrlMatrices <span class="op">=</span> <span class="va">interactions_Ctrl.mtx_lst</span>,</span></span>
+<span class="r-in"><span>    matrices <span class="op">=</span> <span class="va">interactions_HS.mtx_lst</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

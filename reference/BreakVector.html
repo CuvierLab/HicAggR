@@ -62,11 +62,11 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">BreakVector</span><span class="op">(</span></span>
 <span>  x.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  min.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  x_min <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  center.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  max.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  x_max <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  n.num <span class="op">=</span> <span class="fl">10</span>,</span>
-<span>  method.chr <span class="op">=</span> <span class="st">"linear"</span></span>
+<span>  method <span class="op">=</span> <span class="st">"linear"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -76,7 +76,7 @@
 <dd><p>&lt;numeric&gt;: Numerical vector.</p></dd>
 
 
-<dt>min.num</dt>
+<dt>x_min</dt>
 <dd><p>&lt;numeric&gt;: Minimal fixed value.</p></dd>
 
 
@@ -84,7 +84,7 @@
 <dd><p>&lt;numeric&gt;: Center fixed value.</p></dd>
 
 
-<dt>max.num</dt>
+<dt>x_max</dt>
 <dd><p>&lt;numeric&gt;: Maximal fixed value.</p></dd>
 
 
@@ -92,7 +92,7 @@
 <dd><p>&lt;numeric&gt;: Number of tile (return n.num+1 breaks).</p></dd>
 
 
-<dt>method.chr</dt>
+<dt>method</dt>
 <dd><p>&lt;character&gt;: Kind of breaking. "linear" or "density". (Default "linear")</p></dd>
 
 </dl></div>

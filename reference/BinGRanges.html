@@ -64,12 +64,12 @@
 <span>  gRange.gnr <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  chromSize.dtf <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  binSize.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  method.chr <span class="op">=</span> <span class="st">"mean"</span>,</span>
+<span>  method <span class="op">=</span> <span class="st">"mean"</span>,</span>
 <span>  variablesName.chr_vec <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  na.rm <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  cores.num <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  cores <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  reduce.bln <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  verbose.bln <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -87,7 +87,7 @@
 <dd><p>&lt;numerical&gt;: Width of the bins.</p></dd>
 
 
-<dt>method.chr</dt>
+<dt>method</dt>
 <dd><p>&lt;character&gt;: Name of a summary method as 'mean', 'median', 'sum', 'max, 'min'. (Default 'mean')</p></dd>
 
 
@@ -99,7 +99,7 @@
 <dd><p>&lt;logical&gt; : A logical value indicating whether 'NA' values should be stripped before the computation proceeds. (Default TRUE)</p></dd>
 
 
-<dt>cores.num</dt>
+<dt>cores</dt>
 <dd><p>&lt;numerical&gt; : The number of cores. (Default 1)</p></dd>
 
 
@@ -107,7 +107,7 @@
 <dd><p>&lt;logical&gt; : Whether duplicated Bin must been reduced with de summary method. (Default TRUE)</p></dd>
 
 
-<dt>verbose.bln</dt>
+<dt>verbose</dt>
 <dd><p>&lt;logical&gt;: If TRUE show the progression in console. (Default FALSE)</p></dd>
 
 </dl></div>
@@ -148,7 +148,7 @@
 <span class="r-in"><span>    gRange.gnr <span class="op">=</span> <span class="va">GRange.gnr</span>,</span></span>
 <span class="r-in"><span>    chromSize.dtf <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"chr1"</span>, <span class="st">"chr2"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">350</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    binSize.num <span class="op">=</span> <span class="fl">100</span>,</span></span>
-<span class="r-in"><span>    method.chr <span class="op">=</span> <span class="st">"mean"</span>,</span></span>
+<span class="r-in"><span>    method <span class="op">=</span> <span class="st">"mean"</span>,</span></span>
 <span class="r-in"><span>    variablesName.chr_vec <span class="op">=</span> <span class="st">"score"</span>,</span></span>
 <span class="r-in"><span>    na.rm <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>

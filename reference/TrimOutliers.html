@@ -60,7 +60,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">TrimOutliers</span><span class="op">(</span><span class="va">x.num</span>, tresholds.num <span class="op">=</span> <span class="fu"><a href="SdThreshold.html">SdThreshold</a></span><span class="op">(</span><span class="va">x.num</span><span class="op">)</span>, clip.bln <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">TrimOutliers</span><span class="op">(</span><span class="va">x.num</span>, tresholds.num <span class="op">=</span> <span class="fu"><a href="SdThreshold.html">SdThreshold</a></span><span class="op">(</span><span class="va">x.num</span><span class="op">)</span>, clip <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -73,7 +73,7 @@
 <dd><p>&lt;numeric&gt;: Numeric vector of length 2. first value is minimal threshold, second value maximal threshold (Default find threshold based on standarrd deviation. see `SdThreshold` function)</p></dd>
 
 
-<dt>clip.bln</dt>
+<dt>clip</dt>
 <dd><p>&lt;logical&gt;: If TRUE the value out of bounds are replace with threshodls values. If FALSE the Values out of bound are replace with NA (Default FALSE).</p></dd>
 
 </dl></div>

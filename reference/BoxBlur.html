@@ -60,7 +60,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">BoxBlur</span><span class="op">(</span><span class="va">mat.mtx</span>, box.num <span class="op">=</span> <span class="cn">NULL</span>, boxSize.num <span class="op">=</span> <span class="cn">NULL</span>, sd.num <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">BoxBlur</span><span class="op">(</span><span class="va">mat.mtx</span>, boxKernel <span class="op">=</span> <span class="cn">NULL</span>, boxSize.num <span class="op">=</span> <span class="cn">NULL</span>, sd.num <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -69,16 +69,16 @@
 <dd><p>&lt;matrix&gt;: Numerical matrix.</p></dd>
 
 
-<dt>box.num</dt>
+<dt>boxKernel</dt>
 <dd><p>&lt;numeric&gt;: The numerical vector for kernel. If NULL apply a GaussBox (see 'GaussBox' function) (Default NULL)</p></dd>
 
 
 <dt>boxSize.num</dt>
-<dd><p>&lt;numeric&gt;: If box.num is NULL, size of kernel for 'GaussBox' function. (Default NULL)</p></dd>
+<dd><p>&lt;numeric&gt;: If boxKernel is NULL, size of kernel for 'GaussBox' function. (Default NULL)</p></dd>
 
 
 <dt>sd.num</dt>
-<dd><p>&lt;numeric&gt;: If box.num is NULL, standard deviation parameter for 'GaussBox' function. (Default NULL)</p></dd>
+<dd><p>&lt;numeric&gt;: If boxKernel is NULL, standard deviation parameter for 'GaussBox' function. (Default NULL)</p></dd>
 
 </dl></div>
     <div class="section level2">

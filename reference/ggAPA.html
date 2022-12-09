@@ -65,19 +65,19 @@
 <span>  title.chr <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  trimPrct.num <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  bounds.chr <span class="op">=</span> <span class="st">"both"</span>,</span>
-<span>  colMin.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  colMin <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  colMid.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  colMax.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  colMax <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  colBreaks.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  blurPass.num <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>  blurBox.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  boxKernel <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  blurSize.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  blurSd.num <span class="op">=</span> <span class="fl">0.5</span>,</span>
 <span>  lowerTri.num <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  heatmap.col <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  na.col <span class="op">=</span> <span class="st">"#F2F2F2"</span>,</span>
+<span>  na.value <span class="op">=</span> <span class="st">"#F2F2F2"</span>,</span>
 <span>  colorScale.chr <span class="op">=</span> <span class="st">"linear"</span>,</span>
-<span>  bias.num <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  bias <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  paletteLength.num <span class="op">=</span> <span class="fl">51</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -100,7 +100,7 @@
 <dd><p>&lt;character&gt; : Which boundary must be trim, if it's both, trim half of the percentage in inferior and superior see QtlThreshold. (Default "both")</p></dd>
 
 
-<dt>colMin.num</dt>
+<dt>colMin</dt>
 <dd><p>&lt;numeric&gt; : Minimal value of Heatmap, force color range. If Null automaticaly find. (Default NULL)</p></dd>
 
 
@@ -108,7 +108,7 @@
 <dd><p>&lt;numeric&gt; : Center value of Heatmap, force color range. If Null automaticaly find. (Default NULL)</p></dd>
 
 
-<dt>colMax.num</dt>
+<dt>colMax</dt>
 <dd><p>&lt;numeric&gt; : Maximal value of Heatmap, force color range. If Null automaticaly find. (Default NULL)</p></dd>
 
 
@@ -120,7 +120,7 @@
 <dd><p>&lt;numeric&gt; : Number of blur pass. (Default 0)</p></dd>
 
 
-<dt>blurBox.num</dt>
+<dt>boxKernel</dt>
 <dd><p>&lt;numeric&gt; : If NULL automaticaly compute for 3 Sd. (Default NULL)</p></dd>
 
 
@@ -140,7 +140,7 @@
 <dd><p>&lt;character&gt; : Heatmap color list. If NULL automaticaly compute. (Default NULL)</p></dd>
 
 
-<dt>na.col</dt>
+<dt>na.value</dt>
 <dd><p>&lt;character&gt; : Color of NA values. (Default "#F2F2F2")</p></dd>
 
 
@@ -148,7 +148,7 @@
 <dd><p>&lt;character&gt; : Shape of color scale on of "linear" or "density" based. (Default "linear")</p></dd>
 
 
-<dt>bias.num</dt>
+<dt>bias</dt>
 <dd><p>&lt;numeric&gt; : A positive number. Higher values give more widely spaced colors at the high end. See ?grDevices::colorRamp for more details. (Default 1)</p></dd>
 
 
@@ -187,7 +187,7 @@
 <span class="r-in"><span><span class="co"># Matrices extractions center on Beaf32 &lt;-&gt; Beaf32 point interaction</span></span></span>
 <span class="r-in"><span><span class="va">interactions_PF.mtx_lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    feature.gn <span class="op">=</span> <span class="va">Beaf_Beaf.gni</span>,</span></span>
-<span class="r-in"><span>    hic.cmx_lst <span class="op">=</span> <span class="va">HiC_Ctrl.cmx_lst</span>,</span></span>
+<span class="r-in"><span>    hicLst <span class="op">=</span> <span class="va">HiC_Ctrl.cmx_lst</span>,</span></span>
 <span class="r-in"><span>    referencePoint.chr <span class="op">=</span> <span class="st">"pf"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -236,9 +236,9 @@
 <span class="r-in"><span><span class="fu">ggAPA</span><span class="op">(</span></span></span>
 <span class="r-in"><span>    apa.mtx <span class="op">=</span> <span class="va">aggreg.mtx</span>,</span></span>
 <span class="r-in"><span>    title.chr <span class="op">=</span> <span class="st">"APA [min 200, center 300, max 600]"</span>,</span></span>
-<span class="r-in"><span>    colMin.num <span class="op">=</span> <span class="fl">200</span>,</span></span>
+<span class="r-in"><span>    colMin <span class="op">=</span> <span class="fl">200</span>,</span></span>
 <span class="r-in"><span>    colMid.num <span class="op">=</span> <span class="fl">300</span>,</span></span>
-<span class="r-in"><span>    colMax.num <span class="op">=</span> <span class="fl">600</span></span></span>
+<span class="r-in"><span>    colMax <span class="op">=</span> <span class="fl">600</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ggAPA-6.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
@@ -247,7 +247,7 @@
 <span class="r-in"><span>    apa.mtx <span class="op">=</span> <span class="va">aggreg.mtx</span>,</span></span>
 <span class="r-in"><span>    title.chr <span class="op">=</span> <span class="st">"APA"</span>,</span></span>
 <span class="r-in"><span>    heatmap.col <span class="op">=</span> <span class="fu"><a href="viridis.html">viridis</a></span><span class="op">(</span><span class="fl">6</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>    na.col <span class="op">=</span> <span class="st">"black"</span></span></span>
+<span class="r-in"><span>    na.value <span class="op">=</span> <span class="st">"black"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ggAPA-7.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="fu">ggAPA</span><span class="op">(</span></span></span>
@@ -273,13 +273,13 @@
 <span class="r-in"><span><span class="fu">ggAPA</span><span class="op">(</span></span></span>
 <span class="r-in"><span>    apa.mtx <span class="op">=</span> <span class="va">aggreg.mtx</span>,</span></span>
 <span class="r-in"><span>    title.chr <span class="op">=</span> <span class="st">"APA"</span>,</span></span>
-<span class="r-in"><span>    bias.num <span class="op">=</span> <span class="fl">2</span> <span class="co"># (&gt;1 wait on extremums)</span></span></span>
+<span class="r-in"><span>    bias <span class="op">=</span> <span class="fl">2</span> <span class="co"># (&gt;1 wait on extremums)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ggAPA-11.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="fu">ggAPA</span><span class="op">(</span></span></span>
 <span class="r-in"><span>    apa.mtx <span class="op">=</span> <span class="va">aggreg.mtx</span>,</span></span>
 <span class="r-in"><span>    title.chr <span class="op">=</span> <span class="st">"APA"</span>,</span></span>
-<span class="r-in"><span>    bias.num <span class="op">=</span> <span class="fl">0.5</span> <span class="co"># (&lt;1 wait on center)</span></span></span>
+<span class="r-in"><span>    bias <span class="op">=</span> <span class="fl">0.5</span> <span class="co"># (&lt;1 wait on center)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ggAPA-12.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
