@@ -139,7 +139,16 @@
     <loc>/reference/PadMtx.html</loc>
   </url>
   <url>
+    <loc>/reference/PlotAPA.html</loc>
+  </url>
+  <url>
+    <loc>/reference/PlotAPA_byDistance.html</loc>
+  </url>
+  <url>
     <loc>/reference/Plus.html</loc>
+  </url>
+  <url>
+    <loc>/reference/PrepareMtxList.html</loc>
   </url>
   <url>
     <loc>/reference/QtlThreshold.html</loc>
@@ -196,7 +205,16 @@
     <loc>/reference/YlOrRd.html</loc>
   </url>
   <url>
+    <loc>/reference/compare_to_background.html</loc>
+  </url>
+  <url>
+    <loc>/reference/getInfos.html</loc>
+  </url>
+  <url>
     <loc>/reference/ggAPA.html</loc>
+  </url>
+  <url>
+    <loc>/reference/import_loops.html</loc>
   </url>
   <url>
     <loc>/reference/index.html</loc>
