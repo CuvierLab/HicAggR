@@ -12,7 +12,7 @@ computed per genomic distance."><meta property="og:image" content="/logo.png"><!
     
     <a class="navbar-brand me-2" href="../index.html">HicAggR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,6 +65,7 @@ computed per genomic distance.</p>
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">OverExpectedHiC</span><span class="op">(</span></span>
 <span>  <span class="va">hicLst</span>,</span>
+<span>  method <span class="op">=</span> <span class="st">"mean_non_zero"</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  cores <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  plot_contact_vs_dist <span class="op">=</span> <span class="st">"per_seq"</span></span>
@@ -76,6 +77,11 @@ computed per genomic distance.</p>
     <dl><dt>hicLst</dt>
 <dd><p>&lt;List<a href="https://rdrr.io/pkg/InteractionSet/man/ContactMatrix-class.html" class="external-link">ContactMatrix</a>&gt;:
 The HiC maps list.</p></dd>
+
+
+<dt>method</dt>
+<dd><p><character> Options are "mean_non_zero", "mean_total",
+or "lieberman". Look at details for more (Default: "mean_non_zero")</character></p></dd>
 
 
 <dt>verbose</dt>
@@ -102,7 +108,13 @@ per chromosome ("per_seq"), all chromosomes ("total") or not (NULL).
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>OverExpectedHiC</p>
-    </div>
+<p>Methods to calculate expected values per distance:</p><ul><li><p>"mean_non_zero": for each distance, average contact value is
+calculated using only non-zero values.</p></li>
+<li><p>"mean_total": for each distance, average contact value is
+calculated using all values at this distance.</p></li>
+<li><p>"lieberman": for each distance, contact values are summed and
+divided by chromsome length minus distance. Only for cis contacts.</p></li>
+</ul></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
@@ -177,7 +189,7 @@ per chromosome ("per_seq"), all chromosomes ("total") or not (NULL).
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Nicolas Chanard, David Depierre, Stephane Schaak, Robel tesfaye, Olivier Cuvier.</p>
+  <p></p><p>Developed by Nicolas Chanard, David Depierre, Stephane Schaak, Robel Tesfaye, Olivier Cuvier.</p>
 </div>
 
 <div class="pkgdown-footer-right">

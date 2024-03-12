@@ -12,7 +12,7 @@ genomic coordinates according to distance constraints."><meta property="og:image
     
     <a class="navbar-brand me-2" href="../index.html">HicAggR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,6 +68,7 @@ genomic coordinates according to distance constraints.</p>
 <span>  indexBait <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  minDist <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  maxDist <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  exclude_self_interactions <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  cores <span class="op">=</span> <span class="fl">1</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -94,6 +95,11 @@ instead (Default NULL)</granges></p></dd>
 <dt>maxDist</dt>
 <dd><p><numeric>: Maximal distance between anchors and baits.
 (Default NULL)</numeric></p></dd>
+
+
+<dt>exclude_self_interactions</dt>
+<dd><p><logical> Should pairs between
+the same bin ("2L:100_2L:100") be excluded? (Default: TRUE)</logical></p></dd>
 
 
 <dt>verbose</dt>
@@ -139,7 +145,7 @@ instead (Default NULL)</granges></p></dd>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Nicolas Chanard, David Depierre, Stephane Schaak, Robel tesfaye, Olivier Cuvier.</p>
+  <p></p><p>Developed by Nicolas Chanard, David Depierre, Stephane Schaak, Robel Tesfaye, Olivier Cuvier.</p>
 </div>
 
 <div class="pkgdown-footer-right">

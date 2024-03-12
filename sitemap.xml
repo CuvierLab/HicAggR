@@ -28,9 +28,6 @@
     <loc>/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/AddAttr.html</loc>
-  </url>
-  <url>
     <loc>/reference/Aggregation.html</loc>
   </url>
   <url>
@@ -43,15 +40,6 @@
     <loc>/reference/BinGRanges.html</loc>
   </url>
   <url>
-    <loc>/reference/BindFillRows.html</loc>
-  </url>
-  <url>
-    <loc>/reference/BoxBlur.html</loc>
-  </url>
-  <url>
-    <loc>/reference/BreakVector.html</loc>
-  </url>
-  <url>
     <loc>/reference/CutHiC.html</loc>
   </url>
   <url>
@@ -61,19 +49,7 @@
     <loc>/reference/FilterInteractions.html</loc>
   </url>
   <url>
-    <loc>/reference/Gauss.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GaussBox.html</loc>
-  </url>
-  <url>
     <loc>/reference/GenomicSystem.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GetFileExtension.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GetFileName.html</loc>
   </url>
   <url>
     <loc>/reference/GetQuantif.html</loc>
@@ -83,12 +59,6 @@
   </url>
   <url>
     <loc>/reference/HiC_HS.cmx_lst.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Hsl2Hex.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Hsl2Rgb.html</loc>
   </url>
   <url>
     <loc>/reference/Hue.html</loc>
@@ -103,31 +73,10 @@
     <loc>/reference/IndexFeatures.html</loc>
   </url>
   <url>
-    <loc>/reference/IsHsl.html</loc>
-  </url>
-  <url>
-    <loc>/reference/IsRgb.html</loc>
-  </url>
-  <url>
     <loc>/reference/JoinHiC.html</loc>
   </url>
   <url>
-    <loc>/reference/MakeParallelParam.html</loc>
-  </url>
-  <url>
-    <loc>/reference/MeanScale.html</loc>
-  </url>
-  <url>
-    <loc>/reference/MeltSpm.html</loc>
-  </url>
-  <url>
     <loc>/reference/MergeGRanges.html</loc>
-  </url>
-  <url>
-    <loc>/reference/MinMaxScale.html</loc>
-  </url>
-  <url>
-    <loc>/reference/NotIn.html</loc>
   </url>
   <url>
     <loc>/reference/OrientateMatrix.html</loc>
@@ -136,37 +85,19 @@
     <loc>/reference/OverExpectedHiC.html</loc>
   </url>
   <url>
-    <loc>/reference/PadMtx.html</loc>
-  </url>
-  <url>
     <loc>/reference/PlotAPA.html</loc>
   </url>
   <url>
     <loc>/reference/PlotAPA_byDistance.html</loc>
   </url>
   <url>
-    <loc>/reference/Plus.html</loc>
-  </url>
-  <url>
     <loc>/reference/PrepareMtxList.html</loc>
-  </url>
-  <url>
-    <loc>/reference/QtlThreshold.html</loc>
   </url>
   <url>
     <loc>/reference/ReduceRun.html</loc>
   </url>
   <url>
     <loc>/reference/ResizeMatrix.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Rgb2Hex.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Rise0.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SdThreshold.html</loc>
   </url>
   <url>
     <loc>/reference/SearchPairs.html</loc>
@@ -185,9 +116,6 @@
   </url>
   <url>
     <loc>/reference/TSS_Peaks.gnr.html</loc>
-  </url>
-  <url>
-    <loc>/reference/TransposeList.html</loc>
   </url>
   <url>
     <loc>/reference/TrimOutliers.html</loc>

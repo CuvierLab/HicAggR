@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">HicAggR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +50,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Apply a function over two RLE</h1>
-      <small class="dont-index">Source: <a href="https://github.com/CuvierLab/HicAggR/blob/HEAD/R/ReduceRun.R" class="external-link"><code>R/ReduceRun.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/CuvierLab/HicAggR/blob/HEAD/R/utilities.R" class="external-link"><code>R/utilities.R</code></a></small>
       <div class="d-none name"><code>ReduceRun.Rd</code></div>
     </div>
 
@@ -93,30 +93,12 @@ e.g paste, sum, mean.</character></p></dd>
     <p>ReduceRun</p>
     </div>
 
-    <div class="section level2">
-    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">firstRle</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rle.html" class="external-link">rle</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">secondRle</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rle.html" class="external-link">rle</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"B"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">ReduceRun</span><span class="op">(</span>firstRle <span class="op">=</span> <span class="va">firstRle</span>, secondRle <span class="op">=</span> <span class="va">secondRle</span>,</span></span>
-<span class="r-in"><span> reduceMethod <span class="op">=</span> <span class="st">"paste"</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> character-Rle of length 3 with 3 runs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Lengths:     1     1     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Values : "A_A" "A_B" "B_B"</span>
-<span class="r-in"><span><span class="va">firstRle</span> <span class="op">&lt;-</span> <span class="fu">S4Vectors</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Rle-class.html" class="external-link">Rle</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">secondRle</span> <span class="op">&lt;-</span> <span class="fu">S4Vectors</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Rle-class.html" class="external-link">Rle</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">ReduceRun</span><span class="op">(</span>firstRle <span class="op">=</span> <span class="va">firstRle</span>, secondRle <span class="op">=</span> <span class="va">secondRle</span>, reduceMethod <span class="op">=</span> <span class="st">"sum"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> numeric-Rle of length 3 with 3 runs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Lengths: 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Values : 6 7 8</span>
-<span class="r-in"><span></span></span>
-</code></pre></div>
-    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Nicolas Chanard, David Depierre, Stephane Schaak, Robel tesfaye, Olivier Cuvier.</p>
+  <p></p><p>Developed by Nicolas Chanard, David Depierre, Stephane Schaak, Robel Tesfaye, Olivier Cuvier.</p>
 </div>
 
 <div class="pkgdown-footer-right">

@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">HicAggR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,33 +80,12 @@
     <p>WrapFunction</p>
     </div>
 
-    <div class="section level2">
-    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="cn">NA</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">myString</span> <span class="op">&lt;-</span> <span class="st">"mean(X, na.rm=TRUE)"</span></span></span>
-<span class="r-in"><span><span class="fu">WrapFunction</span><span class="op">(</span><span class="va">myString</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(parse(text = paste(..., collapse = " "))):</span> object 'X' not found</span>
-<span class="r-in"><span><span class="va">myResult</span> <span class="op">&lt;-</span> <span class="fu">WrapFunction</span><span class="op">(</span><span class="va">myString</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(parse(text = paste(..., collapse = " "))):</span> object 'X' not found</span>
-<span class="r-in"><span><span class="va">myString_2</span> <span class="op">&lt;-</span> <span class="st">"function(X){mean(X, na.rm=TRUE)}"</span></span></span>
-<span class="r-in"><span><span class="fu">WrapFunction</span><span class="op">(</span><span class="va">myString_2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> function (X) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     mean(X, na.rm = TRUE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x564042342e88&gt;</span>
-<span class="r-in"><span><span class="va">myFunction</span> <span class="op">&lt;-</span> <span class="fu">WrapFunction</span><span class="op">(</span><span class="va">myString_2</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">myFunction</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
-<span class="r-in"><span></span></span>
-</code></pre></div>
-    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Nicolas Chanard, David Depierre, Stephane Schaak, Robel tesfaye, Olivier Cuvier.</p>
+  <p></p><p>Developed by Nicolas Chanard, David Depierre, Stephane Schaak, Robel Tesfaye, Olivier Cuvier.</p>
 </div>
 
 <div class="pkgdown-footer-right">

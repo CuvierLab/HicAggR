@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">HicAggR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,6 +74,7 @@
 <span>  bg_type <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  cores <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  z_score_per_dist_group <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -133,7 +134,41 @@ Look at <a href="GetQuantif.html">GetQuantif</a> for more info.</character></p><
 
 
 <dt>bg_type</dt>
-<dd><p><character>: Type of background couples to generate.</character></p><ul><li><p>"random_anchors": picks random bins as anchors and forms couples
+<dd><p><character>: Type of background couples to generate.
+Possible choices: "random_anchors", "inter_TAD","inter_compartment",
+NULL (Defaults to "random_anchors"). More information in details...</character></p></dd>
+
+
+<dt>cores</dt>
+<dd><p><integer> : Number of cores used. (Default 1)</integer></p></dd>
+
+
+<dt>verbose</dt>
+<dd><p><logical> details on progress? (Default: FALSE)</logical></p></dd>
+
+
+<dt>z_score_per_dist_group</dt>
+<dd><p><logical> Should z-scores and p.values
+for target couples be calculated in separate groups
+based on distances? Look at details for more. (Default: TRUE)</logical></p></dd>
+
+
+<dt>...</dt>
+<dd><p>arguments to pass to <a href="PrepareMtxList.html">PrepareMtxList</a>, inorder to treat
+background matrices.</p></dd>
+
+</dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>returns a <list> object with the z.test output for each
+target couple, values for the target couples and values for the
+background couples.</list></p>
+    </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>Types of background couples possible:</p><ul><li><p>"random_anchors": picks random bins as anchors and forms couples
 with bait bins.
 If genomicConstraint is supplied, only intra-TAD random-bait couples are
 kept.
@@ -151,29 +186,16 @@ indexAnchor and indexBait objects contain the provided variable name,
 then background couples are formed between anchors and baits located in
 different compartments.</p></li>
 <li><p>"NULL": If <code>NULL</code>, <code>random_anchors</code> are set by default.</p></li>
-</ul></dd>
-
-
-<dt>cores</dt>
-<dd><p><integer> : Number of cores used. (Default 1)</integer></p></dd>
-
-
-<dt>verbose</dt>
-<dd><p><logical> details on progress? (Default: FALSE)</logical></p></dd>
-
-
-<dt>...</dt>
-<dd><p>arguments to pass to <a href="PrepareMtxList.html">PrepareMtxList</a>, inorder to treat
-background matrices.</p></dd>
-
-</dl></div>
-    <div class="section level2">
-    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    
-
-<p>returns a <list> object with the z.test output for each
-target couple, values for the target couples and values for the
-background couples.</list></p>
+</ul><p>On the matter of <code>z_score_per_dist_group</code>:
+This option was included because we noticed that o/e values tend to be
+skewed towards very long distance interactions. As a result, long
+distance background couples tend to influence to mean and sd, resulting
+in only long distance target couples being significant.
+This option would allow the user to perform z-score computation on
+couples grouped into chunks of couples with comparative distances
+choosen as such: <code>c(0,50000 * 2^seq(1,15))</code>.
+This option is recommended when the target couples have a wide range
+of distance values.</p>
     </div>
 
     <div class="section level2">
@@ -230,7 +252,7 @@ background couples.</list></p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Nicolas Chanard, David Depierre, Stephane Schaak, Robel tesfaye, Olivier Cuvier.</p>
+  <p></p><p>Developed by Nicolas Chanard, David Depierre, Stephane Schaak, Robel Tesfaye, Olivier Cuvier.</p>
 </div>
 
 <div class="pkgdown-footer-right">

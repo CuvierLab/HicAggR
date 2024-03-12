@@ -14,7 +14,7 @@ according to target and a selectionFunction."><meta property="og:image" content=
     
     <a class="navbar-brand me-2" href="../index.html">HicAggR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -159,8 +159,8 @@ updates.</p>
 <span class="r-in"><span>    selectionFun     <span class="op">=</span> <span class="cn">NULL</span></span></span>
 <span class="r-in"><span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span>max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> List of 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ anchor.Beaf.name: int [1:30] 10 78 147 215 284 352 421 489 558 626 ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ distance        : int [1:56] 1 2 3 138 139 140 141 275 276 277 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ anchor.Beaf.name: int [1:29] 9 77 145 213 281 349 417 485 553 621 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ distance        : int [1:41] 1 2 137 138 139 273 274 275 276 410 ...</span>
 <span class="r-in"><span><span class="co"># Returns a named list (the names match the targeting criteria).</span></span></span>
 <span class="r-in"><span><span class="co"># Each element is an index vector of Beaf32&lt;-&gt;Beaf32 interactions</span></span></span>
 <span class="r-in"><span><span class="co"># that satisfy the given criteria.</span></span></span>
@@ -172,8 +172,8 @@ updates.</p>
 <span class="r-in"><span>    selectionFun     <span class="op">=</span> <span class="cn">NULL</span></span></span>
 <span class="r-in"><span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span>max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> List of 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ anchor.Beaf.name: int [1:7] 1 69 193 316 438 559 679</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ distance        : int [1:12] 1 2 126 250 373 374 495 496 497 616 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ anchor.Beaf.name: int [1:6] 68 191 313 434 554 673</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ distance        : int [1:6] 1 370 491 492 611 612</span>
 <span class="r-in"><span><span class="co"># Return the same kind of result.</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Add the selection on InteractionSet Filtration</span></span></span>
@@ -182,7 +182,7 @@ updates.</p>
 <span class="r-in"><span>    targets <span class="op">=</span> <span class="va">targets</span>,</span></span>
 <span class="r-in"><span>    selectionFun <span class="op">=</span> <span class="va">selectionFun</span></span></span>
 <span class="r-in"><span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span>max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  int [1:3] 1106 1243 1380</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  int [1:2] 1097 1370</span>
 <span class="r-in"><span><span class="co"># This return the intersection of the index vector that satisfy both</span></span></span>
 <span class="r-in"><span><span class="co"># targeting criteria.</span></span></span>
 <span class="r-in"><span></span></span>
@@ -192,8 +192,7 @@ updates.</p>
 <span class="r-in"><span>    targets <span class="op">=</span> <span class="va">targets</span>,</span></span>
 <span class="r-in"><span>    selectionFun <span class="op">=</span> <span class="va">selectionFun</span></span></span>
 <span class="r-in"><span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span>max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> List of 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ 2L:11_2L:11: num [1:21, 1:21] 93476 NA NA NA NA ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Named list()</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "interactions")=Formal class 'GInteractions' [package "InteractionSet"] with 6 slots</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "resolution")= num 1e+05</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "referencePoint")= chr "pf"</span>
@@ -201,7 +200,7 @@ updates.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "target")=List of 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "selection")=function ()  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ..- attr(*, "srcref")= 'srcref' int [1:8] 35 17 37 1 17 1 35 37</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' &lt;environment: 0x564057b13730&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' &lt;environment: 0x555e7d5a9d08&gt; </span>
 <span class="r-in"><span><span class="co"># This return the filtred matrices, i.e the matrices for which</span></span></span>
 <span class="r-in"><span><span class="co"># the Beaf32&lt;-&gt;Beaf32 interactions satisfy both targeting criteria.</span></span></span>
 <span class="r-in"><span></span></span>
@@ -212,8 +211,8 @@ updates.</p>
 <span class="r-in"><span>    targets <span class="op">=</span> <span class="va">targets</span>,</span></span>
 <span class="r-in"><span>    selectionFun <span class="op">=</span> <span class="cn">NULL</span></span></span>
 <span class="r-in"><span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span>max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Named int [1:3] 1 2 138</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "names")= chr [1:3] "interactions1" "interactions2" "interactions3"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Named int [1:4] 1 2 137 273</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "names")= chr [1:4] "interactions1" "interactions2" "interactions3" "interactions4"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Filtration with GRanges as filtration criteria</span></span></span>
@@ -224,8 +223,8 @@ updates.</p>
 <span class="r-in"><span>    targets <span class="op">=</span> <span class="va">targets</span>,</span></span>
 <span class="r-in"><span>    selectionFun <span class="op">=</span> <span class="cn">NULL</span></span></span>
 <span class="r-in"><span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span>max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Named int [1:30] 1 2 138 139 275 276 412 413 549 550 ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "names")= chr [1:30] "first1" "first2" "first3" "first4" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Named int [1:28] 1 2 138 274 410 411 546 547 682 683 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "names")= chr [1:28] "first1" "first2" "first3" "first4" ...</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -234,7 +233,7 @@ updates.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Nicolas Chanard, David Depierre, Stephane Schaak, Robel tesfaye, Olivier Cuvier.</p>
+  <p></p><p>Developed by Nicolas Chanard, David Depierre, Stephane Schaak, Robel Tesfaye, Olivier Cuvier.</p>
 </div>
 
 <div class="pkgdown-footer-right">
