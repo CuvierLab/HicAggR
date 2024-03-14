@@ -79,23 +79,24 @@ according to target and a selectionFunction.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>matrices</dt>
-<dd><p>&lt;List<a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a>&gt;: The matrices list to filter. If is not NULL,
-the function will return the filtred matrices list, else
-return a list of index.</p></dd>
+<dd><p>&lt;List<a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a>&gt;: The matrices list
+to filter. If is not <code>NULL</code>, the function will return the filtred
+matrices list, else it will return a list of index.</p></dd>
 
 
 <dt>genomicInteractions</dt>
-<dd><p><ginteractions>: The GInteraction object on which
-compute the filter.</ginteractions></p></dd>
+<dd><p><ginteractions>: The GInteraction
+object on which to compute the filter.</ginteractions></p></dd>
 
 
 <dt>targets</dt>
-<dd><p><list>: A nammed list that describe the target.</list></p></dd>
+<dd><p><list>: A named list that describe the target.</list></p></dd>
 
 
 <dt>selectionFun</dt>
-<dd><p><function>: A function that described how the target
-must be cross. (Default intersection of all targets)</function></p></dd>
+<dd><p><function>: A function
+that defines how the target variables must be crossed.
+(Default intersection of all targets)</function></p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -200,7 +201,7 @@ updates.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "target")=List of 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "selection")=function ()  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ..- attr(*, "srcref")= 'srcref' int [1:8] 35 17 37 1 17 1 35 37</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' &lt;environment: 0x555e7d5a9d08&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' &lt;environment: 0x64af006998d0&gt; </span>
 <span class="r-in"><span><span class="co"># This return the filtred matrices, i.e the matrices for which</span></span></span>
 <span class="r-in"><span><span class="co"># the Beaf32&lt;-&gt;Beaf32 interactions satisfy both targeting criteria.</span></span></span>
 <span class="r-in"><span></span></span>

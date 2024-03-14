@@ -87,7 +87,7 @@
                         <h4 data-toc-skip class="author">Nicolas
 Chanard, David Depierre &amp; Olivier Cuvier</h4>
             
-            <h4 data-toc-skip class="date">2024-03-12</h4>
+            <h4 data-toc-skip class="date">2024-03-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/CuvierLab/HicAggR/blob/HEAD/vignettes/InDepth.Rmd" class="external-link"><code>vignettes/InDepth.Rmd</code></a></small>
       <div class="d-none name"><code>InDepth.Rmd</code></div>
@@ -145,13 +145,12 @@ analysis of HiC contacts through aggregation.</p>
 <div class="section level3">
 <h3 id="description">Description<a class="anchor" aria-label="anchor" href="#description"></a>
 </h3>
-<p>Data were obtained from <em>Drosophila melanogaster S2
-cells</em>.<br>
-1. HiC test dataset Directly downloaded from the <a href="https://data.4dnucleome.org" class="external-link">4DN</a> platform.<br>
-* Control Condition<br>
+<p>Data were obtained from <em>Drosophila melanogaster S2 cells</em>. 1.
+HiC test dataset Directly downloaded from the <a href="https://data.4dnucleome.org" class="external-link">4DN</a> platform. * Control
+Condition<br>
 * Heat Shock Condition<br>
 2. Genomic coordinates:<br>
-* ChIPseq peaks of Beaf-32 protein in wild type cells (<a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM1278639" class="external-link">GSM1278639</a>).<br>
+* ChIPseq peaks of Beaf-32 protein in wild type cells (<a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM1278639" class="external-link">GSM1278639</a>).
 * Reference annotation data for TSS from the UCSC database.<br>
 * Topologically associating domains (TAD) annotations were defined as
 described (<a href="https://doi.org/10.1038/s41467-017-02525-w" class="external-link">F.
@@ -175,27 +174,32 @@ below.</p>
 <h4 id="control-condition--hic-file">Control condition (.hic File)<a class="anchor" aria-label="anchor" href="#control-condition--hic-file"></a>
 </h4>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">Hic.url</span> <span class="op">&lt;-</span> <span class="st">"https://4dn-open-data-public.s3.amazonaws.com/fourfront-webprod/wfoutput/7386f953-8da9-47b0-acb2-931cba810544/4DNFIOTPSS3L.hic"</span></span>
+<code class="sourceCode R"><span><span class="va">Hic.url</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"https://4dn-open-data-public.s3.amazonaws.com/"</span>,</span>
+<span><span class="st">"fourfront-webprod/wfoutput/7386f953-8da9-47b0-acb2-931cba810544/"</span>,</span>
+<span><span class="st">"4DNFIOTPSS3L.hic"</span><span class="op">)</span></span>
 <span><span class="va">HicOutput.pth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">temp.dir</span>, <span class="st">"Control_HIC.hic"</span><span class="op">)</span></span>
 <span><span class="va">HicOutput.pth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">normalizePath</a></span><span class="op">(</span><span class="va">HicOutput.pth</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning in normalizePath(HicOutput.pth):</span></span>
-<span><span class="co">#&gt; path[1]="/tmp/RtmpzSJim4/HIC_DATA/Control_HIC.hic": No such file or directory</span></span>
+<span><span class="co">#&gt; path[1]="/tmp/Rtmprd7S5k/HIC_DATA/Control_HIC.hic": No such file or directory</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span><span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">Hic.url</span>, <span class="va">HicOutput.pth</span>, method <span class="op">=</span> <span class="st">"auto"</span>,</span>
 <span>        extra <span class="op">=</span> <span class="st">"-k"</span>, mode<span class="op">=</span><span class="st">"wb"</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="kw">else</span><span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">Hic.url</span>, <span class="va">HicOutput.pth</span>, method <span class="op">=</span> <span class="st">"auto"</span>, extra <span class="op">=</span> <span class="st">"-k"</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">Hic.url</span>, <span class="va">HicOutput.pth</span>, method <span class="op">=</span> <span class="st">"auto"</span>,</span>
+<span>        extra <span class="op">=</span> <span class="st">"-k"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="heat-shock-condition--mcool-file">Heat shock condition (.mcool File)<a class="anchor" aria-label="anchor" href="#heat-shock-condition--mcool-file"></a>
 </h4>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">Mcool.url</span> <span class="op">&lt;-</span> <span class="st">"https://4dn-open-data-public.s3.amazonaws.com/fourfront-webprod/wfoutput/4f1479a2-4226-4163-ba99-837f2c8f4ac0/4DNFI8DRD739.mcool"</span></span>
+<code class="sourceCode R"><span><span class="va">Mcool.url</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"https://4dn-open-data-public.s3.amazonaws.com/"</span>,</span>
+<span><span class="st">"fourfront-webprod/wfoutput/4f1479a2-4226-4163-ba99-837f2c8f4ac0/"</span>,</span>
+<span><span class="st">"4DNFI8DRD739.mcool"</span><span class="op">)</span></span>
 <span><span class="va">McoolOutput.pth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">temp.dir</span>, <span class="st">"HeatShock_HIC.mcool"</span><span class="op">)</span></span>
 <span><span class="va">McoolOutput.pth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">normalizePath</a></span><span class="op">(</span><span class="va">McoolOutput.pth</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning in normalizePath(McoolOutput.pth):</span></span>
-<span><span class="co">#&gt; path[1]="/tmp/RtmpzSJim4/HIC_DATA/HeatShock_HIC.mcool": No such file or</span></span>
+<span><span class="co">#&gt; path[1]="/tmp/Rtmprd7S5k/HIC_DATA/HeatShock_HIC.mcool": No such file or</span></span>
 <span><span class="co">#&gt; directory</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span><span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">Mcool.url</span>, <span class="va">McoolOutput.pth</span>, method <span class="op">=</span> <span class="st">"auto"</span>,</span>
@@ -366,13 +370,17 @@ binSize, corresponding to the HiC matrices at the same resolution.</p>
 <div class="section level2">
 <h2 id="import-hic">Import HiC<a class="anchor" aria-label="anchor" href="#import-hic"></a>
 </h2>
+<p>The package supports the import and normalization of HiC data.</p>
+<p>NOTE: Since version 0.99.2, the package supports import of balanced
+HiC matrices in .hic, .cool/.mcool formats. It also supports the import
+of ‘o/e’ matrices in .hic format.</p>
 <div class="section level3">
 <h3 id="import">Import<a class="anchor" aria-label="anchor" href="#import"></a>
 </h3>
 <p>HicAggR can import HiC data stored in the main formats: .hic, .cool,
-.mcool, .h5, .hdf5. The pacakage imports only the raw counts in R.
-Therefore it is necessary to perform the balancing and observed/expected
-correction steps.</p>
+.mcool, .h5 (since version 0.99.2). The pacakage imports by default the
+raw counts. Therefore, it is necessary to perform the balancing and
+observed/expected correction steps.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">HiC_Ctrl.cmx_lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ImportHiC.html">ImportHiC</a></span><span class="op">(</span></span>
 <span>        file    <span class="op">=</span> <span class="va">HicOutput.pth</span>,</span>
@@ -414,7 +422,19 @@ the function will normalize “cis” and “trans” matrices together.</li>
 <h3 id="observedexpected-correction">Observed/Expected Correction<a class="anchor" aria-label="anchor" href="#observedexpected-correction"></a>
 </h3>
 <p>To correct effects due to genomic distance the matrix is corrected by
-the expected values for each genomic distance.</p>
+the expected values for each genomic distance. The expected values are
+by default calculated as the average values of contacts per chromosome
+and per distance.</p>
+<p>NOTE: Since version 0.99.3, 2 more options to calculate expected
+values have been implemented. We designated the methods as the
+“lieberman” and the “mean_total”. These methods were implemented based
+on the options proposed by HiCExplorer’s <a href="https://hicexplorer.readthedocs.io/en/latest/content/tools/hicTransform.html" class="external-link">hicTransform</a>
+program. The “lieberman” method computes per distance (d) expected
+values by dividing the sum of all contacts by the difference of
+chromosome length and distance(d).</p>
+<p>The “mean_total” is simply the average of all contact values
+including 0 values, which are ignored in the default method
+(“mean_non_zero”)</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">HiC_Ctrl.cmx_lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/OverExpectedHiC.html">OverExpectedHiC</a></span><span class="op">(</span><span class="va">HiC_Ctrl.cmx_lst</span><span class="op">)</span></span></code></pre></div>
 <p><img src="InDepth_files/figure-html/unnamed-chunk-19-1.png" width="700"></p>
@@ -436,9 +456,9 @@ the expected attributes.</li>
 </h3>
 <p>Each element of the list corresponds to a ContactMatrix object
 (dgCMatrix object, sparse matrix format) storing contact frequencies for
-one chromosomes (cis-interactions, ex: “2L_2L”) or between two
+one chromosome (cis-interactions, ex: “2L_2L”) or between two
 chromosomes (trans-interactions, ex: “2L_2R”). HiC data format is based
-on <a href="https://www.bioconductor.org/packages/release/bioc/vignettes/InteractionSet/inst/doc/interactions.html" class="external-link">InteractionSet</a>
+on <a href="https://bioconductor.org/packages/release/bioc/html/InteractionSet.html" class="external-link">InteractionSet</a>
 and <a href="https://cran.r-project.org/web/packages/Matrix/Matrix.pdf" class="external-link">Matrix</a>
 packages.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
@@ -562,8 +582,8 @@ tibble format.<br>
 list in the tibble format.<br>
 - <em>name</em> : the matrix name. - <em>type</em> : interactionType.
 <em>“Cis”</em> for interactions on the same chromosome and
-<em>“Trans”</em> for interactions on different chromosomes.<br>
-- <em>kind</em> : the matrix kind. U for upper triangle matrices, L for
+<em>“Trans”</em> for interactions on different chromosomes. -
+<em>kind</em> : the matrix kind. U for upper triangle matrices, L for
 lower triangle matrices, NA for rectangular or square matrices. -
 <em>symmetric</em> : a boolean that indicates whether the matrix is
 symmetric (lower triangle identical to upper triangle).<br>
@@ -617,8 +637,7 @@ square</li>
 matrix is symmetric (lower triangle identical to upper triangle).<br>
 </li>
 <li>
-<strong>resolution</strong> : resolution of the HiC map.<br>
-</li>
+<strong>resolution</strong> : resolution of the HiC map.</li>
 <li>
 <strong>removedCounts</strong> : A sparse matrix (dgCMatrix) of the
 removed counts (counts that are below the threshold on rows or columns
@@ -633,8 +652,7 @@ normalized counts).<br>
 </li>
 <li>
 <strong>mtx</strong> : the kind of values in matrix. For example
-observed counts, normalized counts, observed/expected, etc.<br>
-</li>
+observed counts, normalized counts, observed/expected, etc.</li>
 <li>
 <strong>expected</strong> : This attributes is related to the
 <code>OverExpectedHiC</code> function. It gives the expected vector that
@@ -1258,8 +1276,8 @@ TRUE
 <li>If <code>indexBait</code> is NULL, <code>SearchPairs</code> will
 return homotypic pairs with <code>indexAnchor</code>.</li>
 <li>Minimum and maximum distances between pairs anchors can be set. Note
-that it is also possible tofilter pairs within a specific distance later
-on.</li>
+that it is also possible to filter pairs within a specific distance
+later on.</li>
 </ol>
 <hr>
 </div>
@@ -1312,7 +1330,7 @@ fit all regions into the same area.</p>
 <h4 id="regions-defined-with-ginteraction-object-or-pairs-of-granges">Regions defined with GInteraction object or Pairs of GRanges<a class="anchor" aria-label="anchor" href="#regions-defined-with-ginteraction-object-or-pairs-of-granges"></a>
 </h4>
 <p>The region’s start is defined by the center of the first element and
-the region’s end by the center of the second element.<br><img src="images/Regions_GInteractions.png"><!-- --></p>
+the region’s end by the center of the second element. <img src="images/Regions_GInteractions.png"><!-- --></p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">interactions_RFmatrix_ctrl.lst</span>  <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span>
 <span>    genomicFeature         <span class="op">=</span> <span class="va">interactions.gni</span>,</span>
@@ -1427,10 +1445,12 @@ View
 </tr>
 </tbody>
 </table></details><p><strong>Step 3:</strong> This defines a GRanges object. In the
-folowing examples, the same informations is needed in a GInteraction
+folowing examples, the same information is needed in a GInteraction
 object class.</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">domains_Border_Bin.gni</span> <span class="op">&lt;-</span> <span class="fu">InteractionSet</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/InteractionSet/man/GInteractions-class.html" class="external-link">GInteractions</a></span><span class="op">(</span><span class="va">domains_Border_Bin.gnr</span>,<span class="va">domains_Border_Bin.gnr</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">domains_Border_Bin.gni</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu">InteractionSet</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/InteractionSet/man/GInteractions-class.html" class="external-link">GInteractions</a></span><span class="op">(</span></span>
+<span>        <span class="va">domains_Border_Bin.gnr</span>,<span class="va">domains_Border_Bin.gnr</span><span class="op">)</span></span></code></pre></div>
 <details><summary>
 View
 </summary><table class="table">
@@ -1668,7 +1688,7 @@ Tad_2, Tad_3
 <h4 id="ponctual-interactions-defined-with-ginteractions">Ponctual interactions defined with GInteractions<a class="anchor" aria-label="anchor" href="#ponctual-interactions-defined-with-ginteractions"></a>
 </h4>
 <p>Here the first (blue on scheme) and the second (red on scheme)
-elements are the same.<br><img src="images/Ponctuals_Interactions_GInteractions.png"><!-- --></p>
+elements are the same. <img src="images/Ponctuals_Interactions_GInteractions.png"><!-- --></p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">border_PFmatrix.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span>
 <span>    genomicFeature         <span class="op">=</span> <span class="va">domains_Border_Bin.gni</span>,</span>
@@ -1710,7 +1730,8 @@ that will test each row in the column and return a bolean.</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">structureTarget.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    first_colname_of_GInteraction  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"value"</span><span class="op">)</span>,</span>
-<span>    second_colname_of_GInteraction <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">eachElement</span><span class="op">)</span><span class="op">{</span><span class="va">min_th</span><span class="op">&lt;</span><span class="va">value</span> <span class="op">&amp;&amp;</span> <span class="va">value</span><span class="op">&lt;</span><span class="va">max_th</span><span class="op">}</span></span>
+<span>    second_colname_of_GInteraction <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">eachElement</span><span class="op">)</span><span class="op">{</span></span>
+<span>        <span class="va">min_th</span><span class="op">&lt;</span><span class="va">value</span> <span class="op">&amp;&amp;</span> <span class="va">value</span><span class="op">&lt;</span><span class="va">max_th</span><span class="op">}</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
 <p>Interactions, pairs or extracted submatrices are filtered by metadata
 elements from GRanges objects used in <code>SearchPairs</code>. Those
@@ -2540,7 +2561,8 @@ will return the indices of filtered elements.</p>
 <p>With the targets and selectionFun defined above:</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/FilterInteractions.html">FilterInteractions</a></span><span class="op">(</span></span>
-<span>    genomicInteractions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span>,</span>
+<span>    genomicInteractions <span class="op">=</span> </span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span>,</span>
 <span>    targets        <span class="op">=</span> <span class="va">targets</span>,</span>
 <span>    selectionFun     <span class="op">=</span> <span class="va">selectionFun</span></span>
 <span>    <span class="op">)</span></span>
@@ -2575,7 +2597,8 @@ first names</p>
 </h4>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/FilterInteractions.html">FilterInteractions</a></span><span class="op">(</span></span>
-<span>    genomicInteractions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span>,</span>
+<span>    genomicInteractions <span class="op">=</span> </span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span>,</span>
 <span>    targets        <span class="op">=</span> <span class="va">first100_targets</span>,</span>
 <span>    selectionFun     <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>    <span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -2689,13 +2712,15 @@ attributes.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nSample.num</span> <span class="op">=</span> <span class="fl">3</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
-<span><span class="va">targets</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>name<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span><span class="op">$</span><span class="va">name</span>,<span class="va">nSample.num</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">targets</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>name<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span><span class="op">$</span><span class="va">name</span>,<span class="va">nSample.num</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="section level4">
 <h4 id="ginteraction-sampling">GInteraction sampling<a class="anchor" aria-label="anchor" href="#ginteraction-sampling"></a>
 </h4>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/FilterInteractions.html">FilterInteractions</a></span><span class="op">(</span></span>
-<span>    genomicInteractions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span>,</span>
+<span>    genomicInteractions <span class="op">=</span> </span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span>,</span>
 <span>    targets        <span class="op">=</span> <span class="va">targets</span>,</span>
 <span>    selectionFun     <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>    <span class="op">)</span></span>
@@ -2764,7 +2789,8 @@ we take the folowing targets:</p>
 </h4>
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/FilterInteractions.html">FilterInteractions</a></span><span class="op">(</span></span>
-<span>    genomicInteractions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span>,</span>
+<span>    genomicInteractions <span class="op">=</span> </span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span>,</span>
 <span>    targets        <span class="op">=</span> <span class="va">targets</span>,</span>
 <span>    selectionFun     <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>    <span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -2883,7 +2909,8 @@ baits on X axis.</p>
 <h3 id="information-about-the-orientation">Information about the orientation<a class="anchor" aria-label="anchor" href="#information-about-the-orientation"></a>
 </h3>
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># mcols(attributes(first100_interactions_RFmatrix_ctrl.lst)$interactions)$orientation</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># mcols(attributes(</span></span>
+<span>    <span class="co"># first100_interactions_RFmatrix_ctrl.lst)$interactions)$orientation</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>The 13th matrice is well oriented, i.e. the <strong>anchor Beaf is
 in Y axis</strong> and the <strong>bait TSS in X axis</strong><br>
@@ -2897,7 +2924,8 @@ in Y axis</strong> and the <strong>anchor Beaf in X axis</strong>
 <h3 id="orientation-on-matrices-list">Orientation on matrices list<a class="anchor" aria-label="anchor" href="#orientation-on-matrices-list"></a>
 </h3>
 <div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 58 matrices are oriented</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -2906,7 +2934,8 @@ in Y axis</strong> and the <strong>anchor Beaf in X axis</strong>
 <p><strong>Warning</strong> This procedure force orientation even if not
 needed.</p>
 <div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">orientedMatrix.mtx</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">orientedMatrix.mtx</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -2922,9 +2951,16 @@ for giving access for the user to this originally hidden function is to
 have a uniformly prepared matrices list for both quantifications and
 visualisations.</p>
 <div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">oriented_quantiled_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span>, transFun <span class="op">=</span> <span class="st">'quantile'</span>, orientate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">oriented_quantiled_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span></span>
+<span>        <span class="va">first100_interactions_RFmatrix_ctrl.lst</span>,</span>
+<span>        transFun <span class="op">=</span> <span class="st">'quantile'</span>,</span>
+<span>        orientate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 58 matrices are oriented</span></span>
-<span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span>, orientate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span></span>
+<span>        <span class="va">first100_interactions_RFmatrix_ctrl.lst</span>,</span>
+<span>        orientate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 58 matrices are oriented</span></span></code></pre></div>
 <hr>
 </div>
@@ -2937,13 +2973,13 @@ where these contacts are computed with a function.</p>
 <div class="section level3">
 <h3 id="basic-quantifications">Basic quantifications<a class="anchor" aria-label="anchor" href="#basic-quantifications"></a>
 </h3>
-<p>The <code>GetQuantif</code> function has some default area and
-function (see <code>GetQuantif</code>).</p>
+<p>The <code>GetQuantif</code> function extracts per submatrix the
+average values of the 3*3 central pixels by default (see
+<code>GetQuantif</code>).</p>
 <ol style="list-style-type: decimal">
 <li>
 <strong>area</strong>: The region where the contacts values are
-extracted in each matrix.<br>
-</li>
+extracted in each matrix.</li>
 <li>
 <strong>operation</strong> The function that is done on extracted
 values for each matrix.</li>
@@ -3137,7 +3173,10 @@ functions like <code>sum</code>, <code>mean</code> or
 <code>median</code> (see <code>Aggregation</code>)</p>
 <div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># rm0 argument can be added to PrepareMtxList to assign NA to 0 values.</span></span>
-<span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">=</span> <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span>,rm0 <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">=</span> </span>
+<span>    <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span></span>
+<span>        <span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span>,</span>
+<span>        rm0 <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">agg_sum.mtx</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Aggregation.html">Aggregation</a></span><span class="op">(</span></span>
 <span>    matrices <span class="op">=</span> <span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span>, </span>
 <span>    aggFun      <span class="op">=</span> <span class="st">"sum"</span></span>
@@ -3183,7 +3222,8 @@ below).</p>
 <span>    <span class="op">)</span></span></code></pre></div>
 <p><strong>Orientation</strong></p>
 <div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span><span class="op">)</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Preparation of second matrices list in Beaf depleted condition.
 <strong>Extraction</strong>
@@ -3205,25 +3245,28 @@ below).</p>
 <span>    <span class="op">)</span></span></code></pre></div>
 <p><strong>Orientation</strong></p>
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">oriented_first100_interactions_RFmatrix.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix.lst</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">oriented_first100_interactions_RFmatrix.lst</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix.lst</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 58 matrices are oriented</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="aggregate">Aggregate<a class="anchor" aria-label="anchor" href="#aggregate"></a>
 </h4>
 <div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">=</span> <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span>,</span>
-<span>    minDist             <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    maxDist             <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    rm0             <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>    orientate <span class="op">=</span> <span class="cn">TRUE</span></span>
+<code class="sourceCode R"><span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">=</span> </span>
+<span>    <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span>,</span>
+<span>        minDist   <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>        maxDist   <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>        rm0       <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>        orientate <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; 58 matrices are oriented</span></span>
-<span><span class="va">oriented_first100_interactions_RFmatrix.lst</span> <span class="op">=</span> <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix.lst</span>,</span>
-<span>    minDist             <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    maxDist             <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    rm0             <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>    orientate <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="va">oriented_first100_interactions_RFmatrix.lst</span> <span class="op">=</span> </span>
+<span>    <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix.lst</span>,</span>
+<span>        minDist   <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>        maxDist   <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>        rm0       <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>        orientate <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; 58 matrices are oriented</span></span>
 <span></span>
@@ -3257,8 +3300,8 @@ distance during the aggregation function.</li>
 <li>It is possible to orientate submatrices at this point or using
 <code>OrientateMatrix</code> function.</li>
 <li>
-<code>PrepareMtxList</code> keeps former attributes of the matrices
-list and add new ones:
+<code>PrepareMtxList</code> keeps former attributes matrices list
+and adds new ones:
 <ul>
 <li>totalMatrixNumber: total number of matrices.</li>
 <li>filteredMatrixNumber: number of matrices after distance
@@ -3302,8 +3345,7 @@ control in an background area (e.g upper right corner in matrices).</li>
 <li>aggCtrl: Aggregation of the control.<br>
 </li>
 <li>aggCorrected: Aggregation of the condition corrected with
-correctedFact.<br>
-</li>
+correctedFact.</li>
 <li>aggDelta: the difference between the aggregated matrix of the
 condition and the aggregated matrix of the control.<br>
 </li>
@@ -3336,7 +3378,8 @@ the control.</li>
 <li>Control aggregation with orientation</li>
 </ol>
 <div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">oriented_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">oriented_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 168 matrices are oriented</span></span>
 <span><span class="va">orientedAggreg.mtx</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Aggregation.html">Aggregation</a></span><span class="op">(</span></span>
 <span>        ctrlMatrices<span class="op">=</span><span class="va">oriented_interactions_RFmatrix_ctrl.lst</span>,</span>
@@ -3346,13 +3389,14 @@ the control.</li>
 <li>Differential aggregation</li>
 </ol>
 <div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">oriented_interactions_RFmatrix.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">interactions_RFmatrix.lst</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">oriented_interactions_RFmatrix.lst</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">interactions_RFmatrix.lst</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 168 matrices are oriented</span></span>
 <span><span class="va">diffAggreg.mtx</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Aggregation.html">Aggregation</a></span><span class="op">(</span></span>
 <span>        ctrlMatrices    <span class="op">=</span> <span class="va">oriented_interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>        matrices        <span class="op">=</span> <span class="va">oriented_interactions_RFmatrix.lst</span>,</span>
-<span>        aggFun             <span class="op">=</span> <span class="st">"mean"</span>,</span>
-<span>        diffFun            <span class="op">=</span> <span class="st">"log2+1"</span>,</span>
+<span>        aggFun          <span class="op">=</span> <span class="st">"mean"</span>,</span>
+<span>        diffFun         <span class="op">=</span> <span class="st">"log2+1"</span>,</span>
 <span>        scaleCorrection <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>        correctionArea  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span> i<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">30</span><span class="op">)</span> , j<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">72</span><span class="op">:</span><span class="fl">101</span><span class="op">)</span> <span class="op">)</span>,</span>
 <span>        statCompare     <span class="op">=</span> <span class="cn">TRUE</span></span>
@@ -3596,7 +3640,7 @@ following the ggplot2 grammar</p>
 <span><span class="co">#&gt; [33] Rhdf5lib_1.24.2             ggplot2_3.5.0              </span></span>
 <span><span class="co">#&gt; [35] scales_1.3.0                SummarizedExperiment_1.32.0</span></span>
 <span><span class="co">#&gt; [37] cli_3.6.2                   rmarkdown_2.26             </span></span>
-<span><span class="co">#&gt; [39] crayon_1.5.2                ragg_1.2.7                 </span></span>
+<span><span class="co">#&gt; [39] crayon_1.5.2                ragg_1.3.0                 </span></span>
 <span><span class="co">#&gt; [41] generics_0.1.3              rstudioapi_0.15.0          </span></span>
 <span><span class="co">#&gt; [43] cachem_1.0.8                rhdf5_2.46.1               </span></span>
 <span><span class="co">#&gt; [45] stringr_1.5.1               zlibbioc_1.48.0            </span></span>

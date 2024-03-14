@@ -77,8 +77,8 @@ distances.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>submatrices</dt>
-<dd><p><listmatrix>: The matrices list to separate using
-interaction distances and aggregate.
+<dd><p><listmatrix>: The matrices list to
+separate using interaction distances and aggregate.
 Chunks of distances are created with:
 <code>c(0,50000*2 ^ seq(0,5,by=1))</code>.
 Other matrices with distances over 1.6 Mb are aggregated in the same
@@ -86,16 +86,21 @@ final chunk.</listmatrix></p></dd>
 
 
 <dt>ctrlSubmatrices</dt>
-<dd><p><listmatrix>: The matrices list to use as control
-condition for differential aggregation.</listmatrix></p></dd>
+<dd><p><listmatrix>: The matrices list to use
+as control condition for differential aggregation.</listmatrix></p></dd>
 
 
 <dt>...</dt>
-<dd><p>: Additional arguments to pass to <code><a href="Aggregation.html">Aggregation()</a></code>
+<dd><p>: Additional arguments to pass to
+[Aggregation()].
 For differential aggregation plot, <code>submatrices</code> will take the matrices
 of the treated condition.
-eg:
-<code>PlotAPA_byDistance(submatrices = interactions_HS.mtx_lst, ctrlSubmatrices = interactions_Ctrl.mtx_lst)</code></p></dd>
+eg:</p>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">PlotAPA_byDistance</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="at">submatrices =</span> interactions_HS.mtx_lst,</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="at">ctrlSubmatrices =</span> interactions_Ctrl.mtx_lst)<span class="st">```</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="at">[Aggregation()]: R:Aggregation()</span></span></code></pre><p></p></div></dd>
 
 
 <dt>plot.opts</dt>

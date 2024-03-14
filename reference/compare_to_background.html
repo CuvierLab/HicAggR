@@ -91,24 +91,25 @@ The HiC maps list.</p></dd>
 
 
 <dt>indexAnchor</dt>
-<dd><p><granges>: A first indexed GRanges object used as
-pairs anchor (must be indexed using <code><a href="IndexFeatures.html">IndexFeatures()</a></code>).</granges></p></dd>
+<dd><p><granges>: A first indexed GRanges object
+used as pairs anchor (must be indexed using <code><a href="IndexFeatures.html">IndexFeatures()</a></code>).</granges></p></dd>
 
 
 <dt>indexBait</dt>
-<dd><p><granges>: A second indexed GRanges object used as
-pairs bait (must be indexed using <code><a href="IndexFeatures.html">IndexFeatures()</a></code>).</granges></p></dd>
+<dd><p><granges>: A second indexed GRanges object
+used as pairs bait (must be indexed using <code><a href="IndexFeatures.html">IndexFeatures()</a></code>).</granges></p></dd>
 
 
 <dt>genomicConstraint</dt>
-<dd><p><granges>: GRanges object of constraint regions.
-If NULL chromosomes in chromSizes are used as constraints (Default NULL)</granges></p></dd>
+<dd><p><granges>: GRanges object of
+constraint regions. If <code>NULL</code>, chromosomes in chromSizes are used as
+constraints (Default NULL)</granges></p></dd>
 
 
 <dt>secondaryConst.var</dt>
-<dd><p><character>: A string defining column name
-containing compartment information in the metadata of anchor and
-bait <granges> objects. (Default NULL)</granges></character></p></dd>
+<dd><p><character>: A string defining
+column name containing compartment information in the
+metadata of anchor and bait <granges> objects. (Default NULL)</granges></character></p></dd>
 
 
 <dt>chromSizes</dt>
@@ -117,26 +118,29 @@ names and lengths in base pairs.</p></dd>
 
 
 <dt>n_background</dt>
-<dd><p><integer> : Number of background couples to keep.
-(Default NULL)</integer></p></dd>
+<dd><p><integer> : Number of background
+couples to keep. (Default NULL)</integer></p></dd>
 
 
 <dt>areaFun</dt>
-<dd><p><character or function>: A character or function that allows
-to extract an area from each matrix that composes the matrices list
-(Default "center"). Look at <a href="GetQuantif.html">GetQuantif</a> for more info.</character></p></dd>
+<dd><p><character or function>: A character
+or function that allows to extract an area from each matrix that
+composes the matrices list (Default "center").
+Look at <a href="GetQuantif.html">GetQuantif</a> for more info.</character></p></dd>
 
 
 <dt>operationFun</dt>
-<dd><p><character or function>: A character or function
-specifying the operation applied to the selected area (Default "mean").
+<dd><p><character or function>: A character
+or function specifying the operation applied to the selected area.
+(Default "mean").
 Look at <a href="GetQuantif.html">GetQuantif</a> for more info.</character></p></dd>
 
 
 <dt>bg_type</dt>
-<dd><p><character>: Type of background couples to generate.
-Possible choices: "random_anchors", "inter_TAD","inter_compartment",
-NULL (Defaults to "random_anchors"). More information in details...</character></p></dd>
+<dd><p><character>: Type of background couples
+to generate. Possible choices: "random_anchors", "inter_TAD",
+"inter_compartment", NULL (Defaults to "random_anchors").
+More information in details...</character></p></dd>
 
 
 <dt>cores</dt>
@@ -148,8 +152,8 @@ NULL (Defaults to "random_anchors"). More information in details...</character><
 
 
 <dt>z_score_per_dist_group</dt>
-<dd><p><logical> Should z-scores and p.values
-for target couples be calculated in separate groups
+<dd><p><logical> Should z-scores
+and p.values for target couples be calculated in separate groups
 based on distances? Look at details for more. (Default: TRUE)</logical></p></dd>
 
 
@@ -181,10 +185,10 @@ as background.
 Distance constraint applied correspond to the minimal distance of target
 couples and
 maximal width of supplied TADs.</p></li>
-<li><p>"inter_compartment": If <code>secondaryConst.var</code> is not <code>NULL</code> and both
-indexAnchor and indexBait objects contain the provided variable name,
-then background couples are formed between anchors and baits located in
-different compartments.</p></li>
+<li><p>"inter_compartment": If <code>secondaryConst.var</code> is not
+<code>NULL</code> and both indexAnchor and indexBait objects contain the
+provided variable name, then background couples are formed between anchors
+and baits located in different compartments.</p></li>
 <li><p>"NULL": If <code>NULL</code>, <code>random_anchors</code> are set by default.</p></li>
 </ul><p>On the matter of <code>z_score_per_dist_group</code>:
 This option was included because we noticed that o/e values tend to be

@@ -83,37 +83,40 @@ to perform submatrix extraction with <code><a href="ExtractSubmatrix.html">Extra
 
 
 <dt>genomicConstraint</dt>
-<dd><p><granges>: GRanges object of constraint regions.
-If NULL chromosomes in chromSizes are used as constraints (Default NULL)</granges></p></dd>
+<dd><p><granges>: GRanges object of
+constraint regions. If NULL chromosomes in chromSizes are used as
+constraints (Default NULL).</granges></p></dd>
 
 
 <dt>discard_trans</dt>
-<dd><p><logical>: If TRUE discard loops where anchor and bait
-are in different genomic constraint elements, either different TADs or
-chromosomes, if <code>genomicConstraint = NULL</code>. (Default FALSE)</logical></p></dd>
+<dd><p><logical>: If TRUE discard loops where
+anchor and bait are in different genomic constraint elements,
+either different TADs or chromosomes, if <code>genomicConstraint = NULL</code>.
+(Default FALSE)</logical></p></dd>
 
 
 <dt>chromSizes</dt>
-<dd><p>&lt;data.frame&gt;: A data.frame containing chromosomes names
-and lengths in base pairs (see example). (Default NULL)</p></dd>
+<dd><p>&lt;data.frame&gt;: A data.frame containing
+chromosomes names and lengths in base pairs (see example). (Default NULL)</p></dd>
 
 
 <dt>binSize</dt>
-<dd><p><integer>: Bin size in bp - corresponds to matrix resolution.</integer></p></dd>
+<dd><p><integer>: Bin size in bp - corresponds to
+matrix resolution.</integer></p></dd>
 
 
 <dt>minDist</dt>
-<dd><p><numeric>: Minimal distance between anchors and baits.
-(Default NULL)</numeric></p></dd>
+<dd><p><numeric>: Minimal distance between anchors
+and baits. (Default NULL)</numeric></p></dd>
 
 
 <dt>maxDist</dt>
-<dd><p><numeric>: Maximal distance between anchors and baits.
-(Default NULL)</numeric></p></dd>
+<dd><p><numeric>: Maximal distance between anchors
+and baits. (Default NULL)</numeric></p></dd>
 
 
 <dt>verbose</dt>
-<dd><p><logical>: If TRUE show the progression in console.
+<dd><p><logical>: Show the progression in console?
 (Default FALSE)</logical></p></dd>
 
 
@@ -141,12 +144,11 @@ and lengths in base pairs (see example). (Default NULL)</p></dd>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">loops</span> <span class="op">&lt;-</span> <span class="fu">import_loops</span><span class="op">(</span></span></span>
 <span class="r-in"><span>    file_bedpe <span class="op">=</span> <span class="va">bedpe_path</span>,</span></span>
-<span class="r-in"><span>    chromSizes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2L"</span>, <span class="st">"2R"</span>, <span class="st">"3L"</span>, <span class="st">"3R"</span>, <span class="st">"4"</span>, <span class="st">"X"</span>, <span class="st">"Y"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">23513712</span>, <span class="fl">25286936</span>, <span class="fl">28110227</span>, <span class="fl">32079331</span>, <span class="fl">1348131</span>, <span class="fl">23542271</span>, <span class="fl">3667352</span><span class="op">)</span></span></span>
-<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    chromSizes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1"</span>,<span class="st">"2"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">249250621</span>,<span class="fl">243199373</span><span class="op">)</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    binSize <span class="op">=</span> <span class="fl">5000</span>, minDist <span class="op">=</span> <span class="fl">105000</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>found more than one best sequence renaming map compatible with seqname style "NCBI" for this object, using the first one</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

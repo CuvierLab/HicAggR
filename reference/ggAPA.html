@@ -78,49 +78,52 @@
 <span>  na.value <span class="op">=</span> <span class="st">"#F2F2F2"</span>,</span>
 <span>  colorScale <span class="op">=</span> <span class="st">"linear"</span>,</span>
 <span>  bias <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  paletteLength <span class="op">=</span> <span class="fl">51</span></span>
+<span>  paletteLength <span class="op">=</span> <span class="fl">51</span>,</span>
+<span>  annotate <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>aggregatedMtx</dt>
-<dd><p><matrix> : The matrix to plot. (Default NULL)</matrix></p></dd>
+<dd><p><matrix> : The matrix to plot.
+(Default NULL)</matrix></p></dd>
 
 
 <dt>title</dt>
-<dd><p><character> : The title of plot. (Default NULL)</character></p></dd>
+<dd><p><character> : The title of plot.
+(Default NULL)</character></p></dd>
 
 
 <dt>trim</dt>
-<dd><p><numeric> : A number between 0 and 100 that give the percentage
-of trimming. (Default 0)</numeric></p></dd>
+<dd><p><numeric> : A number between 0 and 100
+that gives the percentage of trimming. (Default 0)</numeric></p></dd>
 
 
 <dt>tails</dt>
-<dd><p><character> : Which boundary must be trim, if it's both, trim
-half of the percentage in inferior and superior see QtlThreshold.
-(Default "both")</character></p></dd>
+<dd><p><character> : Which boundary must be trimmed?
+If it's both, trim half of the percentage in inferior and superior.
+see <code>QtlThreshold</code>. (Default "both")</character></p></dd>
 
 
 <dt>colMin</dt>
-<dd><p><numeric> : Minimal value of Heatmap, force color range.
-If Null automaticaly find. (Default NULL)</numeric></p></dd>
+<dd><p><numeric> : Minimal value of Heatmap,
+force color range. If <code>NULL</code> automatically find. (Default NULL)</numeric></p></dd>
 
 
 <dt>colMid</dt>
-<dd><p><numeric> : Center value of Heatmap, force color range.
-If Null automaticaly find. (Default NULL)</numeric></p></dd>
+<dd><p><numeric> : Center value of Heatmap,
+force color range. If <code>NULL</code> automatically find. (Default NULL)</numeric></p></dd>
 
 
 <dt>colMax</dt>
-<dd><p><numeric> : Maximal value of Heatmap, force color range.
-If Null automaticaly find. (Default NULL)</numeric></p></dd>
+<dd><p><numeric> : Maximal value of Heatmap,
+force color range. If <code>NULL</code> automatically find. (Default NULL)</numeric></p></dd>
 
 
 <dt>colBreaks</dt>
 <dd><p><numeric> : Repartition of colors.
-If Null automaticaly find. (Default NULL)</numeric></p></dd>
+If <code>NULL</code> automatically find. (Default NULL)</numeric></p></dd>
 
 
 <dt>blurPass</dt>
@@ -128,13 +131,13 @@ If Null automaticaly find. (Default NULL)</numeric></p></dd>
 
 
 <dt>boxKernel</dt>
-<dd><p><numeric> : If NULL automaticaly compute for 3 Sd.
-(Default NULL)</numeric></p></dd>
+<dd><p><numeric> : If <code>NULL</code> automatically
+compute for 3 Sd. (Default NULL)</numeric></p></dd>
 
 
 <dt>kernSize</dt>
-<dd><p><numeric> : Size of box applied to blurr if null automaticaly
-compute for 3 Sd. (Default NULL)</numeric></p></dd>
+<dd><p><numeric> : Size of box applied to blurr.
+If <code>NULL</code> automatically compute for 3 Sd. (Default NULL)</numeric></p></dd>
 
 
 <dt>stdev</dt>
@@ -142,33 +145,39 @@ compute for 3 Sd. (Default NULL)</numeric></p></dd>
 
 
 <dt>loTri</dt>
-<dd><p><numeric> : The value that replace all value in the lower
-triangle of matrice (Usefull when blur is apply). (Default NULL)</numeric></p></dd>
+<dd><p><numeric> : The value that replace all value in
+the lower triangle of matrice (Usefull when blur is apply).(Default NULL)</numeric></p></dd>
 
 
 <dt>colors</dt>
-<dd><p><character> : Heatmap color list. If NULL automaticaly compute.
-(Default NULL)</character></p></dd>
+<dd><p><character> : Heatmap color list.
+If <code>NULL</code>, automatically compute. (Default NULL)</character></p></dd>
 
 
 <dt>na.value</dt>
-<dd><p><character> : Color of NA values. (Default "#F2F2F2")</character></p></dd>
+<dd><p><character> : Color of NA values.
+(Default "#F2F2F2")</character></p></dd>
 
 
 <dt>colorScale</dt>
-<dd><p><character> : Shape of color scale on of "linear" or
-"density" based. (Default "linear")</character></p></dd>
+<dd><p><character> : Shape of color scale on of
+"linear" or "density" based. (Default "linear")</character></p></dd>
 
 
 <dt>bias</dt>
-<dd><p><numeric> : A positive number. Higher values give more widely
-spaced colors at the high end. See ?grDevices::colorRamp for more details.
-(Default 1)</numeric></p></dd>
+<dd><p><numeric> : A positive number. Higher values give
+more widely spaced colors at the high end. See <code><a href="https://rdrr.io/r/grDevices/colorRamp.html" class="external-link">?grDevices::colorRamp</a></code>
+for more details. (Default 1)</numeric></p></dd>
 
 
 <dt>paletteLength</dt>
-<dd><p><numeric> : The number of color in the palette.
-(Default 51)</numeric></p></dd>
+<dd><p><numeric> : The number of color in the
+palette. (Default 51)</numeric></p></dd>
+
+
+<dt>annotate</dt>
+<dd><p><logical> : Should there be axis ticks?
+(Default: TRUE)</logical></p></dd>
 
 </dl></div>
     <div class="section level2">

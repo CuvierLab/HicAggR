@@ -78,9 +78,9 @@ in a given area and returns it in a named vector.</p>
 
 
 <dt>areaFun</dt>
-<dd><p><character or function>: A character or function that allows
-to extract an area from each matrix that composes the matrices list
-(Default "center").</character></p><ul><li><p>"C" or "CENTER": 3x3 pixels at the intersection between anchor and
+<dd><p><character or function>: A character or
+function that allows to extract an area from each matrix that composes
+the matrices list (Default "center").</character></p><ul><li><p>"C" or "CENTER": 3x3 pixels at the intersection between anchor and
 bait.</p></li>
 <li><p>"UL" or "UPPER_LEFT": pixels in the uppper left square</p></li>
 <li><p>"UR" or "UPPER_RIGHT": pixels in the uppper right square</p></li>
@@ -95,8 +95,9 @@ bait.</p></li>
 
 
 <dt>operationFun</dt>
-<dd><p><character or function>: A character or function
-specifying the operation applied to the selected area (Default "mean_rm0").</character></p><ul><li><p>"mean_rm0": apply a mean after replacing 0 with NA</p></li>
+<dd><p><character or function>: A character or
+function specifying the operation applied to the selected area.
+(Default "mean_rm0")</character></p><ul><li><p>"mean_rm0": apply a mean after replacing 0 with NA</p></li>
 <li><p>"median_rm0": apply a median after replacing 0 with NA</p></li>
 <li><p>"sum_rm0": apply a sum after replacing 0 with NA</p></li>
 <li><p>"median": apply a median</p></li>
@@ -106,9 +107,9 @@ specifying the operation applied to the selected area (Default "mean_rm0").</cha
 
 
 <dt>varName</dt>
-<dd><p><character>: The name of a column in GInteraction attributes
-of matrices used as named in the output vector (Default NULL). By default,
-sub-matrices IDs are used.</character></p></dd>
+<dd><p><character>: The name of a column in
+GInteraction attributes of matrices used as named in the output vector
+(Default NULL). By default, sub-matrices IDs are used.</character></p></dd>
 
 </dl></div>
     <div class="section level2">

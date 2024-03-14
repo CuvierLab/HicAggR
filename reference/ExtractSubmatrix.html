@@ -86,44 +86,47 @@ The HiC maps list.</p></dd>
 
 
 <dt>referencePoint</dt>
-<dd><p><character>: Type of extracted submatrices.
-"rf" for "region feature" to extract triangle-shaped matrices around
-regions or "pf" for "point feature" to extract square-shaped matrices
-around points. (Default "rf")</character></p></dd>
+<dd><p><character>: Type of
+extracted submatrices. "rf" for "region feature" to extract triangle-shaped
+matrices around regions or "pf" for "point feature" to extract
+square-shaped matrices around points. (Default "rf")</character></p></dd>
 
 
 <dt>hicResolution</dt>
-<dd><p><numeric>: The resolution in used in hicLst.
-If NULL automatically find in resolution attributes of hicLst.
-(Default NULL)</numeric></p></dd>
+<dd><p><numeric>: The resolution
+used in hicLst. If <code>NULL</code>, automatically find in resolution attributes
+of hicLst. (Default NULL)</numeric></p></dd>
 
 
 <dt>matriceDim</dt>
-<dd><p><numeric>: The size of matrices in output. (Default 21).</numeric></p></dd>
+<dd><p><numeric>: The size of matrices in output.
+(Default 21).</numeric></p></dd>
 
 
 <dt>shift</dt>
-<dd><p><numeric>: Only when "referencePoint" is "rf". Factor defining
-how much of the distance between anchor and bait is extracted before and
-after the region (Default 1). Ex: for shift=2, extracted matrices will
-be 2<em>regionSize+regionSize+2</em>regionSize.</numeric></p></dd>
+<dd><p><numeric>: Only when "referencePoint" is "rf".
+Factor defining how much of the distance between anchor and bait is
+extracted before and after the region (Default 1).
+Ex: for shift=2, extracted matrices will be:
+<code>2*regionSize+regionSize+2*regionSize</code>.</numeric></p></dd>
 
 
 <dt>remove_duplicates</dt>
-<dd><p><logical>: remove duplicated submatrices.
+<dd><p><logical>:
+remove duplicated submatrices ?
 This avoids duplicated submatrices when both anchor and bait bins are from
 the same feature. ex. BEAF32-BEAF32, same submatrix twice with opposite
 orientations(Default TRUE)</logical></p></dd>
 
 
 <dt>cores</dt>
-<dd><p><integer> : An integer to specify the number of cores.
-(Default 1)</integer></p></dd>
+<dd><p><integer> : An integer
+to specify the number of cores. (Default 1)</integer></p></dd>
 
 
 <dt>verbose</dt>
-<dd><p><logical>: If TRUE show the progression in console.
-(Default FALSE)</logical></p></dd>
+<dd><p><logical>: If TRUE,
+show the progression in console. (Default FALSE)</logical></p></dd>
 
 </dl></div>
     <div class="section level2">

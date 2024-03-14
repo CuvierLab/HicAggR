@@ -78,37 +78,39 @@ constraints. Needed prior HicAggR::SearchPairs() function.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>gRangeList</dt>
-<dd><p>&lt;GRanges or GRangesList or listGRanges&gt;: GRanges object,
-list of GRanges or GRangesList containing coordinates to index.</p></dd>
+<dd><p>&lt;GRanges or GRangesList or listGRanges&gt;:
+GRanges object, list of GRanges or GRangesList containing coordinates
+to index.</p></dd>
 
 
 <dt>genomicConstraint</dt>
-<dd><p><granges>: GRanges object of constraint regions.
-Note that bins in the same constraint region only will be paired in
-HicAggR::SearchPairs(). If NULL chromosomes in chromSizes are used as
-constraints (Default NULL)</granges></p></dd>
+<dd><p><granges>: GRanges object of
+constraint regions. Note that bins in the same constraint region only
+will be paired in HicAggR::SearchPairs(). If NULL chromosomes in chromSizes
+are used as constraints (Default NULL)</granges></p></dd>
 
 
 <dt>chromSizes</dt>
-<dd><p>&lt;data.frame&gt;: A data.frame containing chromosomes names
-and lengths in base pairs (see example).</p></dd>
+<dd><p>&lt;data.frame&gt;: A data.frame containing
+chromosomes names and lengths in base pairs (see example).</p></dd>
 
 
 <dt>binSize</dt>
-<dd><p><integer>: Bin size in bp - corresponds to matrix resolution.</integer></p></dd>
+<dd><p><integer>: Bin size in bp - corresponds to
+matrix resolution.</integer></p></dd>
 
 
 <dt>method</dt>
-<dd><p><character>: A string defining which summary method is used on
-metadata columns defined in metadataColName if multiple ranges are indexed
-in the same bin. Use 'mean', 'median', 'sum', 'max' or 'min'.
-(Default 'mean'')</character></p></dd>
+<dd><p><character>: A string defining which summary
+method is used on metadata columns defined in metadataColName if multiple
+ranges are indexed in the same bin. Use 'mean', 'median', 'sum', 'max' or
+'min'. (Default 'mean'')</character></p></dd>
 
 
 <dt>metadataColName</dt>
-<dd><p><character> : A character vector that specify the
-metadata columns of GRanges on which apply the summary method if multiple
-ranges are indexed in the same bin.</character></p></dd>
+<dd><p><character> : A character vector that
+specify the metadata columns of GRanges on which to apply the summary
+method if multiple ranges are indexed in the same bin.</character></p></dd>
 
 
 <dt>cores</dt>
@@ -116,7 +118,7 @@ ranges are indexed in the same bin.</character></p></dd>
 
 
 <dt>verbose</dt>
-<dd><p><logical>: If TRUE show the progression in console.
+<dd><p><logical>: Show the progression in console?
 (Default FALSE)</logical></p></dd>
 
 </dl></div>

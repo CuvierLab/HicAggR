@@ -91,32 +91,35 @@ assuming .h5 and .hdf5 are only for cool (not mcool).</p></dd>
 
 
 <dt>chromSizes</dt>
-<dd><p>&lt;data.frame&gt;: A data.frame where first colum correspond
-to the chromosomes names, and the second column correspond to the
-chromosomes lengths in base pairs.</p></dd>
+<dd><p>&lt;data.frame&gt;: A data.frame where first
+colum correspond to the chromosomes names, and the second column correspond
+to the chromosomes lengths in base pairs.</p></dd>
 
 
 <dt>chrom_1</dt>
-<dd><p><numeric>: The seqnames of firsts chromosmes (rows in matrix).</numeric></p></dd>
+<dd><p><numeric>: The seqnames of first chromosmes
+(rows in matrix).</numeric></p></dd>
 
 
 <dt>chrom_2</dt>
-<dd><p><numeric>: The seqnames of second chromosmes (col in matrix).
-If is NULL is equal to chrom_1 (Defalt NULL)</numeric></p></dd>
+<dd><p><numeric>: The seqnames of second chromosmes
+(col in matrix).
+If <code>NULL</code> variable will be assigned value of chrom_1 (Defalt NULL).</numeric></p></dd>
 
 
 <dt>verbose</dt>
-<dd><p><logical>: If TRUE show the progression in console.
+<dd><p><logical>: Show the progression in console?
 (Default FALSE)</logical></p></dd>
 
 
 <dt>cores</dt>
-<dd><p><numerical> : An integer to specify the number of cores.
-(Default 1)</numerical></p></dd>
+<dd><p><numerical> : An integer to specify the number
+of cores. (Default 1)</numerical></p></dd>
 
 
 <dt>hic_norm</dt>
-<dd><p><character>: "norm" argument to supply to <code><a href="https://rdrr.io/pkg/strawr/man/straw.html" class="external-link">strawr::straw()</a></code>.
+<dd><p><character>: "norm" argument to supply to
+<code><a href="https://rdrr.io/pkg/strawr/man/straw.html" class="external-link">strawr::straw()</a></code>.
 This argument is for .hic format data only. Available norms can be obtained
 through <code><a href="https://rdrr.io/pkg/strawr/man/readHicNormTypes.html" class="external-link">strawr::readHicNormTypes()</a></code>.
 (Default "NONE").</character></p></dd>
@@ -135,19 +138,20 @@ Other options can be: "oe", "expected". (Default "observed").</character></p></d
 
 
 <dt>cool_weight_name</dt>
-<dd><p><character> Name of the correcter in the cool file.
-(Default: weight). <code><a href="https://rdrr.io/pkg/rhdf5/man/h5ls.html" class="external-link">rhdf5::h5ls()</a></code> to see the available correcters.</character></p></dd>
+<dd><p><character> Name of the correcter in
+the cool file. (Default: weight).
+<code><a href="https://rdrr.io/pkg/rhdf5/man/h5ls.html" class="external-link">rhdf5::h5ls()</a></code> to see the available correctors.</character></p></dd>
 
 
 <dt>cool_divisive_weights</dt>
-<dd><p><logical> Does the correcter vector contain
-divisive biases as in hicExplorer or multiplicative as in cooltools?
-(Default: FALSE)</logical></p></dd>
+<dd><p><logical> Does the correcter
+vector contain divisive biases as in hicExplorer or multiplicative as in
+cooltools? (Default: FALSE)</logical></p></dd>
 
 
 <dt>h5_fill_upper</dt>
-<dd><p><logical> Do the matrix in h5 format need to be
-transposed? (Default: TRUE)</logical></p></dd>
+<dd><p><logical> Do the matrix in h5 format
+need to be transposed? (Default: TRUE)</logical></p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -188,7 +192,7 @@ then extracts matrices per chromosome for the time being, it's easier ;).</p>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">HicOutput.pth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">temp.dir</span>, <span class="st">"Control_HIC.hic"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">HicOutput.pth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">normalizePath</a></span><span class="op">(</span><span class="va">HicOutput.pth</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[1]="/tmp/RtmpjdjVZz/HIC_DATA/Control_HIC.hic": No such file or directory</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[1]="/tmp/RtmpesJxtR/HIC_DATA/Control_HIC.hic": No such file or directory</span>
 <span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span><span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">Hic.url</span>, <span class="va">HicOutput.pth</span>, method <span class="op">=</span> <span class="st">"auto"</span>,</span></span>
 <span class="r-in"><span>    extra <span class="op">=</span> <span class="st">"-k"</span>,mode<span class="op">=</span><span class="st">"wb"</span><span class="op">)</span></span></span>
@@ -212,7 +216,7 @@ then extracts matrices per chromosome for the time being, it's easier ;).</p>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">McoolOutput.pth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">temp.dir</span>, <span class="st">"HeatShock_HIC.mcool"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">HicOutput.pth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">normalizePath</a></span><span class="op">(</span><span class="va">McoolOutput.pth</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[1]="/tmp/RtmpjdjVZz/HIC_DATA/HeatShock_HIC.mcool": No such file or directory</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>path[1]="/tmp/RtmpesJxtR/HIC_DATA/HeatShock_HIC.mcool": No such file or directory</span>
 <span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span><span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">Mcool.url</span>, <span class="va">McoolOutput.pth</span>, method <span class="op">=</span> <span class="st">"auto"</span>,</span></span>
 <span class="r-in"><span>    extra <span class="op">=</span> <span class="st">"-k"</span>,mode<span class="op">=</span><span class="st">"wb"</span><span class="op">)</span></span></span>
