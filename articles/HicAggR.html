@@ -87,7 +87,7 @@
                         <h4 data-toc-skip class="author">Nicolas
 Chanard, David Depierre &amp; Olivier Cuvier</h4>
             
-            <h4 data-toc-skip class="date">2024-03-18</h4>
+            <h4 data-toc-skip class="date">2024-03-20</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/CuvierLab/HicAggR/blob/HEAD/vignettes/HicAggR.Rmd" class="external-link"><code>vignettes/HicAggR.Rmd</code></a></small>
       <div class="d-none name"><code>HicAggR.Rmd</code></div>
@@ -167,7 +167,7 @@ coordinates: ChIPseq peaks of Beaf-32 protein in wild type cells (<a href="https
 <span><span class="va">HicOutput.pth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">temp.dir</span>, <span class="st">"Control_HIC.hic"</span><span class="op">)</span></span>
 <span><span class="va">HicOutput.pth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">normalizePath</a></span><span class="op">(</span><span class="va">HicOutput.pth</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning in normalizePath(HicOutput.pth):</span></span>
-<span><span class="co">#&gt; path[1]="/tmp/Rtmp43G4i0/HIC_DATA/Control_HIC.hic": No such file or directory</span></span>
+<span><span class="co">#&gt; path[1]="/tmp/RtmpPswBy5/HIC_DATA/Control_HIC.hic": No such file or directory</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span><span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">Hic.url</span>, <span class="va">HicOutput.pth</span>, method <span class="op">=</span> <span class="st">'auto'</span>,</span>
 <span>        extra <span class="op">=</span> <span class="st">'-k'</span>,mode<span class="op">=</span><span class="st">"wb"</span><span class="op">)</span></span>
@@ -382,43 +382,44 @@ example, contacts surounding Beaf-32 sites).</p>
 <span><span class="co">#&gt;  [5] ggplot2_3.5.0               rhdf5_2.46.1               </span></span>
 <span><span class="co">#&gt;  [7] Biobase_2.62.0              lattice_0.22-5             </span></span>
 <span><span class="co">#&gt;  [9] rhdf5filters_1.14.1         vctrs_0.6.5                </span></span>
-<span><span class="co">#&gt; [11] tools_4.3.3                 generics_0.1.3             </span></span>
-<span><span class="co">#&gt; [13] parallel_4.3.3              stats4_4.3.3               </span></span>
-<span><span class="co">#&gt; [15] tibble_3.2.1                fansi_1.0.6                </span></span>
-<span><span class="co">#&gt; [17] highr_0.10                  pkgconfig_2.0.3            </span></span>
-<span><span class="co">#&gt; [19] Matrix_1.6-5                data.table_1.15.2          </span></span>
-<span><span class="co">#&gt; [21] desc_1.4.3                  S4Vectors_0.40.2           </span></span>
-<span><span class="co">#&gt; [23] lifecycle_1.0.4             GenomeInfoDbData_1.2.11    </span></span>
-<span><span class="co">#&gt; [25] farver_2.1.1                stringr_1.5.1              </span></span>
-<span><span class="co">#&gt; [27] compiler_4.3.3              textshaping_0.3.7          </span></span>
-<span><span class="co">#&gt; [29] munsell_0.5.0               codetools_0.2-19           </span></span>
-<span><span class="co">#&gt; [31] InteractionSet_1.30.0       GenomeInfoDb_1.38.7        </span></span>
-<span><span class="co">#&gt; [33] htmltools_0.5.7             sass_0.4.9                 </span></span>
-<span><span class="co">#&gt; [35] yaml_2.3.8                  tidyr_1.3.1                </span></span>
-<span><span class="co">#&gt; [37] pkgdown_2.0.7               pillar_1.9.0               </span></span>
-<span><span class="co">#&gt; [39] crayon_1.5.2                jquerylib_0.1.4            </span></span>
-<span><span class="co">#&gt; [41] BiocParallel_1.36.0         DelayedArray_0.28.0        </span></span>
-<span><span class="co">#&gt; [43] cachem_1.0.8                abind_1.4-5                </span></span>
-<span><span class="co">#&gt; [45] tidyselect_1.2.1            digest_0.6.35              </span></span>
-<span><span class="co">#&gt; [47] stringi_1.8.3               dplyr_1.1.4                </span></span>
-<span><span class="co">#&gt; [49] purrr_1.0.2                 labeling_0.4.3             </span></span>
-<span><span class="co">#&gt; [51] fastmap_1.1.1               grid_4.3.3                 </span></span>
-<span><span class="co">#&gt; [53] colorspace_2.1-0            cli_3.6.2                  </span></span>
-<span><span class="co">#&gt; [55] SparseArray_1.2.4           magrittr_2.0.3             </span></span>
-<span><span class="co">#&gt; [57] S4Arrays_1.2.1              utf8_1.2.4                 </span></span>
-<span><span class="co">#&gt; [59] withr_3.0.0                 scales_1.3.0               </span></span>
-<span><span class="co">#&gt; [61] rmarkdown_2.26              XVector_0.42.0             </span></span>
-<span><span class="co">#&gt; [63] matrixStats_1.2.0           gridExtra_2.3              </span></span>
-<span><span class="co">#&gt; [65] ragg_1.3.0                  memoise_2.0.1              </span></span>
-<span><span class="co">#&gt; [67] evaluate_0.23               knitr_1.45                 </span></span>
-<span><span class="co">#&gt; [69] GenomicRanges_1.54.1        IRanges_2.36.0             </span></span>
-<span><span class="co">#&gt; [71] rlang_1.1.3                 Rcpp_1.0.12                </span></span>
-<span><span class="co">#&gt; [73] glue_1.7.0                  BiocGenerics_0.48.1        </span></span>
-<span><span class="co">#&gt; [75] reshape_0.8.9               jsonlite_1.8.8             </span></span>
-<span><span class="co">#&gt; [77] strawr_0.0.91               Rhdf5lib_1.24.2            </span></span>
-<span><span class="co">#&gt; [79] plyr_1.8.9                  R6_2.5.1                   </span></span>
-<span><span class="co">#&gt; [81] MatrixGenerics_1.14.0       systemfonts_1.0.6          </span></span>
-<span><span class="co">#&gt; [83] fs_1.6.3                    zlibbioc_1.48.2</span></span></code></pre></div>
+<span><span class="co">#&gt; [11] tools_4.3.3                 bitops_1.0-7               </span></span>
+<span><span class="co">#&gt; [13] generics_0.1.3              parallel_4.3.3             </span></span>
+<span><span class="co">#&gt; [15] stats4_4.3.3                tibble_3.2.1               </span></span>
+<span><span class="co">#&gt; [17] fansi_1.0.6                 highr_0.10                 </span></span>
+<span><span class="co">#&gt; [19] pkgconfig_2.0.3             Matrix_1.6-5               </span></span>
+<span><span class="co">#&gt; [21] data.table_1.15.2           desc_1.4.3                 </span></span>
+<span><span class="co">#&gt; [23] S4Vectors_0.40.2            lifecycle_1.0.4            </span></span>
+<span><span class="co">#&gt; [25] GenomeInfoDbData_1.2.11     farver_2.1.1               </span></span>
+<span><span class="co">#&gt; [27] stringr_1.5.1               compiler_4.3.3             </span></span>
+<span><span class="co">#&gt; [29] textshaping_0.3.7           munsell_0.5.0              </span></span>
+<span><span class="co">#&gt; [31] codetools_0.2-19            InteractionSet_1.30.0      </span></span>
+<span><span class="co">#&gt; [33] GenomeInfoDb_1.38.8         htmltools_0.5.7            </span></span>
+<span><span class="co">#&gt; [35] sass_0.4.9                  RCurl_1.98-1.14            </span></span>
+<span><span class="co">#&gt; [37] yaml_2.3.8                  tidyr_1.3.1                </span></span>
+<span><span class="co">#&gt; [39] pkgdown_2.0.7               pillar_1.9.0               </span></span>
+<span><span class="co">#&gt; [41] crayon_1.5.2                jquerylib_0.1.4            </span></span>
+<span><span class="co">#&gt; [43] BiocParallel_1.36.0         DelayedArray_0.28.0        </span></span>
+<span><span class="co">#&gt; [45] cachem_1.0.8                abind_1.4-5                </span></span>
+<span><span class="co">#&gt; [47] tidyselect_1.2.1            digest_0.6.35              </span></span>
+<span><span class="co">#&gt; [49] stringi_1.8.3               dplyr_1.1.4                </span></span>
+<span><span class="co">#&gt; [51] purrr_1.0.2                 labeling_0.4.3             </span></span>
+<span><span class="co">#&gt; [53] fastmap_1.1.1               grid_4.3.3                 </span></span>
+<span><span class="co">#&gt; [55] colorspace_2.1-0            cli_3.6.2                  </span></span>
+<span><span class="co">#&gt; [57] SparseArray_1.2.4           magrittr_2.0.3             </span></span>
+<span><span class="co">#&gt; [59] S4Arrays_1.2.1              utf8_1.2.4                 </span></span>
+<span><span class="co">#&gt; [61] withr_3.0.0                 scales_1.3.0               </span></span>
+<span><span class="co">#&gt; [63] rmarkdown_2.26              XVector_0.42.0             </span></span>
+<span><span class="co">#&gt; [65] matrixStats_1.2.0           gridExtra_2.3              </span></span>
+<span><span class="co">#&gt; [67] ragg_1.3.0                  memoise_2.0.1              </span></span>
+<span><span class="co">#&gt; [69] evaluate_0.23               knitr_1.45                 </span></span>
+<span><span class="co">#&gt; [71] GenomicRanges_1.54.1        IRanges_2.36.0             </span></span>
+<span><span class="co">#&gt; [73] rlang_1.1.3                 Rcpp_1.0.12                </span></span>
+<span><span class="co">#&gt; [75] glue_1.7.0                  BiocGenerics_0.48.1        </span></span>
+<span><span class="co">#&gt; [77] reshape_0.8.9               jsonlite_1.8.8             </span></span>
+<span><span class="co">#&gt; [79] strawr_0.0.91               Rhdf5lib_1.24.2            </span></span>
+<span><span class="co">#&gt; [81] plyr_1.8.9                  R6_2.5.1                   </span></span>
+<span><span class="co">#&gt; [83] MatrixGenerics_1.14.0       systemfonts_1.0.6          </span></span>
+<span><span class="co">#&gt; [85] fs_1.6.3                    zlibbioc_1.48.2</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
@@ -428,7 +429,7 @@ example, contacts surounding Beaf-32 sites).</p>
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by Nicolas Chanard, David Depierre, Stephane Schaak, Robel Tesfaye, Olivier Cuvier.</p>
+<p>Developed by Nicolas Chanard, David Depierre, Robel Tesfaye, Stephane Schaak, Olivier Cuvier.</p>
 </div>
 
 <div class="pkgdown-footer-right">
