@@ -74,7 +74,7 @@
 <span>  bg_type <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  cores <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  z_score_per_dist_group <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  p_adj_method <span class="op">=</span> <span class="st">"BH"</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -151,10 +151,9 @@ More information in details...</character></p></dd>
 <dd><p><logical> details on progress? (Default: FALSE)</logical></p></dd>
 
 
-<dt>z_score_per_dist_group</dt>
-<dd><p><logical> Should z-scores
-and p.values for target couples be calculated in separate groups
-based on distances? Look at details for more. (Default: TRUE)</logical></p></dd>
+<dt>p_adj_method</dt>
+<dd><p><character> method used
+to adjust p.values. More from <code><a href="https://rdrr.io/r/stats/p.adjust.html" class="external-link">stats::p.adjust()</a></code>. (Default: "BH")</character></p></dd>
 
 
 <dt>...</dt>
@@ -190,16 +189,16 @@ maximal width of supplied TADs.</p></li>
 provided variable name, then background couples are formed between anchors
 and baits located in different compartments.</p></li>
 <li><p>"NULL": If <code>NULL</code>, <code>random_anchors</code> are set by default.</p></li>
-</ul><p>On the matter of <code>z_score_per_dist_group</code>:
-This option was included because we noticed that o/e values tend to be
+</ul><p>Notes on the comparison between bg and target couples:
+We noticed that o/e values tend to be
 skewed towards very long distance interactions. As a result, long
-distance background couples tend to influence to mean and sd, resulting
-in only long distance target couples being significant.
-This option would allow the user to perform z-score computation on
-couples grouped into chunks of couples with comparative distances
-choosen as such: <code>c(0,50000 * 2^seq(1,15))</code>.
-This option is recommended when the target couples have a wide range
-of distance values.</p>
+distance background couples tend to influence strongly mean and sd,
+resulting in more long distance target couples being significant.
+So rather than computing z.score over all background couples,
+we've chosen to fit a polynomial with 2 degrees on the log(counts)
+vs distance data of the background couples. Z.scores are then
+computed per target couple by comparing residuals of the target counts
+as predicted by the model and the residuals of the background couples.</p>
     </div>
 
     <div class="section level2">
