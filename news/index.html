@@ -56,7 +56,7 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.99.3" id="hicaggr-0993">HicAggR 0.99.3<a class="anchor" aria-label="anchor" href="#hicaggr-0993"></a></h2>
 <ul><li>NAMESPACE was generated with roxygen2 to define exportable functions.</li>
-<li>compare_to_background: to correct the skewedness of o/e values towards long distances, computation of z.scores is now calculated using residuals from a polynomial model that fits the background couples (log(counts)~distance).</li>
+<li>compareToBackground: to correct the skewedness of o/e values towards long distances, computation of z.scores is now calculated using residuals from a polynomial model that fits the background couples (log(counts)~distance).</li>
 <li>SearchPairs: added option to remove self interacting bins.</li>
 <li>all internal functions are now in utilities.R.</li>
 <li>Docs were reviewed.</li>
@@ -67,7 +67,7 @@
 <li>Implemented import of O/E matrix for data in .hic format.</li>
 <li>Implemented import of raw data in .h5 format.</li>
 <li>Added getInfos function to get info on a hic data (.hic, cool/mcool/h5 formats).</li>
-<li>Removed dependency to BSDA::z.test in compare_to_background.</li>
+<li>Removed dependency to BSDA::z.test in compareToBackground.</li>
 <li>Removed dependency to InteractionSet and added it as package to import in NAMESPACE to remove the PackageStartUpMessages.</li>
 <li>Removed chatty package start up message and replaced it with nicer message.</li>
 <li>Some BiocCheck NOTES were also takedn into consideration: changing sapply to vapply etc.</li>
@@ -75,7 +75,7 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.99.1" id="hicaggr-0991">HicAggR 0.99.1<a class="anchor" aria-label="anchor" href="#hicaggr-0991"></a></h2>
 <ul><li>Corrected with Bioconductor’s reviews</li>
-<li>Added PrepareMtxList, import_loops, PlotAPA_byDistance &amp; compare_to_background functions</li>
+<li>Added PrepareMtxList, importLoops, plotMultiAPA &amp; compareToBackground functions</li>
 <li>Corrected bugs on seqlevels consistancy and name column for GRanges objects</li>
 <li>Encapsulated small and internal functions in utilities.R</li>
 <li>ExtractSubMatrix has option to remove duplicated submatrices</li>

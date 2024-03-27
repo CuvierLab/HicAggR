@@ -91,9 +91,6 @@
     <loc>/reference/PlotAPA.html</loc>
   </url>
   <url>
-    <loc>/reference/PlotAPA_byDistance.html</loc>
-  </url>
-  <url>
     <loc>/reference/PrepareMtxList.html</loc>
   </url>
   <url>
@@ -139,7 +136,7 @@
     <loc>/reference/YlOrRd.html</loc>
   </url>
   <url>
-    <loc>/reference/compare_to_background.html</loc>
+    <loc>/reference/compareToBackground.html</loc>
   </url>
   <url>
     <loc>/reference/getInfos.html</loc>
@@ -148,10 +145,13 @@
     <loc>/reference/ggAPA.html</loc>
   </url>
   <url>
-    <loc>/reference/import_loops.html</loc>
+    <loc>/reference/importLoops.html</loc>
   </url>
   <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/plotMultiAPA.html</loc>
   </url>
   <url>
     <loc>/reference/viridis.html</loc>
