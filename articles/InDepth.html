@@ -35,7 +35,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">HicAggR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.5</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,7 +87,7 @@
                         <h4 data-toc-skip class="author">Nicolas
 Chanard, David Depierre &amp; Olivier Cuvier</h4>
             
-            <h4 data-toc-skip class="date">2024-03-28</h4>
+            <h4 data-toc-skip class="date">2024-03-29</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/CuvierLab/HicAggR/blob/HEAD/vignettes/InDepth.Rmd" class="external-link"><code>vignettes/InDepth.Rmd</code></a></small>
       <div class="d-none name"><code>InDepth.Rmd</code></div>
@@ -180,7 +180,7 @@ below.</p>
 <span><span class="va">HicOutput.pth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">temp.dir</span>, <span class="st">"Control_HIC.hic"</span><span class="op">)</span></span>
 <span><span class="va">HicOutput.pth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">normalizePath</a></span><span class="op">(</span><span class="va">HicOutput.pth</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning in normalizePath(HicOutput.pth):</span></span>
-<span><span class="co">#&gt; path[1]="/tmp/RtmphomYjR/HIC_DATA/Control_HIC.hic": No such file or directory</span></span>
+<span><span class="co">#&gt; path[1]="/tmp/RtmpwSIWgW/HIC_DATA/Control_HIC.hic": No such file or directory</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span><span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">Hic.url</span>, <span class="va">HicOutput.pth</span>, method <span class="op">=</span> <span class="st">"auto"</span>,</span>
 <span>        extra <span class="op">=</span> <span class="st">"-k"</span>, mode<span class="op">=</span><span class="st">"wb"</span><span class="op">)</span></span>
@@ -199,7 +199,7 @@ below.</p>
 <span><span class="va">McoolOutput.pth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">temp.dir</span>, <span class="st">"HeatShock_HIC.mcool"</span><span class="op">)</span></span>
 <span><span class="va">McoolOutput.pth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">normalizePath</a></span><span class="op">(</span><span class="va">McoolOutput.pth</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning in normalizePath(McoolOutput.pth):</span></span>
-<span><span class="co">#&gt; path[1]="/tmp/RtmphomYjR/HIC_DATA/HeatShock_HIC.mcool": No such file or</span></span>
+<span><span class="co">#&gt; path[1]="/tmp/RtmpwSIWgW/HIC_DATA/HeatShock_HIC.mcool": No such file or</span></span>
 <span><span class="co">#&gt; directory</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span><span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">Mcool.url</span>, <span class="va">McoolOutput.pth</span>, method <span class="op">=</span> <span class="st">"auto"</span>,</span>
@@ -3618,7 +3618,7 @@ following the ggplot2 grammar</p>
 <span><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; other attached packages:</span></span>
-<span><span class="co">#&gt; [1] HicAggR_0.99.4</span></span>
+<span><span class="co">#&gt; [1] HicAggR_0.99.5</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
 <span><span class="co">#&gt;  [1] tidyselect_1.2.1            viridisLite_0.4.2          </span></span>

@@ -52,6 +52,9 @@
     <loc>/reference/GenomicSystem.html</loc>
   </url>
   <url>
+    <loc>/reference/GetInfo.html</loc>
+  </url>
+  <url>
     <loc>/reference/GetQuantif.html</loc>
   </url>
   <url>
@@ -137,9 +140,6 @@
   </url>
   <url>
     <loc>/reference/compareToBackground.html</loc>
-  </url>
-  <url>
-    <loc>/reference/getInfos.html</loc>
   </url>
   <url>
     <loc>/reference/ggAPA.html</loc>
