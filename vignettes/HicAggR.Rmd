@@ -73,27 +73,28 @@ withr::local_options(list(timeout = 3600))
 cache.dir <- paste0(tools::R_user_dir("", which="cache"),".HicAggR_HIC_DATA")
 bfc <- BiocFileCache::BiocFileCache(cache.dir, ask = FALSE)
 
-Hic.url <- paste0("https://4dn-open-data-public.s3.amazonaws.com/",
-"fourfront-webprod/wfoutput/7386f953-8da9-47b0-acb2-931cba810544/",
-"4DNFIOTPSS3L.hic")
 if(length(BiocFileCache::bfcinfo(bfc)$rname)==0 || 
 !"Control_HIC.hic"%in%BiocFileCache::bfcinfo(bfc)$rname){
+    Hic.url <- paste0("https://4dn-open-data-public.s3.amazonaws.com/",
+        "fourfront-webprod/wfoutput/7386f953-8da9-47b0-acb2-931cba810544/",
+        "4DNFIOTPSS3L.hic")
     if(.Platform$OS.type == "windows"){
-        bfc <- BiocFileCache::bfcadd(
+        HicOutput.pth <- BiocFileCache::bfcadd(
             x = bfc,rname = "Control_HIC.hic",
             fpath = Hic.url,
             download = TRUE,
             config = list(method="auto",mode="wb"))
     }else{
-        bfc <- BiocFileCache::bfcadd(
+        HicOutput.pth <- BiocFileCache::bfcadd(
             x = bfc,rname = "Control_HIC.hic",
             fpath = Hic.url,
             download = TRUE,
             config = list(method="auto"))
     }
+}else{
+    HicOutput.pth <- as.character(BiocFileCache::bfcpath(bfc)[
+        which(BiocFileCache::bfcinfo(bfc)$rname=="Control_HIC.hic")])
 }
-HicOutput.pth <- as.character(BiocFileCache::bfcpath(bfc)[
-    which(BiocFileCache::bfcinfo(bfc)$rname=="Control_HIC.hic")])
 ```
 
 ## Genomic location and annotation data
