@@ -1,7 +1,7 @@
 Type: Package
 Package: HicAggR
 Title: Set of 3D genomic interaction analysis tools
-Version: 0.99.6
+Version: 0.99.7
 Authors@R: c(
     person("Nicolas", "Chanard", email = "nico.chanard@gmail.com",
         role = "aut"),
@@ -74,11 +74,11 @@ Imports:
 Suggests:
     covr,
     tools,
-    BiocFileCache (>= 2.6.1),
     kableExtra (>= 1.3.4),
     knitr (>= 1.45),
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    BiocFileCache (>= 2.6.1)
 VignetteBuilder:
     knitr
 Encoding: UTF-8

@@ -1,3 +1,7 @@
+# HicAggR 0.99.7
+
+* caching in vignette
+
 # HicAggR 0.99.6
 
 * default set column names in OrientateMatrix are now removed,
