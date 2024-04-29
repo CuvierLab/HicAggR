@@ -3,20 +3,20 @@ Package: HicAggR
 Title: Set of 3D genomic interaction analysis tools
 Version: 0.99.7
 Authors@R: c(
-    person("Nicolas", "Chanard", email = "nico.chanard@gmail.com",
-        role = "aut"),
-    person("David", "Depierre", email = "dav.depierre@gmail.com",
-        role = "aut"),
     person("Robel", "Tesfaye", email = "rob.tesf@gmail.com",
         role = c("aut","ctb"), comment = c(ORCID="0000-0003-2358-219X")),
+    person("David", "Depierre", email = "dav.depierre@gmail.com",
+        role = "aut"),
     person("Naomi", "Schickele", email = "naomi.schickele@univ-tlse3.fr",
         role = "ctb"),
+    person("Nicolas", "Chanard", email = "nico.chanard@gmail.com",
+        role = "aut"),
     person("Refka", "Askri", email = "refka.askri@univ-tlse3.fr",
-        role = "ctb"),
-    person("Pascal", "Martin", email = "pascal.martin@inra.fr",
         role = "ctb"),
     person("Stephane", "Schaak", email = "stephane.schaak@inserm.fr",
         role = c("aut","ctb")),
+    person("Pascal", "Martin", email = "pascal.martin@inra.fr",
+        role = "ctb"),
     person("Olivier", "Cuvier", email = "olivier.cuvier@univ-tlse3.fr",
         role = c("cre","ctb"), comment = c(ORCID="0000-0003-0644-2734"))
     )

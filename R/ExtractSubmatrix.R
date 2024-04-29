@@ -209,6 +209,16 @@ ExtractSubmatrix <- function(
         genomicFeature = genomicFeature,
         hicResolution = hicResolution
     )
+    if (is.null(GenomeInfoDb::seqinfo(genomicFeature)) ||
+    any(is.na(GenomeInfoDb::seqlengths(
+        GenomeInfoDb::seqinfo(genomicFeature))))) {
+        GenomeInfoDb::seqlevels(genomicFeature) <-
+            as.character(attributes(attributes(hicLst)$chromSize[[1]]))
+        GenomeInfoDb::seqinfo(genomicFeature) <-
+            GenomeInfoDb::Seqinfo(
+                seqnames = attributes(attributes(hicLst)$chromSize[[1]]),
+                seqlengths = attributes(attributes(hicLst)$chromSize[[2]]))
+    }
     if (!sum(genomicFeature$anchor.bin != genomicFeature$bait.bin)) {
         referencePoint <- "pf"
     }

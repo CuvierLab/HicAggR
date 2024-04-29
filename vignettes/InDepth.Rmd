@@ -1,6 +1,7 @@
 ---
 title: "HicAggR - In depth tutorial"
-author: "Nicolas Chanard, David Depierre, Robel A. Tesfaye, Stéphane Schaak & Olivier Cuvier"
+author: "Nicolas Chanard, David Depierre, Robel A. Tesfaye,
+    Stéphane Schaak & Olivier Cuvier"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 description: >

@@ -328,7 +328,7 @@ ggAPA <- function(
                 aggregatedMtx)$matriceDim/(
                     (attributes(aggregatedMtx)$shift*2)+1)
             breaks_y <- c(1,floor(
-                (attributes(aggregatedMtx)$matriceDim-regionSize)/2),
+                (attributes(aggregatedMtx)$matriceDim-regionSize)/2)+1,
                     floor(
                 (attributes(aggregatedMtx)$matriceDim+regionSize)/2),
                 attributes(aggregatedMtx)$matriceDim)
