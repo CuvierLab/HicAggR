@@ -212,7 +212,8 @@ ExtractSubmatrix <- function(
     if (is.null(GenomeInfoDb::seqinfo(genomicFeature)) ||
     any(is.na(GenomeInfoDb::seqlengths(
         GenomeInfoDb::seqinfo(genomicFeature))))) {
-        GenomeInfoDb::seqlevels(genomicFeature) <-
+        GenomeInfoDb::seqlevels(genomicFeature,
+            pruning.mode="coarse") <-
             as.character(attributes(attributes(hicLst)$chromSize[[1]]))
         GenomeInfoDb::seqinfo(genomicFeature) <-
             GenomeInfoDb::Seqinfo(
