@@ -1,3 +1,7 @@
+# HicAggR 1.1.2
+
+* minor fix in doc for preparePlotgardener
+
 # HicAggR 1.1.1
 
 * HicAggR is now on bioconductor release 3_19

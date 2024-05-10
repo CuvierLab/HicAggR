@@ -662,7 +662,7 @@ plotMultiAPA <- function(
 #'   hicList = HiC_HS.cmx_lst,
 #'   ctrlHicList = HiC_Ctrl.cmx_lst,
 #'   which_chrom = "2L_2L",
-#'   diffFun = "substract")
+#'   diffFun = "substract")|> head()
 #'   
 preparePlotgardener <- function(
     hicList = NULL,
