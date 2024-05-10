@@ -1,3 +1,13 @@
+# HicAggR 1.1.1
+
+* HicAggR is now on bioconductor release 3_19
+* added a minor fix to ExtractSubmatrix when using GRanges
+object to extract, retain only GRanges with seqnames that
+are present in hicList
+* added preparePlotgardener function to generate a data.frame
+that can be directly used in plotgardener's plotHicTriangle,
+plotHicRectangle and plotHicSquare directly
+
 # HicAggR 0.99.7
 
 * caching in vignette

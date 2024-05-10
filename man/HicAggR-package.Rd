@@ -31,7 +31,7 @@ background less plausible couples.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://cuvierlab.github.io/HicAggR/}
+  \item \url{https://bioconductor.org/packages/HicAggR,https://cuvierlab.github.io/HicAggR/}
   \item \url{https://github.com/CuvierLab/HicAggR}
   \item Report bugs at \url{https://github.com/CuvierLab/HicAggR/issues}
 }

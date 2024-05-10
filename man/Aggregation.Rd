@@ -32,10 +32,10 @@ If the parameter is a character so:
 \item{diffFun}{\if{html}{\out{<function or chracter>}}: The function used
 to compute differential. If the parameter is character so:
 \itemize{
-\item "-", "substract" or "substraction" apply a substraction
+\item "-", "substract" or "substraction" apply a substraction (Default)
 \item "/" or "ratio" apply a ratio
 \item "log2","log2-","log2/" or "log2ratio" apply a log2 on ratio
-\item other (Default) apply a log2 on 1+ratio
+\item other apply a log2 on 1+ratio
 }}
 
 \item{scaleCorrection}{\if{html}{\out{<logical>}}: Whether a correction

@@ -617,3 +617,191 @@ plotMultiAPA <- function(
     "distance.chunks"=vector_dist[-1],
     "nb.couples"=n_cples)))
 }
+
+#' preparePlotgardener
+#' 
+#' This function allows to obtain a dataframe that can be
+#' used with plotgardener's plotHicTriangle, plotHicRectangle,
+#' plotHicSquare. It is equivalent to plotgardener's readHic function.
+#'
+#' @param hicList hicList from which to extract data
+#' @param ctrlHicList hicList to use as control
+#' for a differential analysis.
+#' @param submatrices list of submatrices.
+#' @param submatrix.name name of submatrix
+#' to focus on. use `names(submatrices)`. If submatrices is not `NULL`,
+#' this argument must not be `NULL`.
+#' @param diffFun The function used
+#' to compute differential between counts column of hicList and ctrlHicList.
+#' If the argument is a character, possible choices are:
+#' \itemize{
+#' \item "-", "substract" or "substraction" apply a substraction (Default)
+#' \item "/" or "ratio" apply a ratio
+#' \item "log2","log2-","log2/" or "log2ratio" apply a log2 on ratio
+#' \item other apply a log2 on 1+ratio
+#' }
+#' @param which_chrom a combination
+#' of chromsome names use `names(hicList)` to see the possible names.
+#' @param which_range a GRanges object
+#' or a string of type "chr1:1-100". see `StrToGranges()`.
+#' @param verbose 
+#'
+#' @return funcions returns a data.frame with 3 columns:
+#' chrom, altchrom and counts. chrom being bin names of rows, altchrom being
+#' bin names of columns and counts being the counts.
+#' see also `strawr::straw()` & plotgardener::readHic()
+#' @importFrom dplyr mutate select left_join join_by case_when filter
+#' @importFrom GenomicRanges seqnames start
+#' @importFrom checkmate assertList assert checkCharacter
+#' assertChoice checkChoice
+#' @export
+#'
+#' @examples
+#' data(HiC_Ctrl.cmx_lst)
+#' data(HiC_HS.cmx_lst)
+#' preparePlotGardener(
+#'   hicList = HiC_HS.cmx_lst,
+#'   ctrlHicList = HiC_Ctrl.cmx_lst,
+#'   which_chrom = "2L_2L",
+#'   diffFun = "substract")
+#'   
+preparePlotgardener <- function(
+    hicList = NULL,
+    ctrlHicList = NULL,
+    submatrices = NULL,
+    submatrix.name = NULL,
+    diffFun = "log2ratio",
+    which_chrom = NULL,
+    which_range = NULL,
+    verbose = FALSE
+) {
+    if(is.null(submatrices) &&
+        is.null(which_chrom) &&
+        is.null(which_range) &&
+        is.null(which_chrom)
+    ){
+        stop("Please provide a region to extract! You can provide:
+            * 1 submatrix,
+            * a combination of chromsomes eg: 'chr1_chr1',
+            * a granges object
+            * or a character as 'chr1:1-100'")
+    }
+    # Put list on correct variable
+    if(!is.null(submatrices)){
+        .validSubmatrices(submatrices)
+        if(is.null(submatrix.name)){
+        stop("provide a submatrix name to extract!
+            use names(submatrices) to see the names")
+        }else{
+        submatrices <- FilterInteractions(
+            submatrices,
+            targets = list(name=submatrix.name))
+        }
+        checkmate::assertList(
+        x = submatrices,
+        max.len = 1
+        )
+        chromCombination <- paste(
+        as.character(GenomicRanges::seqnames(InteractionSet::anchors(
+        attributes(submatrices)$interactions)$first)),"_",
+        as.character(GenomicRanges::seqnames(InteractionSet::anchors(
+            attributes(submatrices)$interactions)$second))
+        )
+    }
+    if(!is.null(hicList)){
+        .validHicMatrices(matrices = hicList)
+    } else if (!is.null(ctrlHicList) && is.null(hicList)) {
+        .validHicMatrices(matrices = ctrlHicList)
+        hicList <- ctrlHicList
+        ctrlHicList <- NULL
+    }
+    if(!is.null(ctrlHicList)){
+        .validHicMatrices(ctrlHicList)
+    }
+    if(!is.null(which_range)){
+        if(is.character(which_range)){
+        which_range <- StrToGRanges(which_range)
+        }
+        chromCombination <- paste0(
+        as.character(GenomicRanges::seqnames(which_range)),
+        "_",
+        as.character(GenomicRanges::seqnames(which_range))
+        )
+    }
+    if(!exists(x = "chromCombination") && 
+        !is.null(which_chrom)){
+        chromCombination <- which_chrom
+    }
+    checkmate::assert(
+        checkmate::checkCharacter(
+        x = chromCombination,
+        null.ok = FALSE
+        ),
+        checkmate::checkChoice(
+        x = chromCombination,
+        choices = names(hicList),
+        null.ok = FALSE
+        ), combine = "and"
+    )
+    if(!is.null(ctrlHicList)){
+        checkmate::assertChoice(
+        x = chromCombination,
+        choices = names(ctrlHicList),
+        null.ok = FALSE
+        )
+    }
+    df <- MeltSpm(hicList[[chromCombination]]@matrix) |>
+        as.data.frame() |>
+        dplyr::mutate(
+            altchrom = 
+                as.numeric(
+                GenomicRanges::start(
+                    hicList[[chromCombination]]@regions[.data$j])-1),
+            chrom = 
+                as.numeric(
+                GenomicRanges::start(
+                    hicList[[chromCombination]]@regions[.data$i])-1),
+            counts=.data$x) |>
+        dplyr::select(c("chrom","altchrom","counts"))
+    
+    if(!is.null(ctrlHicList)){
+        
+    }
+    # Differential Function
+    if (!is.function(diffFun) &&
+        !is.null(hicList) &&
+        !is.null(ctrlHicList)) {
+        diffFun <- dplyr::case_when(
+        tolower(diffFun) %in% c("-", "substract", "substraction") ~
+            "function(mat.mtx,ctrl.mtx){mat.mtx - ctrl.mtx}",
+        tolower(diffFun) %in% c("/", "ratio") ~
+            "function(mat.mtx,ctrl.mtx){mat.mtx / ctrl.mtx}",
+        tolower(diffFun) %in% c("log2", "log2-", "log2/", "log2ratio") ~
+            "function(mat.mtx,ctrl.mtx){log2(mat.mtx)-log2(ctrl.mtx)}",
+        TRUE ~
+            "function(mat.mtx,ctrl.mtx){log2(mat.mtx+1)-log2(ctrl.mtx+1)}"
+        )
+        diffFun <- WrapFunction(diffFun)
+        ctrl_df <- MeltSpm(ctrlHicList[[chromCombination]]@matrix) |>
+        as.data.frame() |>
+        dplyr::mutate(
+            altchrom = 
+            as.numeric(
+                GenomicRanges::start(
+                    ctrlHicList[[chromCombination]]@regions[.data$j])-1),
+            chrom = 
+            as.numeric(
+                GenomicRanges::start(
+                    ctrlHicList[[chromCombination]]@regions[.data$i])-1),
+            counts = .data$x) |>
+        dplyr::select(c("chrom","altchrom","counts"))
+        df <- dplyr::left_join(
+            x = df, y = ctrl_df,
+            by = dplyr::join_by("chrom","altchrom")
+        ) |> dplyr::mutate(
+        counts = diffFun(.data$counts.x,.data$counts.y)
+        ) |> dplyr::select(c("chrom","altchrom","counts")) |>
+        dplyr::filter(!is.na(.data$counts))
+    }
+    return(df)
+}
