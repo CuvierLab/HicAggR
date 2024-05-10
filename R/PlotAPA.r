@@ -644,7 +644,6 @@ plotMultiAPA <- function(
 #' of chromsome names use `names(hicList)` to see the possible names.
 #' @param which_range a GRanges object
 #' or a string of type "chr1:1-100". see `StrToGranges()`.
-#' @param verbose 
 #'
 #' @return funcions returns a data.frame with 3 columns:
 #' chrom, altchrom and counts. chrom being bin names of rows, altchrom being
@@ -659,7 +658,7 @@ plotMultiAPA <- function(
 #' @examples
 #' data(HiC_Ctrl.cmx_lst)
 #' data(HiC_HS.cmx_lst)
-#' preparePlotGardener(
+#' preparePlotgardener(
 #'   hicList = HiC_HS.cmx_lst,
 #'   ctrlHicList = HiC_Ctrl.cmx_lst,
 #'   which_chrom = "2L_2L",
@@ -672,8 +671,7 @@ preparePlotgardener <- function(
     submatrix.name = NULL,
     diffFun = "log2ratio",
     which_chrom = NULL,
-    which_range = NULL,
-    verbose = FALSE
+    which_range = NULL
 ) {
     if(is.null(submatrices) &&
         is.null(which_chrom) &&

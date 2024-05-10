@@ -11,8 +11,7 @@ preparePlotgardener(
   submatrix.name = NULL,
   diffFun = "log2ratio",
   which_chrom = NULL,
-  which_range = NULL,
-  verbose = FALSE
+  which_range = NULL
 )
 }
 \arguments{
@@ -42,8 +41,6 @@ of chromsome names use \code{names(hicList)} to see the possible names.}
 
 \item{which_range}{a GRanges object
 or a string of type "chr1:1-100". see \code{StrToGranges()}.}
-
-\item{verbose}{}
 }
 \value{
 funcions returns a data.frame with 3 columns:
@@ -59,7 +56,7 @@ plotHicSquare. It is equivalent to plotgardener's readHic function.
 \examples{
 data(HiC_Ctrl.cmx_lst)
 data(HiC_HS.cmx_lst)
-preparePlotGardener(
+preparePlotgardener(
   hicList = HiC_HS.cmx_lst,
   ctrlHicList = HiC_Ctrl.cmx_lst,
   which_chrom = "2L_2L",
