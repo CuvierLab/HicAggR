@@ -1,162 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/articles/HicAggR.html</loc>
-  </url>
-  <url>
-    <loc>/articles/InDepth.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Aggregation.html</loc>
-  </url>
-  <url>
-    <loc>/reference/BalanceHiC.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Beaf32_Peaks.gnr.html</loc>
-  </url>
-  <url>
-    <loc>/reference/BinGRanges.html</loc>
-  </url>
-  <url>
-    <loc>/reference/CutHiC.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ExtractSubmatrix.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FilterInteractions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GenomicSystem.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GetInfo.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GetQuantif.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HiC_Ctrl.cmx_lst.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HiC_HS.cmx_lst.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HicAggR-package.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Hue.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ICEnorm.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ImportHiC.html</loc>
-  </url>
-  <url>
-    <loc>/reference/IndexFeatures.html</loc>
-  </url>
-  <url>
-    <loc>/reference/JoinHiC.html</loc>
-  </url>
-  <url>
-    <loc>/reference/MergeGRanges.html</loc>
-  </url>
-  <url>
-    <loc>/reference/OrientateMatrix.html</loc>
-  </url>
-  <url>
-    <loc>/reference/OverExpectedHiC.html</loc>
-  </url>
-  <url>
-    <loc>/reference/PlotAPA.html</loc>
-  </url>
-  <url>
-    <loc>/reference/PrepareMtxList.html</loc>
-  </url>
-  <url>
-    <loc>/reference/QtlThreshold.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ReduceRun.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ResizeMatrix.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SearchPairs.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SeqEnds.html</loc>
-  </url>
-  <url>
-    <loc>/reference/StrToGRanges.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SwitchMatrix.html</loc>
-  </url>
-  <url>
-    <loc>/reference/TADs_Domains.gnr.html</loc>
-  </url>
-  <url>
-    <loc>/reference/TSS_Peaks.gnr.html</loc>
-  </url>
-  <url>
-    <loc>/reference/TrimOutliers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/VCnorm.html</loc>
-  </url>
-  <url>
-    <loc>/reference/WrapFunction.html</loc>
-  </url>
-  <url>
-    <loc>/reference/YlGnBu.html</loc>
-  </url>
-  <url>
-    <loc>/reference/YlOrRd.html</loc>
-  </url>
-  <url>
-    <loc>/reference/compareToBackground.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ggAPA.html</loc>
-  </url>
-  <url>
-    <loc>/reference/importLoops.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plotMultiAPA.html</loc>
-  </url>
-  <url>
-    <loc>/reference/preparePlotgardener.html</loc>
-  </url>
-  <url>
-    <loc>/reference/viridis.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/articles/HicAggR.html</loc></url>
+<url><loc>/articles/InDepth.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/Aggregation.html</loc></url>
+<url><loc>/reference/BalanceHiC.html</loc></url>
+<url><loc>/reference/Beaf32_Peaks.gnr.html</loc></url>
+<url><loc>/reference/BinGRanges.html</loc></url>
+<url><loc>/reference/CutHiC.html</loc></url>
+<url><loc>/reference/ExtractSubmatrix.html</loc></url>
+<url><loc>/reference/FilterInteractions.html</loc></url>
+<url><loc>/reference/GenomicSystem.html</loc></url>
+<url><loc>/reference/GetInfo.html</loc></url>
+<url><loc>/reference/GetQuantif.html</loc></url>
+<url><loc>/reference/HiC_Ctrl.cmx_lst.html</loc></url>
+<url><loc>/reference/HiC_HS.cmx_lst.html</loc></url>
+<url><loc>/reference/HicAggR-package.html</loc></url>
+<url><loc>/reference/Hue.html</loc></url>
+<url><loc>/reference/ICEnorm.html</loc></url>
+<url><loc>/reference/ImportHiC.html</loc></url>
+<url><loc>/reference/IndexFeatures.html</loc></url>
+<url><loc>/reference/JoinHiC.html</loc></url>
+<url><loc>/reference/MergeGRanges.html</loc></url>
+<url><loc>/reference/OrientateMatrix.html</loc></url>
+<url><loc>/reference/OverExpectedHiC.html</loc></url>
+<url><loc>/reference/PlotAPA.html</loc></url>
+<url><loc>/reference/PrepareMtxList.html</loc></url>
+<url><loc>/reference/QtlThreshold.html</loc></url>
+<url><loc>/reference/ReduceRun.html</loc></url>
+<url><loc>/reference/ResizeMatrix.html</loc></url>
+<url><loc>/reference/SearchPairs.html</loc></url>
+<url><loc>/reference/SeqEnds.html</loc></url>
+<url><loc>/reference/StrToGRanges.html</loc></url>
+<url><loc>/reference/SwitchMatrix.html</loc></url>
+<url><loc>/reference/TADs_Domains.gnr.html</loc></url>
+<url><loc>/reference/TSS_Peaks.gnr.html</loc></url>
+<url><loc>/reference/TrimOutliers.html</loc></url>
+<url><loc>/reference/VCnorm.html</loc></url>
+<url><loc>/reference/WrapFunction.html</loc></url>
+<url><loc>/reference/YlGnBu.html</loc></url>
+<url><loc>/reference/YlOrRd.html</loc></url>
+<url><loc>/reference/compareToBackground.html</loc></url>
+<url><loc>/reference/ggAPA.html</loc></url>
+<url><loc>/reference/importLoops.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/plotMultiAPA.html</loc></url>
+<url><loc>/reference/preparePlotgardener.html</loc></url>
+<url><loc>/reference/viridis.html</loc></url>
 </urlset>
+

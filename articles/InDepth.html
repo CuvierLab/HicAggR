@@ -5,76 +5,54 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="In depth tutorial about HicAggR functions.
-">
 <title>HicAggR - In depth tutorial • HicAggR</title>
-<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
-<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="HicAggR - In depth tutorial">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="HicAggR - In depth tutorial">
+<meta name="description" content="In depth tutorial about HicAggR functions.
+">
 <meta property="og:description" content="In depth tutorial about HicAggR functions.
 ">
 <meta property="og:image" content="/logo.png">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
-    
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary" data-bs-theme="dark"><div class="container">
-    
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
+
     <a class="navbar-brand me-2" href="../index.html">HicAggR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.3</small>
 
-    
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item">
-  <a class="nav-link" href="../articles/HicAggR.html">Get started</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="../reference/index.html">Reference</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="../articles/HicAggR.html">Get started</a></li>
+<li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/InDepth.html">HicAggR - In depth tutorial</a>
-  </div>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="../articles/InDepth.html">HicAggR - In depth tutorial</a></li>
+  </ul>
 </li>
-<li class="nav-item">
-  <a class="nav-link" href="../news/index.html">Changelog</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul>
-<form class="form-inline my-2 my-lg-0" role="search">
-        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
-</form>
-
-      <ul class="navbar-nav">
-<li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/CuvierLab/HicAggR/" aria-label="github">
-    <span class="fab fa fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
+<ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
+</form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/CuvierLab/HicAggR/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
-    
+
   </div>
 </nav><div class="container template-article">
 
@@ -88,9 +66,9 @@
 Chanard, David Depierre, Robel A. Tesfaye, Stéphane Schaak &amp; Olivier
 Cuvier</h4>
             
-            <h4 data-toc-skip class="date">2024-05-10</h4>
+            <h4 data-toc-skip class="date">2024-07-07</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/CuvierLab/HicAggR/blob/HEAD/vignettes/InDepth.Rmd" class="external-link"><code>vignettes/InDepth.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/CuvierLab/HicAggR/blob/master/vignettes/InDepth.Rmd" class="external-link"><code>vignettes/InDepth.Rmd</code></a></small>
       <div class="d-none name"><code>InDepth.Rmd</code></div>
     </div>
 
@@ -207,9 +185,7 @@ easily for dowstream analyses.</p>
 <h3 id="load-library">Load library<a class="anchor" aria-label="anchor" href="#load-library"></a>
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://bioconductor.org/packages/HicAggR" class="external-link">"HicAggR"</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: replacing previous import 'S4Arrays::makeNindexFromArrayViewport' by</span></span>
-<span><span class="co">#&gt; 'DelayedArray::makeNindexFromArrayViewport' when loading 'SummarizedExperiment'</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://bioconductor.org/packages/HicAggR" class="external-link">"HicAggR"</a></span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
 </div>
@@ -615,11 +591,12 @@ packages.</p>
 <span><span class="co">#&gt;  - attr(*, "mtx")= chr "o/e"</span></span>
 <span><span class="co">#&gt;  - attr(*, "expected")= tibble [4,961 × 2] (S3: tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">#&gt;   ..$ distance: num [1:4961] 1 5001 10001 15001 20001 ...</span></span>
-<span><span class="co">#&gt;   ..$ expected: num [1:4961] 733 689 377 257 191 ...</span></span>
-<span><span class="co">#&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt;   ..$ expected: num [1:4961] 733 689 377 257 191 ...</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#&gt;</span></span></code></pre></div>
 <p>The list has the attributes described below. These attributes are
 accessible via:</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">HiC_Ctrl.cmx_lst</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $names</span></span>
 <span><span class="co">#&gt; [1] "2L_2L" "2L_2R" "2R_2R"</span></span>
@@ -653,8 +630,9 @@ accessible via:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     <span style="text-decoration: underline;">5</span>001     689.</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>    <span style="text-decoration: underline;">10</span>001     377.</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>    <span style="text-decoration: underline;">15</span>001     257.</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 4,957 more rows</span></span></span>
-<span><span class="co">#&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 4,957 more rows</span></span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#&gt;</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>
 <strong>names</strong> : the names of list elements
@@ -689,7 +667,7 @@ expected counts as a function of genomic distance.</li>
 </ol>
 <p>Each contactmatrix in the list have metadata. These are accessible
 via:</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="fu">S4Vectors</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Annotated-class.html" class="external-link">metadata</a></span><span class="op">(</span><span class="va">HiC_Ctrl.cmx_lst</span><span class="op">[[</span><span class="st">"2L_2L"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; List of 10</span></span>
 <span><span class="co">#&gt;  $ name         : chr "2L_2L"</span></span>
@@ -709,8 +687,9 @@ via:</p>
 <span><span class="co">#&gt;   .. ..@ factors : list()</span></span>
 <span><span class="co">#&gt;  $ observed     : num [1:2410023] 1329 1721 1852 1076 2191 ...</span></span>
 <span><span class="co">#&gt;  $ normalizer   : num [1:2410023] 1.399 1.115 0.888 1.139 0.908 ...</span></span>
-<span><span class="co">#&gt;  $ mtx          : chr "norm"</span></span>
-<span><span class="co">#&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt;  $ mtx          : chr "norm"</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#&gt;</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>
 <strong>name</strong> : the name of the ContactMatrix.</li>
@@ -766,7 +745,7 @@ bin size.</p>
 <div class="section level3">
 <h3 id="example-1-anchors-from-beaf32-chip-seq-peaks-bed-file">Example 1: Anchors from Beaf32 ChIP-seq peaks (bed file)<a class="anchor" aria-label="anchor" href="#example-1-anchors-from-beaf32-chip-seq-peaks-bed-file"></a>
 </h3>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">anchors_Index.gnr</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/IndexFeatures.html">IndexFeatures</a></span><span class="op">(</span></span>
 <span>    gRangeList        <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Beaf<span class="op">=</span><span class="va">Beaf32_Peaks.gnr</span><span class="op">)</span>, </span>
 <span>    genomicConstraint        <span class="op">=</span> <span class="va">TADs_Domains.gnr</span>,</span>
@@ -850,7 +829,7 @@ View
 <div class="section level3">
 <h3 id="example-2-baits-from-tss-transcription-start-sites-from-ucsc">Example 2: Baits from TSS (transcription start sites from UCSC)<a class="anchor" aria-label="anchor" href="#example-2-baits-from-tss-transcription-start-sites-from-ucsc"></a>
 </h3>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">baits_Index.gnr</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/IndexFeatures.html">IndexFeatures</a></span><span class="op">(</span></span>
 <span>    gRangeList        <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Tss<span class="op">=</span><span class="va">TSS_Peaks.gnr</span><span class="op">)</span>,</span>
 <span>    genomicConstraint        <span class="op">=</span> <span class="va">TADs_Domains.gnr</span>,</span>
@@ -937,7 +916,7 @@ View
 <p>By using features names and bin IDs, it is possible to filter a
 subset of features. Example: Subset TSS that are not in the same bin
 than a Beaf32 peak.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">non_Overlaps.ndx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/match.html" class="external-link">match</a></span><span class="op">(</span><span class="va">baits_Index.gnr</span><span class="op">$</span><span class="va">bin</span>, </span>
 <span>    <span class="va">anchors_Index.gnr</span><span class="op">$</span><span class="va">bin</span>, nomatch<span class="op">=</span><span class="fl">0L</span><span class="op">)</span><span class="op">==</span><span class="fl">0L</span></span>
 <span><span class="va">baits_Index.gnr</span> <span class="op">&lt;-</span> <span class="va">baits_Index.gnr</span><span class="op">[</span><span class="va">non_Overlaps.ndx</span>,<span class="op">]</span></span></code></pre></div>
@@ -1047,7 +1026,7 @@ If only one indexed features is defined in indexAnchor,
 <code>SearchPairs</code> will return symetrical homotypic pairs
 (A&lt;-&gt;A), if indexAnchor and indexBait are defined, it will return
 asymetrical heterotypic pairs (A&lt;-&gt;B).</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">interactions.gni</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/SearchPairs.html">SearchPairs</a></span><span class="op">(</span></span>
 <span>        indexAnchor <span class="op">=</span> <span class="va">anchors_Index.gnr</span>,</span>
 <span>        indexBait   <span class="op">=</span> <span class="va">baits_Index.gnr</span></span>
@@ -1387,7 +1366,7 @@ later on.</li>
 center of the first element and interacts with the center of second
 element in the middle of the X axis.</p>
 <p><img src="images/LRI_GInteractions.png"><!-- --></p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">interactions_PFmatrix.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span>
 <span>    genomicFeature         <span class="op">=</span> <span class="va">interactions.gni</span>,</span>
 <span>    hicLst        <span class="op">=</span> <span class="va">HiC_Ctrl.cmx_lst</span>,</span>
@@ -1402,7 +1381,7 @@ element in the middle of the X axis.</p>
 interacts with the middle of the X axis which corresponds to the end of
 the range.</p>
 <p><img src="images/LRI_GRanges.png"><!-- --></p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">domains_PFmatrix.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span>
 <span>    genomicFeature         <span class="op">=</span> <span class="va">TADs_Domains.gnr</span>,</span>
 <span>    hicLst        <span class="op">=</span> <span class="va">HiC_Ctrl.cmx_lst</span>,</span>
@@ -1422,7 +1401,7 @@ fit all regions into the same area.</p>
 </h4>
 <p>The region’s start is defined by the center of the first element and
 the region’s end by the center of the second element. <img src="images/Regions_GInteractions.png"><!-- --></p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">interactions_RFmatrix_ctrl.lst</span>  <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span>
 <span>    genomicFeature         <span class="op">=</span> <span class="va">interactions.gni</span>,</span>
 <span>    hicLst        <span class="op">=</span> <span class="va">HiC_Ctrl.cmx_lst</span>,</span>
@@ -1436,7 +1415,7 @@ the region’s end by the center of the second element. <img src="images/Regions
 </h4>
 <p>The regions are directly defined by the ranges of GRanges object.</p>
 <p><img src="images/Regions_GRanges.png"><!-- --></p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">domains_RFmatrix.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span>
 <span>    genomicFeature         <span class="op">=</span> <span class="va">TADs_Domains.gnr</span>,</span>
 <span>    hicLst        <span class="op">=</span> <span class="va">HiC_Ctrl.cmx_lst</span>,</span>
@@ -1456,7 +1435,7 @@ the region’s end by the center of the second element. <img src="images/Regions
 </h4>
 <p><strong>Step 1:</strong> generate a GRanges object of TAD boundaries
 by concatenating starts and ends of TADs.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">domains_Border.gnr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span>        <span class="fu">GenomicRanges</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/IRanges/man/intra-range-methods.html" class="external-link">resize</a></span><span class="op">(</span><span class="va">TADs_Domains.gnr</span>, <span class="fl">1</span>, <span class="st">"start"</span><span class="op">)</span>,</span>
 <span>        <span class="fu">GenomicRanges</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/IRanges/man/intra-range-methods.html" class="external-link">resize</a></span><span class="op">(</span><span class="va">TADs_Domains.gnr</span>, <span class="fl">1</span>,  <span class="st">"end"</span> <span class="op">)</span></span>
@@ -1465,7 +1444,7 @@ by concatenating starts and ends of TADs.</p>
 
 <p><strong>Step 2:</strong> Filter and reduce TAD boundaries GRanges
 object according to HiC resolution (binSize) + Store TAD names.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">domains_Border_Bin.gnr</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/BinGRanges.html">BinGRanges</a></span><span class="op">(</span></span>
 <span>    gRange  <span class="op">=</span> <span class="va">domains_Border.gnr</span>,</span>
 <span>    binSize <span class="op">=</span> <span class="va">binSize</span>,</span>
@@ -1473,7 +1452,7 @@ object according to HiC resolution (binSize) + Store TAD names.</p>
 <span>    <span class="op">)</span></span>
 <span><span class="va">domains_Border_Bin.gnr</span><span class="op">$</span><span class="va">subname</span> <span class="op">&lt;-</span> <span class="va">domains_Border_Bin.gnr</span><span class="op">$</span><span class="va">name</span></span>
 <span><span class="va">domains_Border_Bin.gnr</span><span class="op">$</span><span class="va">name</span>    <span class="op">&lt;-</span> <span class="va">domains_Border_Bin.gnr</span><span class="op">$</span><span class="va">bin</span></span></code></pre></div>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">domains_Border_Bin.gnr</span></span></code></pre></div>
 <details><summary>
 View
@@ -1538,7 +1517,7 @@ View
 </table></details><p><strong>Step 3:</strong> This defines a GRanges object. In the
 folowing examples, the same information is needed in a GInteraction
 object class.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">domains_Border_Bin.gni</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu">InteractionSet</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/InteractionSet/man/GInteractions-class.html" class="external-link">GInteractions</a></span><span class="op">(</span></span>
 <span>        <span class="va">domains_Border_Bin.gnr</span>,<span class="va">domains_Border_Bin.gnr</span><span class="op">)</span></span></code></pre></div>
@@ -1767,7 +1746,7 @@ Tad_2, Tad_3
 <h4 id="ponctual-interactions-defined-with-granges">Ponctual interactions defined with GRanges<a class="anchor" aria-label="anchor" href="#ponctual-interactions-defined-with-granges"></a>
 </h4>
 <p>Here the start and the end of each ranges are in a same bin.<br><img src="images/Ponctuals_Interactions_GRanges.png"><!-- --></p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">border_PFmatrix.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span>
 <span>    genomicFeature         <span class="op">=</span> <span class="va">domains_Border_Bin.gnr</span>,</span>
 <span>    hicLst        <span class="op">=</span> <span class="va">HiC_Ctrl.cmx_lst</span>,</span>
@@ -1780,7 +1759,7 @@ Tad_2, Tad_3
 </h4>
 <p>Here the first (blue on scheme) and the second (red on scheme)
 elements are the same. <img src="images/Ponctuals_Interactions_GInteractions.png"><!-- --></p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">border_PFmatrix.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span>
 <span>    genomicFeature         <span class="op">=</span> <span class="va">domains_Border_Bin.gni</span>,</span>
 <span>    hicLst        <span class="op">=</span> <span class="va">HiC_Ctrl.cmx_lst</span>,</span>
@@ -1818,7 +1797,7 @@ names of each element and correspond to the column of the GInteraction
 (or the attributes “interactions” of the matrices to be filtered). Then
 each element must be a character list to match this column or a function
 that will test each row in the column and return a bolean.</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">structureTarget.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    first_colname_of_GInteraction  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"value"</span><span class="op">)</span>,</span>
 <span>    second_colname_of_GInteraction <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">eachElement</span><span class="op">)</span><span class="op">{</span></span>
@@ -1828,7 +1807,7 @@ that will test each row in the column and return a bolean.</p>
 elements from GRanges objects used in <code>SearchPairs</code>. Those
 metadata are stored in the attributes of the list of submatrices that
 are accessible as follow:</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="fu">S4Vectors</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html" class="external-link">mcols</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <details><summary>
@@ -2612,7 +2591,7 @@ exclude Pairs or submatrices that have:</li>
 <li>“2L:25_2L:22” in <strong>name</strong>
 </li>
 </ol>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">targets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    anchor.Beaf.name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Beaf32_62"</span>,<span class="st">"Beaf32_204"</span><span class="op">)</span>,</span>
 <span>    bait.Tss.name    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"FBgn0015924"</span>,<span class="st">"FBgn0264943"</span><span class="op">)</span>,</span>
@@ -2634,7 +2613,7 @@ section.</p>
 <h4 id="example-of-selectionfunction-according-to-the-example-target">Example of selectionFunction according to the example target<a class="anchor" aria-label="anchor" href="#example-of-selectionfunction-according-to-the-example-target"></a>
 </h4>
 <p>Following the example case defined in targets</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">selectionFun</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span><span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/funprog.html" class="external-link">Reduce</a></span><span class="op">(</span><span class="va">intersect</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">anchor.Beaf.name</span>, <span class="va">bait.Tss.name</span> ,<span class="va">distance</span><span class="op">)</span> <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="va">name</span><span class="op">)</span></span>
@@ -2650,7 +2629,7 @@ section.</p>
 <p>With a GInteraction object as input, <code>FilterInteractions</code>
 will return the indices of filtered elements.</p>
 <p>With the targets and selectionFun defined above:</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/FilterInteractions.html">FilterInteractions</a></span><span class="op">(</span></span>
 <span>    genomicInteractions <span class="op">=</span> </span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span>,</span>
@@ -2665,7 +2644,7 @@ will return the indices of filtered elements.</p>
 <p>With a matrices list as input, <code>FilterInteractions</code> will
 return the filtered matrices list, with updated attributes.</p>
 <p>With the targets and selectionFun defined above:</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">filtred_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/FilterInteractions.html">FilterInteractions</a></span><span class="op">(</span></span>
 <span>    matrices  <span class="op">=</span> <span class="va">interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>    targets    <span class="op">=</span> <span class="va">targets</span>,</span>
@@ -2679,14 +2658,14 @@ needed)<a class="anchor" aria-label="anchor" href="#specific-case-1-only-one-tar
 </h3>
 <p>For example, to filter the top 100 first elements, select the top 100
 first names</p>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">first100_targets</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    submatrix.name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">]</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
 <div class="section level4">
 <h4 id="ginteraction-filtration">GInteraction filtration<a class="anchor" aria-label="anchor" href="#ginteraction-filtration"></a>
 </h4>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/FilterInteractions.html">FilterInteractions</a></span><span class="op">(</span></span>
 <span>    genomicInteractions <span class="op">=</span> </span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span>,</span>
@@ -2701,7 +2680,7 @@ first names</p>
 <div class="section level4">
 <h4 id="matrices-list-filtration">Matrices list filtration<a class="anchor" aria-label="anchor" href="#matrices-list-filtration"></a>
 </h4>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/FilterInteractions.html">FilterInteractions</a></span><span class="op">(</span></span>
 <span>    matrices  <span class="op">=</span> <span class="va">interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>    targets    <span class="op">=</span> <span class="va">first100_targets</span>,</span>
@@ -2792,7 +2771,7 @@ first names</p>
 <span><span class="co">#&gt;   seqinfo: 2 sequences from an unspecified genome</span></span></code></pre></div>
 <p><strong>Warning!</strong> A selection of some matrices removes
 attributes.</p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span><span class="op">]</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span></span>
 <span><span class="co">#&gt; NULL</span></span></code></pre></div>
 </div>
@@ -2800,7 +2779,7 @@ attributes.</p>
 <div class="section level3">
 <h3 id="specific-case-2-sampling">Specific case 2: Sampling<a class="anchor" aria-label="anchor" href="#specific-case-2-sampling"></a>
 </h3>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nSample.num</span> <span class="op">=</span> <span class="fl">3</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span><span class="va">targets</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>name<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span></span>
@@ -2808,7 +2787,7 @@ attributes.</p>
 <div class="section level4">
 <h4 id="ginteraction-sampling">GInteraction sampling<a class="anchor" aria-label="anchor" href="#ginteraction-sampling"></a>
 </h4>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/FilterInteractions.html">FilterInteractions</a></span><span class="op">(</span></span>
 <span>    genomicInteractions <span class="op">=</span> </span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span>,</span>
@@ -2821,7 +2800,7 @@ attributes.</p>
 <div class="section level4">
 <h4 id="matrices-list-sampling">Matrices list sampling<a class="anchor" aria-label="anchor" href="#matrices-list-sampling"></a>
 </h4>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sampled_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/FilterInteractions.html">FilterInteractions</a></span><span class="op">(</span></span>
 <span>    matrices  <span class="op">=</span> <span class="va">interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>    targets    <span class="op">=</span> <span class="va">targets</span>,</span>
@@ -2866,7 +2845,7 @@ attributes.</p>
 return all indices corresponding to each target in the list. Then, the
 indices of interest can be selected in a second step. For the examples
 we take the folowing targets:</p>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">targets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    anchor.Beaf.name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Beaf32_8"</span>,<span class="st">"Beaf32_15"</span><span class="op">)</span>,</span>
 <span>    bait.Tss.name    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"FBgn0031214"</span>,<span class="st">"FBgn0005278"</span><span class="op">)</span>,</span>
@@ -2878,7 +2857,7 @@ we take the folowing targets:</p>
 <div class="section level4">
 <h4 id="ginteraction-filtration-1">GInteraction filtration<a class="anchor" aria-label="anchor" href="#ginteraction-filtration-1"></a>
 </h4>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/FilterInteractions.html">FilterInteractions</a></span><span class="op">(</span></span>
 <span>    genomicInteractions <span class="op">=</span> </span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">$</span><span class="va">interactions</span>,</span>
@@ -2894,7 +2873,7 @@ we take the folowing targets:</p>
 <div class="section level4">
 <h4 id="matrices-list-filtration-1">Matrices list filtration<a class="anchor" aria-label="anchor" href="#matrices-list-filtration-1"></a>
 </h4>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/FilterInteractions.html">FilterInteractions</a></span><span class="op">(</span></span>
 <span>    matrices      <span class="op">=</span> <span class="va">interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>    targets        <span class="op">=</span> <span class="va">targets</span>,</span>
@@ -2921,62 +2900,65 @@ interaction attributes of the matrices list</li>
 <div class="section level4">
 <h4 id="selection-function-tips-and-examples">Selection function tips and examples:<a class="anchor" aria-label="anchor" href="#selection-function-tips-and-examples"></a>
 </h4>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"D"</span>,<span class="st">"G"</span><span class="op">)</span></span>
 <span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"E"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>,<span class="st">"G"</span><span class="op">)</span></span>
 <span><span class="va">c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>,<span class="st">"F"</span>,<span class="st">"C"</span>,<span class="st">"G"</span><span class="op">)</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>What is common to A, B and C</li>
 </ol>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/funprog.html" class="external-link">Reduce</a></span><span class="op">(</span><span class="va">intersect</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span>,<span class="va">c</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "G"</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">intersect</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">intersect</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "G"</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">intersect</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">intersect</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "G"</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>What is in A and/or B and/or C</li>
 </ol>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/funprog.html" class="external-link">Reduce</a></span><span class="op">(</span><span class="va">union</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span>,<span class="va">c</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "A" "B" "C" "D" "E" "F" "G"</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">union</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">union</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "A" "B" "C" "D" "E" "F" "G"</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">union</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">union</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "A" "B" "C" "D" "E" "F" "G"</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>What is only in A</li>
 </ol>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/funprog.html" class="external-link">Reduce</a></span><span class="op">(</span><span class="va">setdiff</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span>,<span class="va">c</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "D"</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "D"</span></span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "D"</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>What is common in A with B, and not in C</li>
 </ol>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">intersect</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "B"</span></span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>What is common in A with B, plus all that is present in C</li>
 </ol>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">intersect</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">union</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "A" "B" "C" "F" "G"</span></span></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
 <li>What is common in C with all elements present in A and B</li>
 </ol>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">union</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">intersect</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "A" "C" "G"</span></span></code></pre></div>
 <ol start="7" style="list-style-type: decimal">
 <li>Everything that is present in A and B but not in C</li>
 </ol>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">union</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "B" "D" "E"</span></span></code></pre></div>
 <ol start="8" style="list-style-type: decimal">
 <li>What is present only once</li>
 </ol>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span>,<span class="va">c</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="va">d</span>,<span class="va">d</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "D" "E" "F"</span></span></code></pre></div>
@@ -2999,7 +2981,7 @@ baits on X axis.</p>
 <div class="section level3">
 <h3 id="information-about-the-orientation">Information about the orientation<a class="anchor" aria-label="anchor" href="#information-about-the-orientation"></a>
 </h3>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># mcols(attributes(</span></span>
 <span>    <span class="co"># first100_interactions_RFmatrix_ctrl.lst)$interactions)$orientation</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
@@ -3014,7 +2996,7 @@ in Y axis</strong> and the <strong>anchor Beaf in X axis</strong>
 <div class="section level3">
 <h3 id="orientation-on-matrices-list">Orientation on matrices list<a class="anchor" aria-label="anchor" href="#orientation-on-matrices-list"></a>
 </h3>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 69 matrices are oriented</span></span></code></pre></div>
@@ -3024,7 +3006,7 @@ in Y axis</strong> and the <strong>anchor Beaf in X axis</strong>
 </h3>
 <p><strong>Warning</strong> This procedure force orientation even if not
 needed.</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">orientedMatrix.mtx</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -3041,14 +3023,15 @@ correct orientations, just as <code>OrientateMatrix</code>. The reason
 for giving access for the user to this originally hidden function is to
 have a uniformly prepared matrices list for both quantifications and
 visualisations.</p>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">oriented_quantiled_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span></span>
 <span>        <span class="va">first100_interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>        transFun <span class="op">=</span> <span class="st">'quantile'</span>,</span>
 <span>        orientate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 69 matrices are oriented</span></span>
-<span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> </span>
+<span><span class="co">#&gt; 69 matrices are oriented</span></span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span></span>
 <span>        <span class="va">first100_interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>        orientate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -3076,7 +3059,7 @@ extracted in each matrix.</li>
 values for each matrix.</li>
 </ol>
 <p>Example: Average of the values in the centered 3x3 square.</p>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">center.num</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/GetQuantif.html">GetQuantif</a></span><span class="op">(</span></span>
 <span>    matrices  <span class="op">=</span> <span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>    areaFun      <span class="op">=</span> <span class="st">"center"</span>,</span>
@@ -3099,7 +3082,7 @@ on extracted values for each matrices.</li>
 </ol>
 <p>Example: Interactions values on the matrice.mtx[33:35,67:69] area,
 averaged after removing all zeros.</p>
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/GetQuantif.html">GetQuantif</a></span><span class="op">(</span></span>
 <span>    matrices  <span class="op">=</span> <span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>    areaFun      <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">matrice.mtx</span><span class="op">)</span><span class="op">{</span><span class="va">matrice.mtx</span><span class="op">[</span><span class="fl">33</span><span class="op">:</span><span class="fl">35</span>,<span class="fl">67</span><span class="op">:</span><span class="fl">69</span><span class="op">]</span><span class="op">}</span>,</span>
@@ -3127,7 +3110,7 @@ averaged after removing all zeros.</p>
 GInteraction attributes, values are returned values are named according
 to this element.</p>
 <p>Example: Named quantifications with <code>anchor.Beaf.name</code></p>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">namedCenter.num</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/GetQuantif.html">GetQuantif</a></span><span class="op">(</span></span>
 <span>    matrices  <span class="op">=</span> <span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>    areaFun      <span class="op">=</span> <span class="st">"center"</span>,</span>
@@ -3179,26 +3162,28 @@ has two anchor.Beaf.name</p>
 </table>
 <p>As a consequence, the value in center.num is duplicated in
 namedCenter.num</p>
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">center.num</span><span class="op">)</span><span class="op">)</span><span class="op">[</span><span class="fl">45</span><span class="op">:</span><span class="fl">50</span><span class="op">]</span></span>
 <span><span class="co">#&gt; 2L:2676_2L:2680 2L:2768_2L:2765 2L:2971_2L:2977 2L:3002_2L:2977 2L:2971_2L:2978 </span></span>
 <span><span class="co">#&gt;       0.7318490       0.8071858       0.5238616       0.7522744       0.5438497 </span></span>
 <span><span class="co">#&gt; 2L:3002_2L:2978 </span></span>
-<span><span class="co">#&gt;       0.7135216</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">namedCenter.num</span><span class="op">)</span><span class="op">)</span><span class="op">[</span><span class="fl">45</span><span class="op">:</span><span class="fl">51</span><span class="op">]</span></span>
+<span><span class="co">#&gt;       0.7135216</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">namedCenter.num</span><span class="op">)</span><span class="op">)</span><span class="op">[</span><span class="fl">45</span><span class="op">:</span><span class="fl">51</span><span class="op">]</span></span>
 <span><span class="co">#&gt; Beaf32_378 Beaf32_408 Beaf32_408 Beaf32_408 Beaf32_437 Beaf32_518 Beaf32_521 </span></span>
 <span><span class="co">#&gt;  1.1762447  1.0476893  0.8868763  0.7318490  0.8071858  0.5238616  0.7522744</span></span></code></pre></div>
 <p>Duplicated value index are stored in attributes.</p>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">center.num</span><span class="op">)</span><span class="op">$</span><span class="va">duplicated</span></span>
-<span><span class="co">#&gt; NULL</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">namedCenter.num</span><span class="op">)</span><span class="op">$</span><span class="va">duplicated</span></span>
+<span><span class="co">#&gt; NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">namedCenter.num</span><span class="op">)</span><span class="op">$</span><span class="va">duplicated</span></span>
 <span><span class="co">#&gt; NULL</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="one-value-extraction">One value extraction<a class="anchor" aria-label="anchor" href="#one-value-extraction"></a>
 </h4>
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/GetQuantif.html">GetQuantif</a></span><span class="op">(</span></span>
 <span>    matrices  <span class="op">=</span> <span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>    areaFun      <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">matrice.mtx</span><span class="op">)</span><span class="op">{</span><span class="va">matrice.mtx</span><span class="op">[</span><span class="fl">5</span>,<span class="fl">5</span><span class="op">]</span><span class="op">}</span>,</span>
@@ -3213,7 +3198,7 @@ namedCenter.num</p>
 <div class="section level4">
 <h4 id="area-extraction">Area extraction<a class="anchor" aria-label="anchor" href="#area-extraction"></a>
 </h4>
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/GetQuantif.html">GetQuantif</a></span><span class="op">(</span></span>
 <span>    matrices  <span class="op">=</span> <span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>    areaFun      <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">matrice.mtx</span><span class="op">)</span><span class="op">{</span><span class="va">matrice.mtx</span><span class="op">[</span><span class="fl">4</span><span class="op">:</span><span class="fl">6</span>,<span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span><span class="op">}</span>,</span>
@@ -3233,7 +3218,7 @@ namedCenter.num</p>
 <li>If <code>operationFun</code> is NULL then it will return values of
 the selected region without NA.</li>
 </ol>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/GetQuantif.html">GetQuantif</a></span><span class="op">(</span></span>
 <span>    matrices  <span class="op">=</span> <span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>    areaFun      <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">matrice.mtx</span><span class="op">)</span><span class="op">{</span><span class="va">matrice.mtx</span><span class="op">[</span><span class="fl">4</span><span class="op">:</span><span class="fl">6</span>,<span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span><span class="op">}</span>,</span>
@@ -3262,7 +3247,7 @@ function defined by the user.</p>
 <p><code>Aggregation</code> function has some default aggregation
 functions like <code>sum</code>, <code>mean</code> or
 <code>median</code> (see <code>Aggregation</code>)</p>
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># rm0 argument can be added to PrepareMtxList to assign NA to 0 values.</span></span>
 <span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">=</span> </span>
 <span>    <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span></span>
@@ -3278,7 +3263,7 @@ functions like <code>sum</code>, <code>mean</code> or
 </h4>
 <p>Defining a custom aggregation function: example below shows the mean
 function after removing NA.</p>
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">agg_mean.mtx</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Aggregation.html">Aggregation</a></span><span class="op">(</span></span>
 <span>    matrices <span class="op">=</span> <span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>    aggFun      <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span>,na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">}</span></span>
@@ -3302,7 +3287,7 @@ below).</p>
 <li>Preparation of Control matrices list condition<br><strong>Filtration</strong>
 </li>
 </ol>
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">first100_targets</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    submatrix.name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">]</span></span>
 <span>    <span class="op">)</span></span>
@@ -3312,7 +3297,7 @@ below).</p>
 <span>    selectionFun <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
 <p><strong>Orientation</strong></p>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span><span class="op">)</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
@@ -3320,7 +3305,7 @@ below).</p>
 <strong>Extraction</strong>
 </li>
 </ol>
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">interactions_RFmatrix.lst</span>  <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ExtractSubmatrix.html">ExtractSubmatrix</a></span><span class="op">(</span></span>
 <span>    genomicFeature         <span class="op">=</span> <span class="va">interactions.gni</span>,</span>
 <span>    hicLst        <span class="op">=</span> <span class="va">HiC_HS.cmx_lst</span>,</span>
@@ -3328,14 +3313,14 @@ below).</p>
 <span>    matriceDim     <span class="op">=</span> <span class="fl">101</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
 <p><strong>Filtration</strong></p>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">first100_interactions_RFmatrix.lst</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/FilterInteractions.html">FilterInteractions</a></span><span class="op">(</span></span>
 <span>    matrices  <span class="op">=</span> <span class="va">interactions_RFmatrix.lst</span>,</span>
 <span>    targets    <span class="op">=</span> <span class="va">first100_targets</span>,</span>
 <span>    selectionFun <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
 <p><strong>Orientation</strong></p>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">oriented_first100_interactions_RFmatrix.lst</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix.lst</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 69 matrices are oriented</span></span></code></pre></div>
@@ -3343,7 +3328,7 @@ below).</p>
 <div class="section level4">
 <h4 id="aggregate">Aggregate<a class="anchor" aria-label="anchor" href="#aggregate"></a>
 </h4>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span> <span class="op">=</span> </span>
 <span>    <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>        minDist   <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -3351,16 +3336,18 @@ below).</p>
 <span>        rm0       <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>        orientate <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; 69 matrices are oriented</span></span>
-<span><span class="va">oriented_first100_interactions_RFmatrix.lst</span> <span class="op">=</span> </span>
+<span><span class="co">#&gt; 69 matrices are oriented</span></span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">oriented_first100_interactions_RFmatrix.lst</span> <span class="op">=</span> </span>
 <span>    <span class="fu"><a href="../reference/PrepareMtxList.html">PrepareMtxList</a></span><span class="op">(</span><span class="va">first100_interactions_RFmatrix.lst</span>,</span>
 <span>        minDist   <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>        maxDist   <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>        rm0       <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>        orientate <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; 69 matrices are oriented</span></span>
-<span></span>
+<span><span class="co">#&gt; 69 matrices are oriented</span></span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="va">diffAggreg.mtx</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Aggregation.html">Aggregation</a></span><span class="op">(</span></span>
 <span>    ctrlMatrices    <span class="op">=</span> <span class="va">oriented_first100_interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>    matrices        <span class="op">=</span> <span class="va">oriented_first100_interactions_RFmatrix.lst</span>,</span>
@@ -3460,7 +3447,7 @@ the control.</li>
 <ol style="list-style-type: decimal">
 <li>Control aggregation with no orientation</li>
 </ol>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">aggreg.mtx</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Aggregation.html">Aggregation</a></span><span class="op">(</span></span>
 <span>        ctrlMatrices<span class="op">=</span><span class="va">interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>        aggFun<span class="op">=</span><span class="st">"mean"</span></span>
@@ -3468,22 +3455,24 @@ the control.</li>
 <ol start="2" style="list-style-type: decimal">
 <li>Control aggregation with orientation</li>
 </ol>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">oriented_interactions_RFmatrix_ctrl.lst</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">interactions_RFmatrix_ctrl.lst</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 95 matrices are oriented</span></span>
-<span><span class="va">orientedAggreg.mtx</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Aggregation.html">Aggregation</a></span><span class="op">(</span></span>
+<span><span class="co">#&gt; 95 matrices are oriented</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">orientedAggreg.mtx</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Aggregation.html">Aggregation</a></span><span class="op">(</span></span>
 <span>        ctrlMatrices<span class="op">=</span><span class="va">oriented_interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>        aggFun<span class="op">=</span><span class="st">"mean"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Differential aggregation</li>
 </ol>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">oriented_interactions_RFmatrix.lst</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="../reference/OrientateMatrix.html">OrientateMatrix</a></span><span class="op">(</span><span class="va">interactions_RFmatrix.lst</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 95 matrices are oriented</span></span>
-<span><span class="va">diffAggreg.mtx</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Aggregation.html">Aggregation</a></span><span class="op">(</span></span>
+<span><span class="co">#&gt; 95 matrices are oriented</span></span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">diffAggreg.mtx</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Aggregation.html">Aggregation</a></span><span class="op">(</span></span>
 <span>        ctrlMatrices    <span class="op">=</span> <span class="va">oriented_interactions_RFmatrix_ctrl.lst</span>,</span>
 <span>        matrices        <span class="op">=</span> <span class="va">oriented_interactions_RFmatrix.lst</span>,</span>
 <span>        aggFun          <span class="op">=</span> <span class="st">"mean"</span>,</span>
@@ -3504,7 +3493,7 @@ the control.</li>
 </h5>
 <p><code>ggAPA</code> function creates a ggplot object
 (ggplot2::geom_raster)</p>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>        aggregatedMtx   <span class="op">=</span> <span class="va">aggreg.mtx</span>,</span>
 <span>        title <span class="op">=</span> <span class="st">"APA"</span></span>
@@ -3514,7 +3503,7 @@ the control.</li>
 <div class="section level5">
 <h5 id="with-orientation">With Orientation<a class="anchor" aria-label="anchor" href="#with-orientation"></a>
 </h5>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>        aggregatedMtx   <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>        title <span class="op">=</span> <span class="st">"APA"</span></span>
@@ -3531,7 +3520,7 @@ the control.</li>
 <p>It is possible to set a specific range of values of the scale, for
 this remove a percentage of values using upper tail, lower tail or both
 tails of the distribution.</p>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>        aggregatedMtx      <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>        title    <span class="op">=</span> <span class="st">"APA 30% trimmed on upper side"</span>,</span>
@@ -3541,7 +3530,7 @@ tails of the distribution.</p>
 <span><span class="co">#&gt; Warning in max(unlist(bounds.num_lst[1]), na.rm = TRUE): no non-missing</span></span>
 <span><span class="co">#&gt; arguments to max; returning -Inf</span></span></code></pre></div>
 <p><img src="InDepth_files/figure-html/unnamed-chunk-107-1.png" width="672"></p>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>        aggregatedMtx      <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>        title    <span class="op">=</span> <span class="st">"APA 30% trimmed on upper side"</span>,</span>
@@ -3551,7 +3540,7 @@ tails of the distribution.</p>
 <span><span class="co">#&gt; Warning in min(unlist(bounds.num_lst[2]), na.rm = TRUE): no non-missing</span></span>
 <span><span class="co">#&gt; arguments to min; returning Inf</span></span></code></pre></div>
 <p><img src="InDepth_files/figure-html/unnamed-chunk-107-2.png" width="672"></p>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>        aggregatedMtx      <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>        title    <span class="op">=</span> <span class="st">"APA 30% trimmed"</span>,</span>
@@ -3567,7 +3556,7 @@ tails of the distribution.</p>
 <h6 id="min-and-max-color-scale">Min and max color scale<a class="anchor" aria-label="anchor" href="#min-and-max-color-scale"></a>
 </h6>
 <p>Example of user-defined min and max color scale</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>        aggregatedMtx         <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>        title       <span class="op">=</span> <span class="st">"APA [0-1]"</span>,</span>
@@ -3580,7 +3569,7 @@ tails of the distribution.</p>
 <h6 id="center-color-scale">Center color scale<a class="anchor" aria-label="anchor" href="#center-color-scale"></a>
 </h6>
 <p>Example of user-defined color scale center</p>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>        aggregatedMtx    <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>        title  <span class="op">=</span> <span class="st">"APA center on 0.2"</span>,</span>
@@ -3592,21 +3581,21 @@ tails of the distribution.</p>
 <h6 id="change-color-breaks">Change color breaks<a class="anchor" aria-label="anchor" href="#change-color-breaks"></a>
 </h6>
 <p>Examples of user-defined color breaks</p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>        aggregatedMtx       <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>        title     <span class="op">=</span> <span class="st">"APA [0, .25, .50, .30, .75, 1]"</span>,</span>
 <span>        colBreaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="fl">0.75</span>,<span class="fl">1</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p><img src="InDepth_files/figure-html/unnamed-chunk-110-1.png" width="672"></p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>        aggregatedMtx       <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>        title     <span class="op">=</span> <span class="st">"APA [0, .15, .20, .25, 1]"</span>,</span>
 <span>        colBreaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.15</span>,<span class="fl">0.20</span>,<span class="fl">0.25</span>,<span class="fl">1</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p><img src="InDepth_files/figure-html/unnamed-chunk-110-2.png" width="672"></p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>        aggregatedMtx       <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>        title     <span class="op">=</span> <span class="st">"APA [0, .5, .6, .8, 1]"</span>,</span>
@@ -3618,21 +3607,21 @@ tails of the distribution.</p>
 <h6 id="change-color-scale-bias">Change color scale bias<a class="anchor" aria-label="anchor" href="#change-color-scale-bias"></a>
 </h6>
 <p>Examples of different color scaled bias.</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>        aggregatedMtx    <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>        title  <span class="op">=</span> <span class="st">"APA"</span>,</span>
 <span>        colorScale <span class="op">=</span> <span class="st">"density"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p><img src="InDepth_files/figure-html/unnamed-chunk-111-1.png" width="672"></p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>        aggregatedMtx     <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>        title   <span class="op">=</span> <span class="st">"APA"</span>,</span>
 <span>        bias    <span class="op">=</span> <span class="fl">2</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p><img src="InDepth_files/figure-html/unnamed-chunk-111-2.png" width="672"></p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>        aggregatedMtx     <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>        title   <span class="op">=</span> <span class="st">"APA"</span>,</span>
@@ -3645,7 +3634,7 @@ tails of the distribution.</p>
 </h6>
 <p>Here is an option to change the color of heatmap and color of NA
 values.</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>    aggregatedMtx     <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>    title   <span class="op">=</span> <span class="st">"APA"</span>,</span>
@@ -3659,7 +3648,7 @@ values.</p>
 <h5 id="blurred-visualization">Blurred visualization<a class="anchor" aria-label="anchor" href="#blurred-visualization"></a>
 </h5>
 <p>Option to apply a blurr on the heatmap to reduce noise.</p>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>    aggregatedMtx           <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>    title         <span class="op">=</span> <span class="st">"APA"</span>,</span>
@@ -3674,7 +3663,7 @@ values.</p>
 </h5>
 <p>Since ggAPA() returns a ggplot object, it is possible to modify it
 following the ggplot2 grammar</p>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggAPA.html">ggAPA</a></span><span class="op">(</span></span>
 <span>        aggregatedMtx     <span class="op">=</span> <span class="va">orientedAggreg.mtx</span>,</span>
 <span>        title   <span class="op">=</span> <span class="st">"APA"</span>,</span>
@@ -3692,9 +3681,9 @@ following the ggplot2 grammar</p>
 <div class="section level2">
 <h2 id="session-info">Session Info<a class="anchor" aria-label="anchor" href="#session-info"></a>
 </h2>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; R version 4.4.0 (2024-04-24)</span></span>
+<span><span class="co">#&gt; R version 4.4.1 (2024-06-14)</span></span>
 <span><span class="co">#&gt; Platform: x86_64-pc-linux-gnu</span></span>
 <span><span class="co">#&gt; Running under: Ubuntu 22.04.4 LTS</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -3715,62 +3704,62 @@ following the ggplot2 grammar</p>
 <span><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; other attached packages:</span></span>
-<span><span class="co">#&gt; [1] HicAggR_1.1.2</span></span>
+<span><span class="co">#&gt; [1] HicAggR_1.1.3</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
 <span><span class="co">#&gt;   [1] tidyselect_1.2.1            viridisLite_0.4.2          </span></span>
-<span><span class="co">#&gt;   [3] farver_2.1.1                dplyr_1.1.4                </span></span>
+<span><span class="co">#&gt;   [3] farver_2.1.2                dplyr_1.1.4                </span></span>
 <span><span class="co">#&gt;   [5] blob_1.2.4                  filelock_1.0.3             </span></span>
-<span><span class="co">#&gt;   [7] fastmap_1.1.1               reshape_0.8.9              </span></span>
-<span><span class="co">#&gt;   [9] BiocFileCache_2.12.0        digest_0.6.35              </span></span>
-<span><span class="co">#&gt;  [11] lifecycle_1.0.4             RSQLite_2.3.6              </span></span>
-<span><span class="co">#&gt;  [13] magrittr_2.0.3              compiler_4.4.0             </span></span>
-<span><span class="co">#&gt;  [15] rlang_1.1.3                 sass_0.4.9                 </span></span>
-<span><span class="co">#&gt;  [17] tools_4.4.0                 utf8_1.2.4                 </span></span>
-<span><span class="co">#&gt;  [19] yaml_2.3.8                  data.table_1.15.4          </span></span>
-<span><span class="co">#&gt;  [21] knitr_1.46                  labeling_0.4.3             </span></span>
-<span><span class="co">#&gt;  [23] S4Arrays_1.4.0              bit_4.0.5                  </span></span>
+<span><span class="co">#&gt;   [7] fastmap_1.2.0               reshape_0.8.9              </span></span>
+<span><span class="co">#&gt;   [9] BiocFileCache_2.12.0        digest_0.6.36              </span></span>
+<span><span class="co">#&gt;  [11] lifecycle_1.0.4             RSQLite_2.3.7              </span></span>
+<span><span class="co">#&gt;  [13] magrittr_2.0.3              compiler_4.4.1             </span></span>
+<span><span class="co">#&gt;  [15] rlang_1.1.4                 sass_0.4.9                 </span></span>
+<span><span class="co">#&gt;  [17] tools_4.4.1                 utf8_1.2.4                 </span></span>
+<span><span class="co">#&gt;  [19] yaml_2.3.9                  data.table_1.15.4          </span></span>
+<span><span class="co">#&gt;  [21] knitr_1.47                  labeling_0.4.3             </span></span>
+<span><span class="co">#&gt;  [23] S4Arrays_1.4.1              bit_4.0.5                  </span></span>
 <span><span class="co">#&gt;  [25] curl_5.2.1                  DelayedArray_0.30.1        </span></span>
 <span><span class="co">#&gt;  [27] xml2_1.3.6                  plyr_1.8.9                 </span></span>
 <span><span class="co">#&gt;  [29] abind_1.4-5                 BiocParallel_1.38.0        </span></span>
 <span><span class="co">#&gt;  [31] withr_3.0.0                 purrr_1.0.2                </span></span>
 <span><span class="co">#&gt;  [33] BiocGenerics_0.50.0         desc_1.4.3                 </span></span>
-<span><span class="co">#&gt;  [35] grid_4.4.0                  stats4_4.4.0               </span></span>
+<span><span class="co">#&gt;  [35] grid_4.4.1                  stats4_4.4.1               </span></span>
 <span><span class="co">#&gt;  [37] fansi_1.0.6                 colorspace_2.1-0           </span></span>
 <span><span class="co">#&gt;  [39] Rhdf5lib_1.26.0             ggplot2_3.5.1              </span></span>
 <span><span class="co">#&gt;  [41] scales_1.3.0                SummarizedExperiment_1.34.0</span></span>
-<span><span class="co">#&gt;  [43] cli_3.6.2                   rmarkdown_2.26             </span></span>
-<span><span class="co">#&gt;  [45] crayon_1.5.2                ragg_1.3.1                 </span></span>
+<span><span class="co">#&gt;  [43] cli_3.6.3                   rmarkdown_2.27             </span></span>
+<span><span class="co">#&gt;  [45] crayon_1.5.3                ragg_1.3.2                 </span></span>
 <span><span class="co">#&gt;  [47] generics_0.1.3              rstudioapi_0.16.0          </span></span>
-<span><span class="co">#&gt;  [49] httr_1.4.7                  DBI_1.2.2                  </span></span>
-<span><span class="co">#&gt;  [51] cachem_1.0.8                rhdf5_2.48.0               </span></span>
+<span><span class="co">#&gt;  [49] httr_1.4.7                  DBI_1.2.3                  </span></span>
+<span><span class="co">#&gt;  [51] cachem_1.1.0                rhdf5_2.48.0               </span></span>
 <span><span class="co">#&gt;  [53] stringr_1.5.1               zlibbioc_1.50.0            </span></span>
-<span><span class="co">#&gt;  [55] parallel_4.4.0              XVector_0.44.0             </span></span>
+<span><span class="co">#&gt;  [55] parallel_4.4.1              XVector_0.44.0             </span></span>
 <span><span class="co">#&gt;  [57] matrixStats_1.3.0           vctrs_0.6.5                </span></span>
 <span><span class="co">#&gt;  [59] Matrix_1.7-0                jsonlite_1.8.8             </span></span>
-<span><span class="co">#&gt;  [61] IRanges_2.38.0              S4Vectors_0.42.0           </span></span>
-<span><span class="co">#&gt;  [63] bit64_4.0.5                 systemfonts_1.0.6          </span></span>
+<span><span class="co">#&gt;  [61] IRanges_2.38.1              S4Vectors_0.42.1           </span></span>
+<span><span class="co">#&gt;  [63] bit64_4.0.5                 systemfonts_1.1.0          </span></span>
 <span><span class="co">#&gt;  [65] tidyr_1.3.1                 strawr_0.0.91              </span></span>
 <span><span class="co">#&gt;  [67] jquerylib_0.1.4             glue_1.7.0                 </span></span>
-<span><span class="co">#&gt;  [69] pkgdown_2.0.9               codetools_0.2-20           </span></span>
+<span><span class="co">#&gt;  [69] pkgdown_2.1.0               codetools_0.2-20           </span></span>
 <span><span class="co">#&gt;  [71] stringi_1.8.4               gtable_0.3.5               </span></span>
-<span><span class="co">#&gt;  [73] GenomeInfoDb_1.40.0         GenomicRanges_1.56.0       </span></span>
+<span><span class="co">#&gt;  [73] GenomeInfoDb_1.40.1         GenomicRanges_1.56.1       </span></span>
 <span><span class="co">#&gt;  [75] UCSC.utils_1.0.0            munsell_0.5.1              </span></span>
 <span><span class="co">#&gt;  [77] tibble_3.2.1                pillar_1.9.0               </span></span>
 <span><span class="co">#&gt;  [79] htmltools_0.5.8.1           rhdf5filters_1.16.0        </span></span>
 <span><span class="co">#&gt;  [81] GenomeInfoDbData_1.2.12     R6_2.5.1                   </span></span>
-<span><span class="co">#&gt;  [83] dbplyr_2.5.0                textshaping_0.3.7          </span></span>
-<span><span class="co">#&gt;  [85] kableExtra_1.4.0            evaluate_0.23              </span></span>
+<span><span class="co">#&gt;  [83] dbplyr_2.5.0                textshaping_0.4.0          </span></span>
+<span><span class="co">#&gt;  [85] kableExtra_1.4.0            evaluate_0.24.0            </span></span>
 <span><span class="co">#&gt;  [87] lattice_0.22-6              Biobase_2.64.0             </span></span>
-<span><span class="co">#&gt;  [89] highr_0.10                  backports_1.4.1            </span></span>
+<span><span class="co">#&gt;  [89] highr_0.11                  backports_1.5.0            </span></span>
 <span><span class="co">#&gt;  [91] memoise_2.0.1               bslib_0.7.0                </span></span>
 <span><span class="co">#&gt;  [93] Rcpp_1.0.12                 InteractionSet_1.32.0      </span></span>
 <span><span class="co">#&gt;  [95] svglite_2.1.3               gridExtra_2.3              </span></span>
-<span><span class="co">#&gt;  [97] SparseArray_1.4.3           checkmate_2.3.1            </span></span>
-<span><span class="co">#&gt;  [99] xfun_0.43                   fs_1.6.4                   </span></span>
+<span><span class="co">#&gt;  [97] SparseArray_1.4.8           checkmate_2.3.1            </span></span>
+<span><span class="co">#&gt;  [99] xfun_0.45                   fs_1.6.4                   </span></span>
 <span><span class="co">#&gt; [101] MatrixGenerics_1.16.0       pkgconfig_2.0.3</span></span></code></pre></div>
 </div>
-  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
 
@@ -3781,15 +3770,15 @@ following the ggplot2 grammar</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
 </div>
 
     </footer>
 </div>
 
-  
 
-  
+
+
 
   </body>
 </html>
