@@ -26,7 +26,8 @@ ggAPA(
   annotate = TRUE,
   anchor.name = "Anchor",
   bait.name = "Bait",
-  fixCoord = TRUE
+  fixCoord = TRUE,
+  triangular = FALSE
 )
 }
 \arguments{
@@ -94,6 +95,11 @@ annotation. (Default "Anchor")}
 annotation. (Default "Bait")}
 
 \item{fixCoord}{\if{html}{\out{<logical>}} Fix axes coordinates?
+(Default TRUE)}
+
+\item{triangular}{\if{html}{\out{<logical>}} plot in a triangular
+format? available when matrices are extracted in "rf" mode only.
+(Default FALSE)
 (Default TRUE)}
 }
 \value{

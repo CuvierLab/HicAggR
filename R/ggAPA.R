@@ -46,6 +46,10 @@
 #' annotation. (Default "Bait")
 #' @param fixCoord <logical> Fix axes coordinates?
 #' (Default TRUE)
+#' @param triangular <logical> plot in a triangular
+#' format? available when matrices are extracted in "rf" mode only.
+#' (Default FALSE)
+#' (Default TRUE)
 #' @return A ggplot object.
 #' @importFrom checkmate assertMatrix
 #' @export
@@ -186,7 +190,8 @@ ggAPA <- function(
     annotate = TRUE,
     anchor.name = "Anchor",
     bait.name = "Bait",
-    fixCoord = TRUE
+    fixCoord = TRUE,
+    triangular = FALSE
 ) {
     checkmate::assertMatrix(
         x = aggregatedMtx,
@@ -299,107 +304,219 @@ ggAPA <- function(
         )
     }
     # Raster
-    data.dtf <- MeltSpm(aggregatedMtx)
-    plot.ggp <- ggplot2::ggplot(
-        data.dtf, ggplot2::aes(
-            .data$j,
-            .data$i
-        )
-    ) +
-    ggplot2::geom_raster(ggplot2::aes(fill = .data$x)) +
-    ggplot2::scale_fill_gradientn(
-        colours  = colors,
-        values   = MinMaxScale(colBreaks),
-        na.value = na.value,
-        limits   = c(
-            colMin,
-            colMax
-        )
-    ) +
-    ggplot2::labs(
-        title = title,
-        y = dimnames(aggregatedMtx)[[2]],
-        x = dimnames(aggregatedMtx)[[2]]
-    ) +
-    ggplot2::theme_classic()
-    if(annotate){
-        if(attributes(aggregatedMtx)$referencePoint == "rf"){
-            regionSize <- attributes(
-                aggregatedMtx)$matriceDim/(
-                    (attributes(aggregatedMtx)$shift*2)+1)
-            breaks_y <- c(1,floor(
-                (attributes(aggregatedMtx)$matriceDim-regionSize)/2)+1,
-                    floor(
-                (attributes(aggregatedMtx)$matriceDim+regionSize)/2),
-                attributes(aggregatedMtx)$matriceDim)
-            breaks_x <- breaks_y
-            labels_y <- c(paste0("-",
-                    attributes(aggregatedMtx)$shift, " x ROI\nwidth"),
-                    anchor.name, bait.name, paste0("+",
-                    attributes(aggregatedMtx)$shift, " x ROI\nwidth"))
-            labels_x <- labels_y
-        } else {
-           if(is.null(colnames(aggregatedMtx))){
-                extent <- (floor(
-                    nrow(aggregatedMtx)/2) * attributes(
-                        aggregatedMtx)$resolution)/1000
-                breaks_y <- c(1,ceiling(nrow(aggregatedMtx)/2),
-                    nrow(aggregatedMtx))
-                breaks_x <- c(1,ceiling(ncol(aggregatedMtx)/2),
-                    ncol(aggregatedMtx))
-                labels_y <- c(paste0("-",
-                    extent, "KB"), anchor.name, paste0("+",
-                    extent, "KB"))
-                labels_x <- c(paste0("-",
-                    extent, "KB"), bait.name, paste0("+",
-                    extent, "KB"))
-            } else{
-                breaks_y <- seq_along(rownames(aggregatedMtx))
-                labels_y <- rownames(aggregatedMtx)
-                breaks_x <- seq_along(colnames(aggregatedMtx))
-                labels_x <- colnames(aggregatedMtx)
-            }
+    if(triangular){
+        if(attributes(aggregatedMtx)$referencePoint=="rf"){
+            .plotTriangle(
+                submatx=aggregatedMtx,
+                anchor.name=anchor.name,
+                bait.name=bait.name,
+                colors=colors,
+                na.value=na.value,
+                colBreaks = MinMaxScale(colBreaks),
+                limits=c(colMin,colMax),
+                title=title)
+        }else{
+            stop("Triangular plot supported for submatrices
+            extracted in rf mode only!")
         }
-        plot.ggp <- plot.ggp+
-            ggplot2::scale_y_reverse(
-                breaks = breaks_y,
-                labels = labels_y
-            ) +
-            ggplot2::scale_x_continuous(
-                breaks = breaks_x,
-                labels = labels_x
-            ) +
-            ggplot2::theme(
-                axis.line.y  = ggplot2::element_blank(),
-                axis.ticks.y = ggplot2::element_line(colour="black"),
-                axis.line.x  = ggplot2::element_blank(),
-                axis.text.x = ggplot2::element_text(angle=45,hjust=1),
-                axis.ticks.x = ggplot2::element_line(colour="black"),
-                legend.title = ggplot2::element_blank()
-            )
-
     }else{
-        breaks_y <- seq_along(rownames(aggregatedMtx))
-        labels_y <- rownames(aggregatedMtx)
-        breaks_x <- seq_along(colnames(aggregatedMtx))
-        labels_x <- colnames(aggregatedMtx)
-        plot.ggp <- plot.ggp+
-            ggplot2::scale_y_reverse(
-                breaks = breaks_y,
-                labels = labels_y
-            ) +
-            ggplot2::scale_x_continuous(
-                breaks = breaks_x,
-                labels = labels_x
-            ) +
-            ggplot2::theme(
-                axis.line.y  = ggplot2::element_blank(),
-                axis.ticks.y = ggplot2::element_blank(),
-                axis.line.x  = ggplot2::element_blank(),
-                axis.ticks.x = ggplot2::element_blank(),
-                legend.title = ggplot2::element_blank()
+        data.dtf <- MeltSpm(aggregatedMtx)
+        plot.ggp <- ggplot2::ggplot(
+            data.dtf, ggplot2::aes(
+                .data$j,
+                .data$i
             )
+        ) +
+        ggplot2::geom_raster(ggplot2::aes(fill = .data$x)) +
+        ggplot2::scale_fill_gradientn(
+            colours  = colors,
+            values   = MinMaxScale(colBreaks),
+            na.value = na.value,
+            limits   = c(
+                colMin,
+                colMax
+            )
+        ) +
+        ggplot2::labs(
+            title = title,
+            y = dimnames(aggregatedMtx)[[2]],
+            x = dimnames(aggregatedMtx)[[2]]
+        ) +
+        ggplot2::theme_classic()
+        if(annotate){
+            if(attributes(aggregatedMtx)$referencePoint == "rf"){
+                regionSize <- attributes(
+                    aggregatedMtx)$matriceDim/(
+                        (attributes(aggregatedMtx)$shift*2)+1)
+                breaks_y <- c(1,floor(
+                    (attributes(aggregatedMtx)$matriceDim-regionSize)/2)+1,
+                        floor(
+                    (attributes(aggregatedMtx)$matriceDim+regionSize)/2),
+                    attributes(aggregatedMtx)$matriceDim)
+                breaks_x <- breaks_y
+                labels_y <- c(paste0("-",
+                        attributes(aggregatedMtx)$shift, " x ROI\nwidth"),
+                        anchor.name, bait.name, paste0("+",
+                        attributes(aggregatedMtx)$shift, " x ROI\nwidth"))
+                labels_x <- labels_y
+            } else {
+            if(is.null(colnames(aggregatedMtx))){
+                    extent <- (floor(
+                        nrow(aggregatedMtx)/2) * attributes(
+                            aggregatedMtx)$resolution)/1000
+                    breaks_y <- c(1,ceiling(nrow(aggregatedMtx)/2),
+                        nrow(aggregatedMtx))
+                    breaks_x <- c(1,ceiling(ncol(aggregatedMtx)/2),
+                        ncol(aggregatedMtx))
+                    labels_y <- c(paste0("-",
+                        extent, "KB"), anchor.name, paste0("+",
+                        extent, "KB"))
+                    labels_x <- c(paste0("-",
+                        extent, "KB"), bait.name, paste0("+",
+                        extent, "KB"))
+                } else{
+                    breaks_y <- seq_along(rownames(aggregatedMtx))
+                    labels_y <- rownames(aggregatedMtx)
+                    breaks_x <- seq_along(colnames(aggregatedMtx))
+                    labels_x <- colnames(aggregatedMtx)
+                }
+            }
+            plot.ggp <- plot.ggp+
+                ggplot2::scale_y_reverse(
+                    breaks = breaks_y,
+                    labels = labels_y
+                ) +
+                ggplot2::scale_x_continuous(
+                    breaks = breaks_x,
+                    labels = labels_x
+                ) +
+                ggplot2::theme(
+                    axis.line.y  = ggplot2::element_blank(),
+                    axis.ticks.y = ggplot2::element_line(colour="black"),
+                    axis.line.x  = ggplot2::element_blank(),
+                    axis.text.x = ggplot2::element_text(angle=45,hjust=1),
+                    axis.ticks.x = ggplot2::element_line(colour="black"),
+                    legend.title = ggplot2::element_blank()
+                )
+
+        }else{
+            breaks_y <- seq_along(rownames(aggregatedMtx))
+            labels_y <- rownames(aggregatedMtx)
+            breaks_x <- seq_along(colnames(aggregatedMtx))
+            labels_x <- colnames(aggregatedMtx)
+            plot.ggp <- plot.ggp+
+                ggplot2::scale_y_reverse(
+                    breaks = breaks_y,
+                    labels = labels_y
+                ) +
+                ggplot2::scale_x_continuous(
+                    breaks = breaks_x,
+                    labels = labels_x
+                ) +
+                ggplot2::theme(
+                    axis.line.y  = ggplot2::element_blank(),
+                    axis.ticks.y = ggplot2::element_blank(),
+                    axis.line.x  = ggplot2::element_blank(),
+                    axis.ticks.x = ggplot2::element_blank(),
+                    legend.title = ggplot2::element_blank()
+                )
+        }
+        if(fixCoord) plot.ggp <- plot.ggp+ggplot2::coord_fixed(ratio = 1)
+        return(plot.ggp)
     }
-    if(fixCoord) plot.ggp <- plot.ggp+ggplot2::coord_fixed(ratio = 1)
+}
+#' .plotTriangle
+#' plot a triangular APA for rf matrices
+#'
+#' @param submatx list of sub matrices
+#' @param anchor.name <character> Name of anchor for
+#' annotation. (Default "Anchor")
+#' @param bait.name <character> Name of bait for
+#' annotation. (Default "Bait")
+#' @param colors <character> : Heatmap color list.
+#' If `NULL`, automatically compute. (Default NULL)
+#' @param limits <vector> : a vector of values
+#' for minimal and maximal color values.
+#' (Default NULL)
+#' @param colBreaks <numeric> : Repartition of colors.
+#'  If `NULL` automatically find. (Default NULL)
+#' @param na.value <character> : Color of NA values.
+#' (Default "#F2F2F2")
+#' @param title <character> : The title of plot.
+#' (Default NULL)
+#' @keywords internal
+#' @return ggplot object
+#' @noRd
+#' @importFrom checkmate checkTRUE
+#' @importFrom dplyr filter mutate pull bind_rows
+#' @importFrom reshape melt
+#' @importFrom purrr map
+.plotTriangle <- function(
+    submatx=NULL,
+    anchor.name="start",
+    bait.name="end",
+    colors=YlOrRd(100),
+    limits=NULL,
+    colBreaks=NULL,
+    na.value = "#F2F2F2",
+    title=NULL
+    ){
+    if (!checkmate::checkTRUE(
+        attributes(submatx)$referencePoint=="rf",
+        na.ok = FALSE)) {
+        stop("Submatrices extracted in 'rf' mode are only supported!")
+    }
+    df <- reshape::melt(submatx)
+    df2 <- df |> dplyr::filter(.data$X1 <= .data$X2) |>
+        dplyr::mutate(x=((.data$X1 + .data$X2)-1), y=(.data$X2 - .data$X1))
+    regionSize <- attributes(
+        submatx)$matriceDim/(
+        (attributes(submatx)$shift*2)+1)
+    x_start <- df2 |> 
+        dplyr::filter(
+            (.data$y==0) & (.data$X1 == 
+            (floor((attributes(submatx)$matriceDim-regionSize)/2)+1)))|>
+        dplyr::pull("x")
+    x_end <- df2 |> 
+        dplyr::filter(
+            (.data$y==0) &
+            (.data$X1 == floor((attributes(submatx)$matriceDim +
+                regionSize)/2)))|>
+        dplyr::pull("x")
+    breaks_x <- c(1,x_start,x_end,
+                    (dplyr::filter(df2,.data$y==0)|>
+                    dplyr::pull("x") |> max()))
+    labels_x <- c(paste0("-",
+                        attributes(submatx)$shift, " x ROI\nwidth"),
+                    anchor.name, bait.name,
+                    paste0("+",
+                        attributes(submatx)$shift, " x ROI\nwidth"))
+    
+    plot.ggp <- purrr::map(.x=seq(1,nrow(df2)),
+                .f = function(i){
+                data.frame(
+                    x=c(df2$x[i]-1,df2$x[i],df2$x[i]+1,df2$x[i]),
+                    y=c(df2$y[i],df2$y[i]+1,df2$y[i],df2$y[i]-1),
+                    row=rep(i,times=4),
+                    value=rep(df2$value[i],times=4))}) |>
+        dplyr::bind_rows() |>
+        as.data.frame() |> dplyr::filter(.data$y>0) |>
+        ggplot2::ggplot(aes(x=.data$x,y=.data$y))+
+        ggplot2::geom_polygon(aes(group=.data$row,fill=.data$value))+
+        ggplot2::scale_fill_gradientn(
+            colours  = colors,
+            values   = colBreaks,
+            na.value = na.value,
+            limits   = limits)+
+        ggplot2::coord_equal()+theme_classic()+
+        ggplot2::scale_y_continuous(expand=c(0,0))+
+        ggplot2::scale_x_continuous(expand = c(0,0),
+                        breaks=breaks_x,
+                        labels=labels_x)+
+        ggplot2::labs(
+            title = title,
+            y = "depth",
+            x = "Rel. position"
+        )
     return(plot.ggp)
 }

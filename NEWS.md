@@ -1,3 +1,8 @@
+# HicAggR 1.1.3
+
+* added option to plot a triangular APA for submatrices
+extracted in rf mode.
+
 # HicAggR 1.1.2
 
 * minor fix in doc for preparePlotgardener
